@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getBusinessList } from '@/app/_libs/microcms';
+import { getServiceList } from '@/app/_libs/microcms';
 import styles from './page.module.css';
 import ButtonLink from '@/app/_components/ButtonLink';
 
@@ -12,7 +12,7 @@ type Props = {
 export const revalidate = 60;
 
 export default async function Page({ searchParams }: Props) {
-  const data = await getBusinessList({
+  const data = await getServiceList({
     draftKey: searchParams.dk,
   });
   return (
@@ -26,27 +26,20 @@ export default async function Page({ searchParams }: Props) {
               <dl className={styles.flex}>
                 <dt className={styles.name}>
                   <Image
-                    src={business.logo?.url as string}
+                    src={business.image?.url as string}
                     alt=""
-                    width={business.logo?.width}
-                    height={business.logo?.height}
-                    className={styles.logo}
+                    width={business.image?.width}
+                    height={business.image?.height}
+                    className={styles.image}
                   />
                 </dt>
-                <dd className={styles.description}>{business.description}</dd>
+                <dd className={styles.description}>{business.body}</dd>
                 <dd className={styles.action}>
                   <ButtonLink href={business.link} isExternal>
                     サービスサイトへ
                   </ButtonLink>
                 </dd>
               </dl>
-              <Image
-                src={business.image?.url as string}
-                alt=""
-                width={business.image?.width}
-                height={business.image?.height}
-                className={styles.image}
-              />
             </li>
           ))}
         </ul>

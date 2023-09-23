@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Article } from '@/app/_libs/microcms';
 import styles from './index.module.css';
 import PublishedDate from '../Date';
-import Category from '../Category';
 
 type Props = {
   news: Article;
@@ -33,7 +32,7 @@ export default function NewsListItem({ news }: Props) {
         <dl className={styles.content}>
           <dt className={styles.title}>{news.title}</dt>
           <dd className={styles.meta}>
-            <Category category={news.category} />
+            <p>{news.category}</p>
             <PublishedDate date={news.publishedAt || news.createdAt} />
           </dd>
         </dl>
