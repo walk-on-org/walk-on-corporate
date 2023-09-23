@@ -21,6 +21,8 @@
     "node": ">=18.x"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
     "@types/cheerio": "^0.22.31",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
@@ -39,5 +41,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.30",
+    "tailwindcss": "^3.3.3"
   }
 }

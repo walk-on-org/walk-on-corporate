@@ -13,10 +13,10 @@ export default async function Page() {
   });
   return (
     <>
-      <section className={styles.top}>
+      <section className="relative flex items-center justify-center text-white overflow-hidden py-48">
         <div>
-          <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
-          <p className={styles.description}>
+          <h1 className="text-5xl font-bold text-center mb-4">テクノロジーの力で世界を変える</h1>
+          <p className="text-center">
             私たちは市場をリードしているグローバルテックカンパニーです。
           </p>
         </div>

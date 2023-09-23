@@ -1,61 +1,60 @@
-'use client';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
-import cx from 'classnames';
-import styles from './index.module.css';
 
-export default function Menu() {
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const open = () => setOpen(true);
-  const close = () => setOpen(false);
+type Props = {
+  className: string;
+};
+
+export default function Menu({ className }: Props) {
+  const menus = [
+    {
+      link: '/',
+      label: 'Top',
+      sublabel: 'トップ',
+    },
+    {
+      link: '/news',
+      label: 'News',
+      sublabel: 'ニュース',
+    },
+    {
+      link: '/about',
+      label: 'About',
+      sublabel: '私たちについて',
+    },
+    {
+      link: '/service',
+      label: 'Service',
+      sublabel: '事業内容',
+    },
+    {
+      link: '/company',
+      label: 'Company',
+      sublabel: '会社情報',
+    },
+    {
+      link: '/recruit',
+      label: 'Recruit',
+      sublabel: '採用情報',
+    },
+    {
+      link: '/contact',
+      label: 'Contact',
+      sublabel: 'お問い合わせ',
+    },
+  ];
+
   return (
-    <div>
-      <nav className={cx(styles.nav, isOpen && styles.open)}>
-        <ul className={styles.items}>
-          <li>
-            <Link href="/" onClick={close}>
-              トップ
-            </Link>
-          </li>
-          <li>
-            <Link href="/news" onClick={close}>
-              ニュース
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" onClick={close}>
-              私たちについて
-            </Link>
-          </li>
-          <li>
-            <Link href="/service" onClick={close}>
-              事業内容
-            </Link>
-          </li>
-          <li>
-            <Link href="/company" onClick={close}>
-              会社情報
-            </Link>
-          </li>
-          <li>
-            <Link href="/recruit" onClick={close}>
-              採用情報
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" onClick={close}>
-              お問い合わせ
-            </Link>
-          </li>
-        </ul>
-        <button className={cx(styles.button, styles.close)} onClick={close}>
-          <Image src="/close.svg" alt="閉じる" width={24} height={24} priority />
-        </button>
-      </nav>
-      <button className={styles.button} onClick={open}>
-        <Image src="/menu.svg" alt="メニュー" width={24} height={24} priority />
-      </button>
+    <div className={className}>
+      {menus.map((menu) => (
+        <Link
+          key={menu.link}
+          href={menu.link}
+          className="flex flex-col items-center pb-2 text-white border-b-2 border-black/50 hover:border-orange-300 hover:text-orange-300"
+        >
+          <span className="text-sm font-bold">{menu.label}</span>
+          <span className="text-xs">{menu.sublabel}</span>
+        </Link>
+      ))}
     </div>
   );
 }
