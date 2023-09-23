@@ -26,7 +26,7 @@ export type Service = {
 };
 
 // 採用情報の型定義
-export type Recruite = {
+export type Recruit = {
   title: string;
   thumbnail?: MicroCMSImage;
   catch_copy: string;
@@ -97,10 +97,10 @@ export const getServiceList = async (queries?: MicroCMSQueries) => {
 };
 
 // 採用情報一覧を取得
-export const getRecuriteList = async (queries?: MicroCMSQueries) => {
+export const getRecuritList = async (queries?: MicroCMSQueries) => {
   const listData = await client
-    .getList<Recruite>({
-      endpoint: 'recruites',
+    .getList<Recruit>({
+      endpoint: 'recruits',
       queries,
     })
     .catch(notFound);
@@ -108,10 +108,10 @@ export const getRecuriteList = async (queries?: MicroCMSQueries) => {
 };
 
 // 採用情報の詳細を取得
-export const getRecruiteDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+export const getRecruitDetail = async (contentId: string, queries?: MicroCMSQueries) => {
   const detailData = await client
-    .getListDetail<Recruite>({
-      endpoint: 'recruites',
+    .getListDetail<Recruit>({
+      endpoint: 'recruits',
       contentId,
       queries,
     })

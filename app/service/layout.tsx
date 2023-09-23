@@ -2,7 +2,7 @@ import Hero from '@/app/_components/Hero';
 import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
-  title: '事業内容｜シンプルなコーポレートサイト',
+  title: '事業内容 - 株式会社walk-on',
 };
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <>
-      <Hero title="Business" sub="事業内容" />
+      <Hero title="Service" sub="事業内容" />
       <Sheet>{children}</Sheet>
     </>
   );
