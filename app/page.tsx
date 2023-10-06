@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { getNewsList } from '@/app/_libs/microcms';
 import { TOP_NEWS_LIMIT } from '@/app/_constants';
 import NewsList from '@/app/_components/NewsList';
-import styles from './page.module.css';
 import ButtonLink from '@/app/_components/ButtonLink';
+import TopHero from './_components/TopHero';
 
 export const revalidate = 60;
 
@@ -13,114 +13,40 @@ export default async function Page() {
   });
   return (
     <>
-      <section className="relative flex items-center justify-center text-white overflow-hidden py-48">
-        <div>
-          <h1 className="text-5xl font-bold text-center mb-4">テクノロジーの力で世界を変える</h1>
-          <p className="text-center">
-            私たちは市場をリードしているグローバルテックカンパニーです。
-          </p>
-        </div>
-        <Image
-          className={styles.bgimg}
-          src="/img-mv.jpg"
-          alt=""
-          width={3600}
-          height={1200}
-          priority
-        />
+      <section>
+        <Image className="w-full h-screen" src="/top-cover.jpeg" alt="" width={1024} height={500} />
       </section>
-      <section className={styles.news}>
-        <h2 className={styles.newsTitle}>News</h2>
+      <TopHero
+        title="美に関わる「ヒト」の幸せに貢献する。"
+        bgImage="bg-top-cover-1"
+        isReverse={false}
+      >
+        <p>
+          サロンとサロンで働く人々、美容サービスを利用する全ての方の幸せに貢献する会社を目指しております。
+        </p>
+        <ButtonLink href="/about">詳細を見る</ButtonLink>
+      </TopHero>
+
+      <TopHero title="お知らせ" bgImage="bg-top-cover-2" isReverse={true}>
         <NewsList articles={data.contents} />
-        <div className={styles.newsLink}>
-          <ButtonLink href="/news">もっとみる</ButtonLink>
-        </div>
-      </section>
-      <section className={styles.section}>
-        <div className={styles.horizontal}>
-          <div>
-            <h2 className={styles.sectionTitleEn}>Business</h2>
-            <p className={styles.sectionTitleJa}>事業内容</p>
-            <p className={styles.sectionDescription}>
-              当社は、次世代テクノロジーの研究開発・製造・販売を行う革新的な企業です。
-              <br />
-              AI、ロボット工学、自律システムなど、幅広い分野でのソリューション提供を通じて、社会の進化と未来の創造に貢献します。
-            </p>
-            <ButtonLink href="/business">もっとみる</ButtonLink>
+        <ButtonLink href="/news">過去のニュースを見る</ButtonLink>
+      </TopHero>
+      <TopHero title="当社の事業" bgImage="bg-top-cover-1" isReverse={false}>
+        <p>
+          当社は、ミッション実現のため事業領域をビジョンに合わせて設定し、それぞれの領域に対してサービス展開をしています。
+        </p>
+        <ButtonLink href="/service">詳細を見る</ButtonLink>
+      </TopHero>
+
+      <section className="flex flex-col-reverse bg-top-cover-2 h-64 md:flex-row-reverse">
+        <div className="w-full flex flex-col items-center py-4 text-white md:flex-row md:w-1/2">
+          <h2 className="horizontal-tb text-3xl mb-6 mx-12 md:vertical-rl">会社概要</h2>
+          <div className="flex flex-col justify-center items-center w-64">
+            <p>当社の会社情報をご紹介いたします。</p>
+            <ButtonLink href="/company">詳細を見る</ButtonLink>
           </div>
-          <Image
-            className={styles.businessImg}
-            src="/img-business.png"
-            alt=""
-            width={1024}
-            height={1024}
-          />
         </div>
-      </section>
-      <div className={styles.aboutus}>
-        <section className={styles.section}>
-          <div className={styles.horizontal}>
-            <Image
-              className={styles.aboutusImg}
-              src="/img-aboutus.jpg"
-              alt=""
-              width={6000}
-              height={4000}
-            />
-            <div>
-              <h2 className={styles.sectionTitleEn}>About Us</h2>
-              <p className={styles.sectionTitleJa}>私たちについて</p>
-              <p className={styles.sectionDescription}>
-                「テクノロジーの力で世界を変える」をミッションに掲げ、日々活動をしています。
-              </p>
-              <dl className={styles.info}>
-                <dt className={styles.infoTitle}>社名</dt>
-                <dd className={styles.infoDescription}>株式会社Simple</dd>
-              </dl>
-              <dl className={styles.info}>
-                <dt className={styles.infoTitle}>設立</dt>
-                <dd className={styles.infoDescription}>2023年4月</dd>
-              </dl>
-              <dl className={styles.info}>
-                <dt className={styles.infoTitle}>所在地</dt>
-                <dd className={styles.infoDescription}>
-                  〒000-0000
-                  <br />
-                  東京都渋谷区渋谷1-1-1
-                </dd>
-              </dl>
-              <dl className={styles.info}>
-                <dt className={styles.infoTitle}>代表者</dt>
-                <dd className={styles.infoDescription}>鈴木 太郎</dd>
-              </dl>
-              <dl className={styles.info}>
-                <dt className={styles.infoTitle}>資本金</dt>
-                <dd className={styles.infoDescription}>1,000万円</dd>
-              </dl>
-            </div>
-          </div>
-        </section>
-      </div>
-      <section className={styles.section}>
-        <div className={styles.horizontal}>
-          <div>
-            <h2 className={styles.sectionTitleEn}>We are hiring</h2>
-            <p className={styles.sectionTitleJa}>採用情報</p>
-            <p className={styles.sectionDescription}>
-              当社では、チャレンジ精神を持った人材を求めています。
-              <br />
-              新しいアイデアを出し合い、成長する環境で活躍したい方は、ぜひご応募ください。当社でのキャリアを築きながら、技術の最前線で力を発揮しましょう。
-            </p>
-            <ButtonLink href="">採用情報へ</ButtonLink>
-          </div>
-          <Image
-            className={styles.hiringImg}
-            src="/img-hiring.jpg"
-            alt=""
-            width={960}
-            height={960}
-          />
-        </div>
+        <div className="w-full flex justify-center md:w-1/2"></div>
       </section>
     </>
   );

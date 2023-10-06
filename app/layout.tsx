@@ -3,7 +3,6 @@ import Script from 'next/script';
 import Footer from '@/app/_components/Footer';
 import Header from '@/app/_components/Header';
 import './globals.css';
-import styles from './layout.module.css';
 
 export const revalidate = 60;
 
@@ -37,7 +36,7 @@ export default async function RootLayout({ children }: Props) {
         defer
         src={`//js.hs-scripts.com/${process.env.HUBSPOT_PORTAL_ID}.js`}
       ></Script>
-      <body className={styles.body}>
+      <body className="bg-slate-50">
         <Header />
         <main>{children}</main>
         <Footer />
