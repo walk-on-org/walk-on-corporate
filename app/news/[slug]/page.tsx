@@ -38,7 +38,7 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <>
       <Article data={data} />
-      <div className={styles.footer}>
+      <div className="flex justify-end border-t border-gray-400 mt-20 pt-10">
         <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
       </div>
     </>

@@ -5,7 +5,7 @@ type Props = {
 
 export default function Hero({ title, sub }: Props) {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden py-28">
+    <section className="relative flex items-center justify-center overflow-hidden pt-28 pb-12">
       <div>
         <h1 className="text-5xl font-bold text-center mb-4">{title}</h1>
         <p
