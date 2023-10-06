@@ -36,7 +36,7 @@ export default async function RootLayout({ children }: Props) {
         defer
         src={`//js.hs-scripts.com/${process.env.HUBSPOT_PORTAL_ID}.js`}
       ></Script>
-      <body className="bg-slate-50">
+      <body className="bg-slate-50 text-gray-800">
         <Header />
         <main>{children}</main>
         <Footer />

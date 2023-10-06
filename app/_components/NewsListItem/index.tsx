@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Article } from '@/app/_libs/microcms';
-import styles from './index.module.css';
 import PublishedDate from '../Date';
 
 type Props = {
@@ -10,32 +8,17 @@ type Props = {
 
 export default function NewsListItem({ news }: Props) {
   return (
-    <li className={styles.list}>
-      <Link href={`/news/${news.id}`} className={styles.link}>
-        {news.thumbnail ? (
-          <Image
-            src={news.thumbnail?.url}
-            alt=""
-            className={styles.image}
-            width={news.thumbnail?.width}
-            height={news.thumbnail?.height}
-          />
-        ) : (
-          <Image
-            className={styles.image}
-            src="/no-image.png"
-            alt="No Image"
-            width={1200}
-            height={630}
-          />
-        )}
-        <dl className={styles.content}>
-          <dt className={styles.title}>{news.title}</dt>
-          <dd className={styles.meta}>
-            <p>{news.category}</p>
+    <li className="border border-black h-32 bg-white w-full md:w-[calc(50%_-_8px)]">
+      <Link href={`/news/${news.id}`} className="">
+        <div className="flex justify-between items-center">
+          <span className="bg-black text-white text-xs px-2 py-1.5">{news.category}</span>
+          <div className="text-xs mr-2">
             <PublishedDate date={news.publishedAt || news.createdAt} />
-          </dd>
-        </dl>
+          </div>
+        </div>
+        <p className="px-3 py-4 text-sm underline decoration-solid text-gray-700 break-words">
+          {news.title}
+        </p>
       </Link>
     </li>
   );

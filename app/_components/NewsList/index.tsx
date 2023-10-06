@@ -13,7 +13,7 @@ export default function NewsList({ articles }: Props) {
     return <p>記事がありません。</p>;
   }
   return (
-    <ul>
+    <ul className="flex flex-wrap gap-4">
       {articles.map((article) => (
         <NewsListItem key={article.id} news={article} />
       ))}
