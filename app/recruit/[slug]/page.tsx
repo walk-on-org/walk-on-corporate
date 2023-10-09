@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import { getNewsDetail } from '@/app/_libs/microcms';
-import Article from '@/app/_components/Article';
 import ButtonLink from '@/app/_components/ButtonLink';
+import Recruit from '@/app/_components/Recruit';
+import { getRecruitDetail } from '@/app/_libs/microcms';
 
 type Props = {
   params: {
@@ -15,30 +15,30 @@ type Props = {
 export const revalidate = 60;
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
-  const data = await getNewsDetail(params.slug, {
+  const data = await getRecruitDetail(params.slug, {
     draftKey: searchParams.dk,
   });
 
   return {
     title: data.title,
-    description: data.description,
+    description: data.job_description,
     openGraph: {
       title: data.title,
-      description: data.description,
+      description: data.job_description,
       images: [data?.thumbnail?.url || ''],
     },
   };
 }
 
 export default async function Page({ params, searchParams }: Props) {
-  const data = await getNewsDetail(params.slug, {
+  const data = await getRecruitDetail(params.slug, {
     draftKey: searchParams.dk,
   });
   return (
     <>
-      <Article data={data} />
+      <Recruit data={data} />
       <div className="flex justify-end border-t border-gray-400 mt-20 pt-10">
-        <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
+        <ButtonLink href="/recruit">募集職種一覧へ</ButtonLink>
       </div>
     </>
   );

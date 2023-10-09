@@ -53,7 +53,7 @@ export default async function Page() {
         <Image
           src="/logo.png"
           alt="walk-on"
-          className="h-40 w-auto md:mx-auto"
+          className="h-40 w-auto mx-auto"
           width={348}
           height={133}
           priority
