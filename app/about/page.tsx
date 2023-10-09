@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Heading from '../_components/Heading';
 
 export const revalidate = 60;
 
@@ -32,13 +33,8 @@ export default async function Page() {
 
   return (
     <div>
-      <div className="text-center mb-6">
-        <h2 className="text-xl font-bold inline-block border-b-2 border-orange-400 pb-2">
-          私たちのミッション
-        </h2>
-        <span className="text-orange-400 block text-sm font-bold pt-2 pb-4">Mission</span>
-      </div>
       <section className="text-center mb-12">
+        <Heading id="mission" title="私たちのミッション" subTitle="Mission" />
         <p className="text-2xl font-bold text-indigo-800">美に関わる「ヒト」の幸せに貢献する</p>
         <div className="flex mt-4 flex-col gap-4 justify-between md:flex-row">
           <div>
@@ -68,13 +64,8 @@ export default async function Page() {
         </div>
       </section>
 
-      <div className="text-center mb-6">
-        <h2 className="text-xl font-bold inline-block border-b-2 border-orange-400 pb-2">
-          行動指針
-        </h2>
-        <span className="text-orange-400 block text-sm font-bold pt-2 pb-4">Value</span>
-      </div>
       <section className="text-center">
+        <Heading id="value" title="行動指針" subTitle="Value" />
         <p className="text-gray-500">ミッション実現のために社員に期待する姿</p>
         <p className="text-2xl font-bold text-indigo-800">人や物事に向き合い、誠実で素直であれ！</p>
         {values.map((value) => (
@@ -87,7 +78,7 @@ export default async function Page() {
             <Image
               className={`${value.isReverse ? 'md:pl-12' : 'md:pr-12'}`}
               src={value.image}
-              alt="For the Company"
+              alt={value.title}
               width={300}
               height={200}
             />
