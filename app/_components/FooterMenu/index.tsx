@@ -26,12 +26,8 @@ export default function FooterMenu() {
       label: '事業内容',
       sub_menus: [
         {
-          link: '/service#1',
-          label: '求人広告事業',
-        },
-        {
-          link: '/service#2',
-          label: '人材紹介事業',
+          link: '/service#career',
+          label: 'キャリア事業',
         },
       ],
     },
