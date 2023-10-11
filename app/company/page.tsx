@@ -19,7 +19,7 @@ export default async function Page() {
     },
     {
       title: '代表取締役社長',
-      description: '小林正嗣',
+      description: '小林理嗣',
     },
     {
       title: '従業員数',
@@ -65,7 +65,7 @@ export default async function Page() {
         <p>
           その”選択”は誰のものではなく、自分の人生の選択で何が正解か不正解という話ではありません。自分の人生において、１つ１つの選択において“意思を持った人を増やす”ことで自身の幸せを知り、居場所をしっかり認識し、生き生きと生きていける人が1人でも多く増やしたいと思い、創業いたしました。
         </p>
-        <p className="text-right my-2">代表取締役　小林正嗣</p>
+        <p className="text-right my-2">代表取締役　小林理嗣</p>
       </section>
     </div>
   );
