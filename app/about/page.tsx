@@ -8,25 +8,25 @@ export default async function Page() {
     {
       title: 'For the Company',
       description: '会社に向き合いともに成長する',
-      image: '/value-for-the-company.png',
+      image: '/image/about/value-company.png',
       isReverse: false,
     },
     {
       title: 'Co-creation',
       description: 'クライアントと共創し価値を創造し続ける',
-      image: '/value-for-the-company.png',
+      image: '/image/about/value-creation.png',
       isReverse: true,
     },
     {
       title: 'Respect & Thanks',
       description: '仲間に対して利他の心で常に敬い感謝する',
-      image: '/value-for-the-company.png',
+      image: '/image/about/value-respect.png',
       isReverse: false,
     },
     {
       title: 'Be professional',
       description: 'プロとしての自覚を持ち自己研鑽をし続ける',
-      image: '/value-for-the-company.png',
+      image: '/image/about/value-professional.png',
       isReverse: true,
     },
   ];
@@ -36,9 +36,16 @@ export default async function Page() {
       <section className="text-center mb-12">
         <Heading id="mission" title="私たちのミッション" subTitle="Mission" />
         <p className="text-2xl font-bold text-indigo-800">美に関わる「ヒト」の幸せに貢献する</p>
-        <div className="flex mt-4 flex-col gap-4 justify-between md:flex-row">
+        <div className="flex mt-4 flex-col gap-4 justify-between md:gap-8 md:flex-row">
           <div>
             <p className="text-lg font-bold">働く人</p>
+            <Image
+              className="w-full"
+              src="/image/about/mission-1.png"
+              alt=""
+              width={531}
+              height={532}
+            />
             <p>
               サービスを提供する
               <br />
@@ -47,6 +54,13 @@ export default async function Page() {
           </div>
           <div>
             <p className="text-lg font-bold">利用する人</p>
+            <Image
+              className="w-full"
+              src="/image/about/mission-2.png"
+              alt=""
+              width={531}
+              height={532}
+            />
             <p>
               美容・理容サービスを受ける
               <br />
@@ -55,6 +69,13 @@ export default async function Page() {
           </div>
           <div>
             <p className="text-lg font-bold">企業</p>
+            <Image
+              className="w-full"
+              src="/image/about/mission-3.png"
+              alt=""
+              width={531}
+              height={532}
+            />
             <p>
               美容室・理容室などを
               <br />
