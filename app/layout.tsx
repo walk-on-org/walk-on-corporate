@@ -9,10 +9,10 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
-    title: '株式会社walk-on - 美容の・・・・',
+    title: '株式会社walk-on - 美に関わる「ヒト」の幸せに貢献する  ',
     description: 'TODO:description',
     openGraph: {
-      title: '株式会社walk-on - 美容の・・・・',
+      title: '株式会社walk-on - 美に関わる「ヒト」の幸せに貢献する',
       description: 'TODO:description',
       images: [''],
     },
@@ -29,13 +29,6 @@ type Props = {
 export default async function RootLayout({ children }: Props) {
   return (
     <html lang="ja">
-      <Script
-        type="text/javascript"
-        id="hs-script-loader"
-        async
-        defer
-        src={`//js.hs-scripts.com/${process.env.HUBSPOT_PORTAL_ID}.js`}
-      ></Script>
       <body className="bg-slate-50 text-gray-800">
         <Header />
         <main>{children}</main>

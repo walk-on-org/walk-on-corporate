@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   className: string;
 };
 
 export default function Menu({ className }: Props) {
+  const pathname = usePathname();
+  console.log(pathname);
   const menus = [
     {
       link: '/',
@@ -49,7 +52,10 @@ export default function Menu({ className }: Props) {
         <Link
           key={menu.link}
           href={menu.link}
-          className="flex flex-col items-center pb-2 text-white border-b-2 border-black/50 hover:border-orange-300 hover:text-orange-300"
+          className={`flex flex-col items-center pb-2 text-white relative hover:text-orange-300
+            after:content-[''] after:absolute after:w-full after:border-b-2 after:border-gray-600 after:hover:border-orange-300 after:bottom-0 ${
+              pathname.startsWith(menu.link) && 'text-orange-300'
+            }`}
         >
           <span className="text-sm font-bold">{menu.label}</span>
           <span className="text-xs">{menu.sublabel}</span>
