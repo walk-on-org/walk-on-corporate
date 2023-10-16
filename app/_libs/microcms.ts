@@ -16,15 +16,6 @@ export type News = {
   thumbnail?: MicroCMSImage;
 };
 
-// 事業内容の型定義
-export type Service = {
-  name: string;
-  head: string;
-  body: string;
-  image?: MicroCMSImage;
-  link: string;
-};
-
 // 採用情報の型定義
 export type Recruit = {
   title: string;
@@ -83,17 +74,6 @@ export const getNewsDetail = async (contentId: string, queries?: MicroCMSQueries
     .catch(notFound);
 
   return detailData;
-};
-
-// 事業内容一覧を取得
-export const getServiceList = async (queries?: MicroCMSQueries) => {
-  const listData = await client
-    .getList<Service>({
-      endpoint: 'services',
-      queries,
-    })
-    .catch(notFound);
-  return listData;
 };
 
 // 採用情報一覧を取得
