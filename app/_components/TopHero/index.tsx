@@ -10,7 +10,7 @@ type Props = {
 export default function TopHero({ title, children, bgImage, isReverse }: Props) {
   return (
     <section
-      className={`flex flex-col-reverse h-screen ${
+      className={`flex flex-col-reverse h-[480px] ${
         isReverse ? 'md:flex-row-reverse' : 'md:flex-row'
       } ${bgImage}`}
     >

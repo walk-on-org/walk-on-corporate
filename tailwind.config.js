@@ -12,8 +12,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'top-cover-1': "url('/top-cover-1.jpeg')",
-        'top-cover-2': "url('/top-cover-2.jpeg')",
+        'top-cover-1': "url('/image/top/top-cover-1.jpeg')",
+        'top-cover-2': "url('/image/top/top-cover-2.jpeg')",
       },
     },
   },

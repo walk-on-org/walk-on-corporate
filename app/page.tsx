@@ -14,8 +14,36 @@ export default async function Page() {
   return (
     <>
       <section>
-        <Image className="w-full h-screen" src="/top-cover.jpeg" alt="" width={1024} height={500} />
+        <Image
+          className="w-full h-screen object-cover"
+          src="/image/top/top-cover.jpeg"
+          alt=""
+          width={2560}
+          height={1707}
+        />
       </section>
+
+      <section className="bg-[#fcd8b1] flex h-[480px]">
+        <div className="w-1/2 flex flex-row-reverse relative text-white bg-black/40">
+          <h2 className="horizontal-tb md:vertical-rl">美に関わる「ヒト」の幸せに貢献する。</h2>
+          <div>
+            <p>
+              サロンとサロンで働く人々、美容サービスを利用する全ての方の幸せに貢献する会社を目指しております。
+            </p>
+            <ButtonLink href="/about">詳細を見る</ButtonLink>
+          </div>
+        </div>
+        <div className="relative">
+          <Image
+            className="w-full"
+            src="/image/top/mission.png"
+            alt="mission"
+            width={471}
+            height={104}
+          />
+        </div>
+      </section>
+
       <TopHero
         title="美に関わる「ヒト」の幸せに貢献する。"
         bgImage="bg-top-cover-1"
