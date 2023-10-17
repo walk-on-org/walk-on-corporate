@@ -26,12 +26,14 @@ export default function Article({ data }: Props) {
           height={data.thumbnail?.height}
         />
       )}
-      <div
-        className="prose break-words prose-a:text-orange-400"
-        dangerouslySetInnerHTML={{
-          __html: `${formatRichText(data.content)}`,
-        }}
-      />
+      {data.content && (
+        <div
+          className="prose break-words prose-a:text-orange-400"
+          dangerouslySetInnerHTML={{
+            __html: `${formatRichText(data.content)}`,
+          }}
+        />
+      )}
     </main>
   );
 }

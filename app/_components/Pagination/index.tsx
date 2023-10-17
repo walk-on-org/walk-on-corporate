@@ -14,15 +14,20 @@ export default function Pagination({ totalCount, current = 1, basePath = '', q }
     (_, i) => i + 1,
   );
   return (
-    <ul className={styles.container}>
+    <ul className="flex justify-center items-center p-6 mt-6">
       {pages.map((p) => (
-        <li className={styles.list} key={p}>
+        <li className="mx-1" key={p}>
           {current !== p ? (
-            <Link href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')} className={styles.item}>
+            <Link
+              href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')}
+              className="flex justify-center items-center w-9 h-9 rounded"
+            >
               {p}
             </Link>
           ) : (
-            <span className={`${styles.item} ${styles.current}`}>{p}</span>
+            <span className="flex justify-center items-center w-9 h-9 rounded text-white bg-gray-800">
+              {p}
+            </span>
           )}
         </li>
       ))}
