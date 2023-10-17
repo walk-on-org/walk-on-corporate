@@ -6,7 +6,11 @@ import { useForm } from 'react-hook-form';
 type FormData = {
   name: string;
   email: string;
+  current_position: string;
+  age: string;
+  final_education: string;
   tel: string;
+  career: string;
   message: string;
 };
 type Props = {
@@ -57,27 +61,41 @@ export default function EntryForm({ job }: Props) {
   return (
     <form className="max-w-[600px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col flex-1 py-2">
-        <label htmlFor="name" className="text-sm">
-          氏名
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="name" className="text-sm">
+            氏名
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <input
           className={`border p-2 rounded w-full leading-6 ${errors.name && 'border-red-400'}`}
           type="text"
           id="name"
-          {...register('name', { required: '入力してください。' })}
+          {...register('name', {
+            required: '入力してください。',
+            maxLength: { value: 30, message: '30文字以内で入力してください。' },
+          })}
         />
         {errors.name && <p className="text-sm text-red-400">{errors.name?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="email">
-          メールアドレス
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="email" className="text-sm">
+            メールアドレス
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <input
           className={`border p-2 rounded w-full leading-6 ${errors.email && 'border-red-400'}`}
           type="email"
           id="email"
           {...register('email', {
             required: '入力してください。',
+            maxLength: { value: 50, message: '50文字以内で入力してください。' },
             pattern: {
               value: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
               message: '正しいメールアドレスを入力してください。',
@@ -87,25 +105,132 @@ export default function EntryForm({ job }: Props) {
         {errors.email && <p className="text-sm text-red-400">{errors.email?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="email">
-          電話番号
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="current-position" className="text-sm">
+            現所属
+          </label>
+          <span className="inline-block px-0.5 text-xs text-gray-400 border border-gray-400">
+            任意
+          </span>
+        </div>
+        <input
+          className={`border p-2 rounded w-full leading-6 ${
+            errors.current_position && 'border-red-400'
+          }`}
+          type="text"
+          id="current-position"
+          {...register('current_position', {
+            maxLength: { value: 50, message: '50文字以内で入力してください。' },
+          })}
+        />
+        {errors.current_position && (
+          <p className="text-sm text-red-400">{errors.current_position?.message}</p>
+        )}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="age" className="text-sm">
+            年齢
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
+        <input
+          className={`border p-2 rounded w-full leading-6 ${errors.age && 'border-red-400'}`}
+          type="text"
+          id="age"
+          {...register('age', {
+            required: '入力してください。',
+            pattern: {
+              value: /^[1-9]{1}[0-9]$/,
+              message: '数字で入力してください。',
+            },
+          })}
+        />
+        {errors.age && <p className="text-sm text-red-400">{errors.age?.message}</p>}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="final-education" className="text-sm">
+            最終学歴
+          </label>
+          <span className="inline-block px-0.5 text-xs text-gray-400 border border-gray-400">
+            任意
+          </span>
+        </div>
+        <input
+          className={`border p-2 rounded w-full leading-6 ${
+            errors.final_education && 'border-red-400'
+          }`}
+          type="text"
+          id="final-education"
+          {...register('final_education', {
+            maxLength: { value: 50, message: '50文字以内で入力してください。' },
+          })}
+        />
+        {errors.final_education && (
+          <p className="text-sm text-red-400">{errors.final_education?.message}</p>
+        )}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="tel" className="text-sm">
+            電話番号
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <input
           className={`border p-2 rounded w-full leading-6 ${errors.tel && 'border-red-400'}`}
           type="tel"
           id="tel"
-          {...register('tel', { required: '入力してください。' })}
+          {...register('tel', {
+            required: '入力してください。',
+            pattern: {
+              value: /^0[789]0(-)?[0-9]{4}(-)?[0-9]{4}$/,
+              message: '電話番号を入力してください。',
+            },
+          })}
         />
         {errors.tel && <p className="text-sm text-red-400">{errors.tel?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="message">
-          応募先へのメッセージ
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="career" className="text-sm">
+            経歴
+          </label>
+          <span className="inline-block px-0.5 text-xs text-gray-400 border border-gray-400">
+            任意
+          </span>
+        </div>
+        <textarea
+          className={`border p-2 rounded w-full leading-6 ${errors.career && 'border-red-400'}`}
+          rows={6}
+          id="career"
+          {...register('career', {
+            maxLength: { value: 300, message: '300文字以内で入力してください。' },
+          })}
+        />
+        {errors.career && <p className="text-sm text-red-400">{errors.career?.message}</p>}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="message" className="text-sm">
+            応募先へのメッセージ
+          </label>
+          <span className="inline-block px-0.5 text-xs text-gray-400 border border-gray-400">
+            任意
+          </span>
+        </div>
         <textarea
           className={`border p-2 rounded w-full leading-6 ${errors.message && 'border-red-400'}`}
+          rows={6}
           id="message"
-          {...register('message', { required: '入力してください。' })}
+          {...register('message', {
+            maxLength: { value: 300, message: '300文字以内で入力してください。' },
+          })}
         />
         {errors.message && <p className="text-sm text-red-400">{errors.message?.message}</p>}
       </div>

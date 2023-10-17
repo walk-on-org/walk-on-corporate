@@ -45,6 +45,11 @@ export type Contact = {
   tel: string;
   email: string;
   note: string;
+  job: Recruit;
+  current_position: string;
+  age: string;
+  final_education: string;
+  career: string;
 };
 
 export type Article = News & MicroCMSContentId & MicroCMSDate;

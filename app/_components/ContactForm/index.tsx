@@ -52,39 +52,61 @@ export default function ContactForm() {
   return (
     <form className="max-w-[600px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="name">
-          氏名
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="name" className="text-sm">
+            氏名
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <input
           className={`border p-2 rounded w-full leading-6 ${errors.name && 'border-red-400'}`}
           type="text"
           id="name"
-          {...register('name', { required: '入力してください。' })}
+          {...register('name', {
+            required: '入力してください。',
+            maxLength: { value: 30, message: '30文字以内で入力してください。' },
+          })}
         />
         {errors.name && <p className="text-sm text-red-400">{errors.name?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="conpany">
-          会社名
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="company" className="text-sm">
+            会社名
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <input
           className={`border p-2 rounded w-full leading-6 ${errors.company && 'border-red-400'}`}
           type="text"
           id="company"
-          {...register('company', { required: '入力してください。' })}
+          {...register('company', {
+            required: '入力してください。',
+            maxLength: { value: 50, message: '50文字以内で入力してください。' },
+          })}
         />
         {errors.company && <p className="text-sm text-red-400">{errors.company?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="email">
-          メールアドレス
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="email" className="text-sm">
+            メールアドレス
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <input
           className={`border p-2 rounded w-full leading-6 ${errors.email && 'border-red-400'}`}
           type="email"
           id="email"
           {...register('email', {
             required: '入力してください。',
+            maxLength: { value: 50, message: '50文字以内で入力してください。' },
             pattern: {
               value: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
               message: '正しいメールアドレスを入力してください。',
@@ -94,13 +116,22 @@ export default function ContactForm() {
         {errors.email && <p className="text-sm text-red-400">{errors.email?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="message">
-          メッセージ
-        </label>
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="message" className="text-sm">
+            問い合わせ内容
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
         <textarea
           className={`border p-2 rounded w-full leading-6 ${errors.message && 'border-red-400'}`}
+          rows={6}
           id="message"
-          {...register('message', { required: '入力してください。' })}
+          {...register('message', {
+            required: '入力してください。',
+            maxLength: { value: 300, message: '300文字以内で入力してください。' },
+          })}
         />
         {errors.message && <p className="text-sm text-red-400">{errors.message?.message}</p>}
       </div>
