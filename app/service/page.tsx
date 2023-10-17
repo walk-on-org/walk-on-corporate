@@ -16,9 +16,9 @@ export default async function Page() {
     {
       name: 'ヘアワークスエージェント／HairWorksAgent',
       head: '美容師・理容師の転職に特化した転職支援サービス\nヘアワークスエージェント。',
-      body: '美容師・理容師を希望して転職活動をしている方向けのサービス\n月間登録数約XXXX名、紹介求人数XXX件以上（2023年10月時点）',
+      body: '美容師・理容師を希望して転職活動をしている方向けのサービス\n月間登録数約200名、紹介求人数1,000件以上（2023年10月時点）',
       link: 'https://hairworksagent.jp/',
-      image: '/image/service/hairworks-300x150.png',
+      image: '/image/service/hairworksagent.png',
     },
   ];
   return (
@@ -33,7 +33,7 @@ export default async function Page() {
                 alt=""
                 width={300}
                 height={150}
-                className="w-60 h-auto rounded"
+                className="w-60 h-auto rounded object-contain mx-auto"
               />
               <div className="flex flex-col gap-2">
                 <p className="text-sm font-bold border-b">{business.name}</p>
@@ -47,11 +47,6 @@ export default async function Page() {
           ))}
         </ul>
       </section>
-      <div className="flex flex-col items-center border-t pt-10 text-center gap-6">
-        <h2 className="text-2xl font-bold">We are hiring</h2>
-        <p>私たちは共にチャレンジする仲間を募集しています。</p>
-        <ButtonLink href="/recruit">採用情報へ</ButtonLink>
-      </div>
     </div>
   );
 }
