@@ -1,16 +1,27 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import styles from './index.module.css';
+import { useForm } from 'react-hook-form';
+
+type FormData = {
+  name: string;
+  company: string;
+  email: string;
+  message: string;
+};
 
 export default function ContactForm() {
-  const nameRef = useRef<HTMLInputElement>(null);
-  const companyRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>({
+    mode: 'onBlur',
+  });
+
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string>();
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = async (data: FormData) => {
     const res = await fetch('/api/submit-contact', {
       method: 'POST',
       headers: {
@@ -18,10 +29,10 @@ export default function ContactForm() {
       },
       body: JSON.stringify({
         type: '問い合わせ',
-        name: nameRef.current?.value,
-        company: companyRef.current?.value,
-        email: emailRef.current?.value,
-        note: messageRef.current?.value,
+        name: data.name,
+        company: data.company,
+        email: data.email,
+        note: data.message,
       }),
     }).then((res) => res.json());
     if (res.status === 'error') {
@@ -40,45 +51,59 @@ export default function ContactForm() {
     );
   }
   return (
-    <form className="max-w-[600px] mx-auto" onSubmit={onSubmit}>
+    <form className="max-w-[600px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col flex-1 py-2">
         <label className="text-sm" htmlFor="name">
           氏名
         </label>
         <input
-          className="border p-2 rounded w-full leading-6"
+          className={`border p-2 rounded w-full leading-6 ${errors.name && 'border-red-400'}`}
           type="text"
           id="name"
-          ref={nameRef}
+          {...register('name', { required: '入力してください。' })}
         />
+        {errors.name && <p className="text-sm text-red-400">{errors.name?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
         <label className="text-sm" htmlFor="conpany">
           会社名
         </label>
         <input
-          className="border p-2 rounded w-full leading-6"
+          className={`border p-2 rounded w-full leading-6 ${errors.company && 'border-red-400'}`}
           type="text"
           id="company"
-          ref={companyRef}
+          {...register('company', { required: '入力してください。' })}
         />
+        {errors.company && <p className="text-sm text-red-400">{errors.company?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
         <label className="text-sm" htmlFor="email">
           メールアドレス
         </label>
         <input
-          className="border p-2 rounded w-full leading-6"
-          type="text"
+          className={`border p-2 rounded w-full leading-6 ${errors.email && 'border-red-400'}`}
+          type="email"
           id="email"
-          ref={emailRef}
+          {...register('email', {
+            required: '入力してください。',
+            pattern: {
+              value: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
+              message: '正しいメールアドレスを入力してください。',
+            },
+          })}
         />
+        {errors.email && <p className="text-sm text-red-400">{errors.email?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
         <label className="text-sm" htmlFor="message">
           メッセージ
         </label>
-        <textarea className="border p-2 rounded w-full leading-6" id="message" ref={messageRef} />
+        <textarea
+          className={`border p-2 rounded w-full leading-6 ${errors.message && 'border-red-400'}`}
+          id="message"
+          {...register('message', { required: '入力してください。' })}
+        />
+        {errors.message && <p className="text-sm text-red-400">{errors.message?.message}</p>}
       </div>
       <div className="text-center mt-10">
         <p className="text-red-400 text-sm mb-2">{error}</p>
