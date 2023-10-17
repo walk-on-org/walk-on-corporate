@@ -1,15 +1,19 @@
 'use client';
+import { Recruit } from '@/app/_libs/microcms';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 type FormData = {
   name: string;
-  company: string;
   email: string;
+  tel: string;
   message: string;
 };
+type Props = {
+  job: Recruit;
+};
 
-export default function ContactForm() {
+export default function EntryForm({ job }: Props) {
   const {
     register,
     handleSubmit,
@@ -27,10 +31,11 @@ export default function ContactForm() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        type: '問い合わせ',
+        type: '応募',
+        job: job.id,
         name: data.name,
-        company: data.company,
         email: data.email,
+        tel: data.tel,
         note: data.message,
       }),
     }).then((res) => res.json());
@@ -43,7 +48,7 @@ export default function ContactForm() {
   if (success) {
     return (
       <p className="bg-gray-300 text-sm p-10 rounded md:text-center">
-        お問い合わせいただき、ありがとうございます。
+        応募いただき、ありがとうございます。
         <br />
         お返事まで今しばらくお待ちください。
       </p>
@@ -52,7 +57,7 @@ export default function ContactForm() {
   return (
     <form className="max-w-[600px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="name">
+        <label htmlFor="name" className="text-sm">
           氏名
         </label>
         <input
@@ -62,18 +67,6 @@ export default function ContactForm() {
           {...register('name', { required: '入力してください。' })}
         />
         {errors.name && <p className="text-sm text-red-400">{errors.name?.message}</p>}
-      </div>
-      <div className="flex flex-col flex-1 py-2">
-        <label className="text-sm" htmlFor="conpany">
-          会社名
-        </label>
-        <input
-          className={`border p-2 rounded w-full leading-6 ${errors.company && 'border-red-400'}`}
-          type="text"
-          id="company"
-          {...register('company', { required: '入力してください。' })}
-        />
-        {errors.company && <p className="text-sm text-red-400">{errors.company?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
         <label className="text-sm" htmlFor="email">
@@ -94,8 +87,20 @@ export default function ContactForm() {
         {errors.email && <p className="text-sm text-red-400">{errors.email?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
+        <label className="text-sm" htmlFor="email">
+          電話番号
+        </label>
+        <input
+          className={`border p-2 rounded w-full leading-6 ${errors.tel && 'border-red-400'}`}
+          type="tel"
+          id="tel"
+          {...register('tel', { required: '入力してください。' })}
+        />
+        {errors.tel && <p className="text-sm text-red-400">{errors.tel?.message}</p>}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
         <label className="text-sm" htmlFor="message">
-          メッセージ
+          応募先へのメッセージ
         </label>
         <textarea
           className={`border p-2 rounded w-full leading-6 ${errors.message && 'border-red-400'}`}
@@ -108,7 +113,7 @@ export default function ContactForm() {
         <p className="text-red-400 text-sm mb-2">{error}</p>
         <input
           type="submit"
-          value="送信する"
+          value="応募する"
           className="border-none bg-gray-600 px-10 py-4 rounded cursor-pointer text-white"
         />
       </div>

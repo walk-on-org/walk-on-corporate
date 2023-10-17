@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   const json = await request.json();
-  const { type, name, company, tel, email, note } = json;
+  const { type, name, company, tel, email, note, job } = json;
 
   const result = await fetch(
     `https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/contact`,
@@ -19,6 +19,7 @@ export async function POST(request: NextRequest) {
         tel: tel,
         email: email,
         note: note,
+        job: job,
       }),
     },
   ).then((res) => res.json());

@@ -18,6 +18,7 @@ export type News = {
 
 // 採用情報の型定義
 export type Recruit = {
+  id: MicroCMSContentId;
   title: string;
   thumbnail?: MicroCMSImage;
   catch_copy: string;

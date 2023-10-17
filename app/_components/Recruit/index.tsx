@@ -1,5 +1,6 @@
 import { Recruit } from '@/app/_libs/microcms';
 import Image from 'next/image';
+import ButtonLink from '../ButtonLink';
 
 type Props = {
   data: Recruit;
@@ -82,6 +83,7 @@ export default function Recruit({ data }: Props) {
         {data.catch_copy}
       </p>
       <p className="whitespace-pre-line mb-8">{data.recommend_point}</p>
+      <ButtonLink href={`/recruit/${data.id}/entry`}>応募する</ButtonLink>
       <ul>
         {jobInfo.map((row) => (
           <li key={row.title} className="flex flex-col md:flex-row border-b py-4">
