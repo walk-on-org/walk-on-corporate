@@ -148,7 +148,7 @@ export default function ContactForm() {
         <input
           type="submit"
           value="送信する"
-          className="border-none bg-gray-600 px-10 py-4 rounded cursor-pointer text-white"
+          className="px-8 py-4 rounded text-sm bg-indigo-900 text-white text-center cursor-pointer hover:opacity-80"
         />
       </div>
     </form>

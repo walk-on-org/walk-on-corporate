@@ -39,11 +39,18 @@ export default async function Page() {
     <div>
       <section className="mb-12">
         <Heading id="overview" title="会社概要" />
-        <ul>
-          {overview.map((row) => (
-            <li key={row.title} className="flex flex-col md:flex-row border-b py-4">
-              <p className="font-bold w-1/3">{row.title}</p>
-              <p>{row.description}</p>
+        <ul className="text-sm">
+          {overview.map((row, index) => (
+            <li
+              key={row.title}
+              className={`flex flex-col md:flex-row border ${
+                index < overview.length - 1 && 'border-b-0'
+              }`}
+            >
+              <p className="font-bold font-gothic w-full border-b md:border-b-0 md:border-r md:w-48 bg-gray-50 p-4">
+                {row.title}
+              </p>
+              <p className="flex-1 p-4">{row.description}</p>
             </li>
           ))}
         </ul>
@@ -58,14 +65,14 @@ export default async function Page() {
           height={133}
           priority
         />
-        <p className="text-center font-bold my-4">「意思を持った人を増やしたい」</p>
-        <p>
+        <p className="text-center font-bold font-gothic my-4">「意思を持った人を増やしたい」</p>
+        <p className="text-sm my-2 leading-6">
           当社は「意思を持った人を増やしたい」をミッションに掲げています。人生100年時代と呼ばれる昨今。選択肢は増え、多くの人は正解や先が見えない時代になっております。人生でのターニングポイントで就職、転職、結婚、子育て、起業など多くのターニングポイントがあります。
         </p>
-        <p>
+        <p className="text-sm my-2 leading-6">
           その”選択”は誰のものではなく、自分の人生の選択で何が正解か不正解という話ではありません。自分の人生において、１つ１つの選択において“意思を持った人を増やす”ことで自身の幸せを知り、居場所をしっかり認識し、生き生きと生きていける人が1人でも多く増やしたいと思い、創業いたしました。
         </p>
-        <p className="text-right my-2">代表取締役　小林理嗣</p>
+        <p className="text-right text-sm my-2">代表取締役　小林理嗣</p>
       </section>
     </div>
   );

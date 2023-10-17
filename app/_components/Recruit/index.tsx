@@ -1,6 +1,7 @@
 import { Recruit } from '@/app/_libs/microcms';
 import Image from 'next/image';
 import ButtonLink from '../ButtonLink';
+import Link from 'next/link';
 
 type Props = {
   data: Recruit;
@@ -59,36 +60,55 @@ export default function Recruit({ data }: Props) {
   ];
   return (
     <main>
-      <div className="flex items-center gap-4">
-        <Image
-          src="/logo.png"
-          alt="walk-on"
-          className="h-24 w-auto"
-          width={348}
-          height={133}
-          priority
-        />
-        <h1 className="text-2xl font-bold">{data.title}</h1>
+      <div className="flex flex-col-reverse mb-4 md:mb-0 md:flex-col">
+        <div className="flex flex-col gap-y-2 md:flex-row items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/logo.png"
+              alt="walk-on"
+              className="h-16 w-auto"
+              width={348}
+              height={133}
+              priority
+            />
+            <h1 className="md:text-xl font-bold font-gothic">{data.title}</h1>
+          </div>
+          <div className="w-full md:w-auto">
+            <Link
+              href={`/recruit/${data.id}/entry`}
+              className="px-8 py-4 block w-full rounded text-sm bg-indigo-900 text-white text-center cursor-pointer hover:opacity-80 md:w-36"
+            >
+              応募する
+            </Link>
+          </div>
+        </div>
+        {data.thumbnail && (
+          <Image
+            src={data.thumbnail?.url}
+            alt=""
+            className="w-full h-auto mb-8"
+            width={data.thumbnail?.width}
+            height={data.thumbnail?.height}
+          />
+        )}
       </div>
-      {data.thumbnail && (
-        <Image
-          src={data.thumbnail?.url}
-          alt=""
-          className="w-full h-auto mb-8"
-          width={data.thumbnail?.width}
-          height={data.thumbnail?.height}
-        />
-      )}
-      <p className="text-xl font-bold text-indigo-800 whitespace-pre-line mb-8">
+      <p className="font-bold font-gothic text-indigo-900 whitespace-pre-line mb-8">
         {data.catch_copy}
       </p>
       <p className="whitespace-pre-line mb-8">{data.recommend_point}</p>
-      <ButtonLink href={`/recruit/${data.id}/entry`}>応募する</ButtonLink>
-      <ul>
-        {jobInfo.map((row) => (
-          <li key={row.title} className="flex flex-col md:flex-row border-b py-4">
-            <p className="font-bold w-48">{row.title}</p>
-            <p className="flex-1 whitespace-pre-line">{row.content}</p>
+      <h2 className="font-bold font-gothic border-l-4 border-gray-400 pl-2 mb-2">応募概要</h2>
+      <ul className="text-sm">
+        {jobInfo.map((row, index) => (
+          <li
+            key={row.title}
+            className={`flex flex-col md:flex-row border ${
+              index < jobInfo.length - 1 && 'border-b-0'
+            }`}
+          >
+            <p className="font-bold font-gothic w-full border-b md:border-b-0 md:border-r md:w-48 bg-gray-50 p-4">
+              {row.title}
+            </p>
+            <p className="flex-1 whitespace-pre-line p-4">{row.content}</p>
           </li>
         ))}
       </ul>

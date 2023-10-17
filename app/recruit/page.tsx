@@ -10,7 +10,14 @@ export default async function Page() {
 
   return (
     <div>
-      <section>TODO：プレゼン埋め込み</section>
+      <section className="mb-24">
+        <iframe
+          src="https://docs.google.com/presentation/d/e/2PACX-1vSgFnSrkrWkc-NCY_vRqq3z7GVjSmVrCSClbzcG37oqtMgHHz7rnPpmXTtTSpHR97NDyixynh1nvaF7/embed?start=false&loop=false&delayms=3000"
+          width="960"
+          height="569"
+          className="w-full"
+        ></iframe>
+      </section>
       <section>
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
         <ul className="flex flex-col gap-4">
@@ -28,7 +35,9 @@ export default async function Page() {
                   height={job.thumbnail?.height}
                 />
                 <div className="flex-1 p-4">
-                  <h3 className="font-bold border-l-4 border-gray-800 pl-2 mb-2">{job.title}</h3>
+                  <h3 className="font-bold font-gothic border-l-4 border-gray-800 pl-2 mb-2">
+                    {job.title}
+                  </h3>
                   <p className="text-sm line-clamp-3">{job.job_description}</p>
                 </div>
               </Link>

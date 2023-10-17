@@ -27,7 +27,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <div className="mb-10 sm:text-center">
-        <h2 className="font-bold">{data.title}</h2>
+        <h2 className="font-bold font-gothic">{data.title}</h2>
         <p className="text-sm">株式会社walk-on</p>
       </div>
       <EntryForm job={data} />
