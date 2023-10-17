@@ -33,50 +33,52 @@ export default async function Page() {
 
   return (
     <div>
-      <section className="text-center mb-12">
+      <section className="text-center mb-24">
         <Heading id="mission" title="私たちのミッション" subTitle="Mission" />
-        <p className="text-2xl font-bold text-indigo-800">美に関わる「ヒト」の幸せに貢献する</p>
-        <div className="flex mt-4 flex-col gap-4 justify-between md:gap-8 md:flex-row">
-          <div>
-            <p className="text-lg font-bold">働く人</p>
+        <p className="text-2xl font-bold font-gothic text-indigo-800">
+          美に関わる「ヒト」の幸せに貢献する
+        </p>
+        <div className="flex mt-4 flex-col gap-12 justify-between md:gap-8 md:flex-row">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-lg font-bold font-gothic">働く人</p>
             <Image
-              className="w-full"
+              className="w-4/5"
               src="/image/about/mission-1.png"
               alt=""
               width={531}
               height={532}
             />
-            <p>
+            <p className="text-sm">
               サービスを提供する
               <br />
               理容師・美容師
             </p>
           </div>
-          <div>
-            <p className="text-lg font-bold">利用する人</p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-lg font-bold font-gothic">利用する人</p>
             <Image
-              className="w-full"
+              className="w-4/5"
               src="/image/about/mission-2.png"
               alt=""
               width={531}
               height={532}
             />
-            <p>
+            <p className="text-sm">
               美容・理容サービスを受ける
               <br />
               エンドユーザ
             </p>
           </div>
-          <div>
-            <p className="text-lg font-bold">企業</p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-lg font-bold font-gothic">企業</p>
             <Image
-              className="w-full"
+              className="w-4/5"
               src="/image/about/mission-3.png"
               alt=""
               width={531}
               height={532}
             />
-            <p>
+            <p className="text-sm">
               美容室・理容室などを
               <br />
               運営する事業者
@@ -87,12 +89,14 @@ export default async function Page() {
 
       <section className="text-center">
         <Heading id="value" title="行動指針" subTitle="Value" />
-        <p className="text-gray-500">ミッション実現のために社員に期待する姿</p>
-        <p className="text-2xl font-bold text-indigo-800">人や物事に向き合い、誠実で素直であれ！</p>
+        <p className="text-gray-500 text-sm">ミッション実現のために社員に期待する姿</p>
+        <p className="text-2xl font-bold font-gothic text-indigo-800">
+          人や物事に向き合い、誠実で素直であれ！
+        </p>
         {values.map((value) => (
           <div
             key={value.title}
-            className={`flex flex-col items-center my-4 ${
+            className={`flex flex-col items-center ${
               value.isReverse ? 'md:flex-row-reverse' : 'md:flex-row'
             }`}
           >

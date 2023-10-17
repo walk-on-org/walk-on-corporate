@@ -16,6 +16,9 @@ module.exports = {
         'top-cover-2': "url('/image/top/top-cover-2.jpeg')",
       },
     },
+    fontFamily: {
+      gothic: ['MS Ｐゴシック', 'MS PGothic', 'sans-serif'],
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
