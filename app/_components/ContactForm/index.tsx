@@ -61,7 +61,9 @@ export default function ContactForm() {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.name && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.name && 'border-red-400'
+          }`}
           type="text"
           id="name"
           {...register('name', {
@@ -81,7 +83,9 @@ export default function ContactForm() {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.company && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.company && 'border-red-400'
+          }`}
           type="text"
           id="company"
           {...register('company', {
@@ -101,7 +105,9 @@ export default function ContactForm() {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.email && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.email && 'border-red-400'
+          }`}
           type="email"
           id="email"
           {...register('email', {
@@ -125,7 +131,9 @@ export default function ContactForm() {
           </span>
         </div>
         <textarea
-          className={`border p-2 rounded w-full leading-6 ${errors.message && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.message && 'border-red-400'
+          }`}
           rows={6}
           id="message"
           {...register('message', {

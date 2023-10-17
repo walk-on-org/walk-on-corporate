@@ -70,9 +70,12 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.name && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.name && 'border-red-400'
+          }`}
           type="text"
           id="name"
+          placeholder="例）採用 太郎"
           {...register('name', {
             required: '入力してください。',
             maxLength: { value: 30, message: '30文字以内で入力してください。' },
@@ -90,9 +93,12 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.email && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.email && 'border-red-400'
+          }`}
           type="email"
           id="email"
+          placeholder="例）〇〇@〇〇.co.jp"
           {...register('email', {
             required: '入力してください。',
             maxLength: { value: 50, message: '50文字以内で入力してください。' },
@@ -114,11 +120,12 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
             errors.current_position && 'border-red-400'
           }`}
           type="text"
           id="current-position"
+          placeholder="例）株式会社walk-on"
           {...register('current_position', {
             maxLength: { value: 50, message: '50文字以内で入力してください。' },
           })}
@@ -137,9 +144,12 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.age && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.age && 'border-red-400'
+          }`}
           type="text"
           id="age"
+          placeholder="例）27"
           {...register('age', {
             required: '入力してください。',
             pattern: {
@@ -160,11 +170,12 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
             errors.final_education && 'border-red-400'
           }`}
           type="text"
           id="final-education"
+          placeholder="例）〇〇大学"
           {...register('final_education', {
             maxLength: { value: 50, message: '50文字以内で入力してください。' },
           })}
@@ -183,9 +194,12 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <input
-          className={`border p-2 rounded w-full leading-6 ${errors.tel && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-8 bg-gray-50 ${
+            errors.tel && 'border-red-400'
+          }`}
           type="tel"
           id="tel"
+          placeholder="例）090-1234-5678"
           {...register('tel', {
             required: '入力してください。',
             pattern: {
@@ -206,7 +220,9 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <textarea
-          className={`border p-2 rounded w-full leading-6 ${errors.career && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.career && 'border-red-400'
+          }`}
           rows={6}
           id="career"
           {...register('career', {
@@ -225,7 +241,9 @@ export default function EntryForm({ job }: Props) {
           </span>
         </div>
         <textarea
-          className={`border p-2 rounded w-full leading-6 ${errors.message && 'border-red-400'}`}
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.message && 'border-red-400'
+          }`}
           rows={6}
           id="message"
           {...register('message', {
