@@ -36,6 +36,16 @@ export type Recruit = {
   entry_process: string;
 };
 
+// 応募・問い合わせの型定義
+export type Contact = {
+  type: string;
+  name: string;
+  company: string;
+  tel: string;
+  email: string;
+  note: string;
+};
+
 export type Article = News & MicroCMSContentId & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
