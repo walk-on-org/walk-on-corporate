@@ -10,12 +10,13 @@ export default async function Page() {
 
   return (
     <div>
-      <section className="mb-24">
+      <section className="mb-24 relative w-full h-0 pt-[75%]">
         <iframe
           src="https://docs.google.com/presentation/d/e/2PACX-1vSgFnSrkrWkc-NCY_vRqq3z7GVjSmVrCSClbzcG37oqtMgHHz7rnPpmXTtTSpHR97NDyixynh1nvaF7/embed?start=false&loop=false&delayms=3000"
           width="960"
           height="569"
-          className="w-full"
+          allowFullScreen={true}
+          className="w-full h-full absolute top-0 left-0"
         ></iframe>
       </section>
       <section>
