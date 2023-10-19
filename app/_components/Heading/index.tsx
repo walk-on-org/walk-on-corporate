@@ -11,7 +11,9 @@ export default function Heading({ id, title, subTitle }: Props) {
         {title}
       </h2>
       {subTitle && (
-        <span className="text-orange-400 block text-sm font-bold pt-2 pb-4">{subTitle}</span>
+        <span className="text-orange-400 block text-sm font-ubuntu font-bold pt-2 pb-4">
+          {subTitle}
+        </span>
       )}
     </div>
   );

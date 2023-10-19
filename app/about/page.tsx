@@ -35,12 +35,15 @@ export default async function Page() {
     <div>
       <section className="text-center mb-24">
         <Heading id="mission" title="私たちのミッション" subTitle="Mission" />
-        <p className="text-2xl font-bold font-gothic text-indigo-800">
-          美に関わる「ヒト」の幸せに貢献する
+        <p className="text-2xl lg:text-4xl font-bold font-gothic text-center !leading-loose sm:!leading-relaxed">
+          <span className="text-orange-400">美に関わる</span>
+          <span className="bg-orange-400 text-white mx-2 py-4">「ヒト」</span>の幸せ
+          <br />
+          に貢献する。
         </p>
         <div className="flex mt-4 flex-col gap-12 justify-between md:gap-8 md:flex-row">
           <div className="flex flex-col items-center gap-2">
-            <p className="text-lg font-bold font-gothic">働く人</p>
+            <p className="text-lg font-bold font-gothic text-indigo-800">働く人</p>
             <Image
               className="w-4/5"
               src="/image/about/mission-1.png"
@@ -55,7 +58,7 @@ export default async function Page() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-lg font-bold font-gothic">利用する人</p>
+            <p className="text-lg font-bold font-gothic text-indigo-800">利用する人</p>
             <Image
               className="w-4/5"
               src="/image/about/mission-2.png"
@@ -70,7 +73,7 @@ export default async function Page() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-lg font-bold font-gothic">企業</p>
+            <p className="text-lg font-bold font-gothic text-indigo-800">企業</p>
             <Image
               className="w-4/5"
               src="/image/about/mission-3.png"
@@ -90,8 +93,10 @@ export default async function Page() {
       <section className="text-center">
         <Heading id="value" title="行動指針" subTitle="Value" />
         <p className="text-gray-500 text-sm">ミッション実現のために社員に期待する姿</p>
-        <p className="text-2xl font-bold font-gothic text-indigo-800">
-          人や物事に向き合い、誠実で素直であれ！
+        <p className="my-2 text-2xl lg:text-4xl font-bold font-gothic text-center !leading-loose sm:!leading-relaxed">
+          人や物事に向き合い、
+          <br />
+          <span className="bg-orange-400 text-white mx-2 px-2 py-4">誠実で素直で</span>であれ！
         </p>
         {values.map((value) => (
           <div
@@ -108,7 +113,7 @@ export default async function Page() {
               height={200}
             />
             <div className="flex flex-col justify-center items-center md:items-start">
-              <p className="text-xl font-bold mb-2">{value.title}</p>
+              <p className="text-xl font-ubuntu font-bold mb-2">{value.title}</p>
               <p className="pb-1 text-sm border-b border-gray-400">{value.description}</p>
             </div>
           </div>
