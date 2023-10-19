@@ -43,7 +43,7 @@ export default async function Page() {
         titleImageHeight={98}
         isReverse={false}
       >
-        <p className="text-2xl sm:text-4xl lg:text-6xl font-bold font-gothic text-center leading-loose sm:leading-relaxed">
+        <p className="text-2xl sm:text-4xl lg:text-6xl font-bold font-gothic text-center !leading-loose sm:!leading-relaxed">
           <span className="text-orange-400">美に関わる</span>
           <span className="bg-orange-400 text-white mx-2 py-4">「ヒト」</span>の幸せ
           <br />

@@ -8,6 +8,9 @@ import { Dialog } from '@headlessui/react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const updateMobileMenuOpen = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 bg-gray-600">
@@ -33,11 +36,11 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" />
           </button>
         </div>
-        <Menu className="hidden lg:flex lg:gap-x-12" />
+        <Menu className="hidden lg:flex lg:gap-x-12" toggleState={updateMobileMenuOpen} />
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50">
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black/50 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-600 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-end">
               <button
                 type="button"
@@ -49,7 +52,7 @@ export default function Header() {
             </div>
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
-                <Menu className="space-y-2 py-6" />
+                <Menu className="space-y-2 py-6" toggleState={updateMobileMenuOpen} />
               </div>
             </div>
           </Dialog.Panel>

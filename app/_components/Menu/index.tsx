@@ -1,13 +1,11 @@
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 type Props = {
   className: string;
+  toggleState: () => void;
 };
 
-export default function Menu({ className }: Props) {
-  const pathname = usePathname();
-  console.log(pathname);
+export default function Menu({ className, toggleState }: Props) {
   const menus = [
     {
       link: '/',
@@ -45,20 +43,22 @@ export default function Menu({ className }: Props) {
       sublabel: 'お問い合わせ',
     },
   ];
+  const handleClick = () => {
+    toggleState();
+  };
 
   return (
     <div className={className}>
       {menus.map((menu) => (
         <Link
           key={menu.link}
+          onClick={handleClick}
           href={menu.link}
           className={`flex flex-col items-center pb-2 text-white relative hover:text-orange-300
-            after:content-[''] after:absolute after:w-full after:border-b-2 after:border-gray-600 after:hover:border-orange-300 after:bottom-0 ${
-              pathname.startsWith(menu.link) && 'text-orange-300'
-            }`}
+            after:content-[''] after:absolute after:w-full after:border-b-2 after:border-gray-600 after:hover:border-orange-300 after:bottom-0`}
         >
-          <span className="text-sm font-bold">{menu.label}</span>
-          <span className="text-xs">{menu.sublabel}</span>
+          <span className="text-sm font-ubuntu font-bold">{menu.label}</span>
+          <span className="text-xs font-gothic">{menu.sublabel}</span>
         </Link>
       ))}
     </div>

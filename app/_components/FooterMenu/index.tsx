@@ -72,7 +72,7 @@ export default function FooterMenu() {
         <li key={menu.link} className="flex flex-col items-center w-1/2 md:w-auto md:items-start">
           <Link
             href={menu.link}
-            className="font-bold border-b border-black hover:border-orange-300 hover:text-orange-300"
+            className="font-bold border-b border-gray-800 hover:border-orange-300 hover:text-orange-300"
           >
             {menu.label}
           </Link>
