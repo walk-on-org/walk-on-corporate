@@ -18,6 +18,7 @@ module.exports = {
     },
     fontFamily: {
       gothic: ['MS Ｐゴシック', 'MS PGothic', 'sans-serif'],
+      ubuntu: ['Ubuntu', 'sans-serif'],
     },
   },
   plugins: [

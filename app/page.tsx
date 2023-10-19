@@ -4,6 +4,7 @@ import { TOP_NEWS_LIMIT } from '@/app/_constants';
 import NewsList from '@/app/_components/NewsList';
 import ButtonLink from '@/app/_components/ButtonLink';
 import TopHero from './_components/TopHero';
+import Link from 'next/link';
 
 export const revalidate = 60;
 
@@ -11,6 +12,18 @@ export default async function Page() {
   const data = await getNewsList({
     limit: TOP_NEWS_LIMIT,
   });
+  const companyLinks = [
+    {
+      title: 'Company',
+      subTitle: '会社概要',
+      link: '/company',
+    },
+    {
+      title: 'Recruit',
+      subTitle: '採用情報',
+      link: '/recruit',
+    },
+  ];
   return (
     <>
       <section>
@@ -23,59 +36,75 @@ export default async function Page() {
         />
       </section>
 
-      <section className="bg-[#fcd8b1] flex h-[480px]">
-        <div className="w-1/2 flex flex-row-reverse relative text-white bg-black/40">
-          <h2 className="horizontal-tb md:vertical-rl">美に関わる「ヒト」の幸せに貢献する。</h2>
-          <div>
-            <p>
-              サロンとサロンで働く人々、美容サービスを利用する全ての方の幸せに貢献する会社を目指しております。
-            </p>
-            <ButtonLink href="/about">詳細を見る</ButtonLink>
-          </div>
-        </div>
-        <div className="relative">
-          <Image
-            className="w-full"
-            src="/image/top/mission.png"
-            alt="mission"
-            width={471}
-            height={104}
-          />
-        </div>
-      </section>
-
       <TopHero
-        title="美に関わる「ヒト」の幸せに貢献する。"
-        bgImage="bg-top-cover-1"
+        title="ミッション"
+        titleImage="/image/top/mission.png"
+        titleImageWidth={816}
+        titleImageHeight={98}
         isReverse={false}
       >
-        <p>
+        <p className="text-2xl sm:text-4xl lg:text-6xl font-bold font-gothic text-center leading-loose sm:leading-relaxed">
+          <span className="text-orange-400">美に関わる</span>
+          <span className="bg-orange-400 text-white mx-2 py-4">「ヒト」</span>の幸せ
+          <br />
+          に貢献する。
+        </p>
+        <p className="text-sm">
           サロンとサロンで働く人々、美容サービスを利用する全ての方の幸せに貢献する会社を目指しております。
         </p>
         <ButtonLink href="/about">詳細を見る</ButtonLink>
       </TopHero>
 
-      <TopHero title="お知らせ" bgImage="bg-top-cover-2" isReverse={true}>
+      <TopHero
+        title="お知らせ"
+        titleImage="/image/top/news.png"
+        titleImageWidth={490}
+        titleImageHeight={98}
+        isReverse={true}
+      >
         <NewsList articles={data.contents} />
         <ButtonLink href="/news">過去のニュースを見る</ButtonLink>
       </TopHero>
-      <TopHero title="当社の事業" bgImage="bg-top-cover-1" isReverse={false}>
-        <p>
+
+      <TopHero
+        title="当社の事業"
+        titleImage="/image/top/service.png"
+        titleImageWidth={797}
+        titleImageHeight={98}
+        isReverse={false}
+      >
+        <p className="text-sm">
           当社は、ミッション実現のため事業領域をビジョンに合わせて設定し、それぞれの領域に対してサービス展開をしています。
         </p>
         <ButtonLink href="/service">詳細を見る</ButtonLink>
       </TopHero>
 
-      <section className="flex flex-col-reverse bg-top-cover-2 h-64 md:flex-row-reverse">
-        <div className="w-full flex flex-col items-center py-4 text-white md:flex-row md:w-1/2">
-          <h2 className="horizontal-tb text-3xl mb-6 mx-12 md:vertical-rl">会社概要</h2>
-          <div className="flex flex-col justify-center items-center w-64">
-            <p>当社の会社情報をご紹介いたします。</p>
-            <ButtonLink href="/company">詳細を見る</ButtonLink>
-          </div>
-        </div>
-        <div className="w-full flex justify-center md:w-1/2"></div>
-      </section>
+      <TopHero
+        title="企業情報"
+        titleImage="/image/top/company.png"
+        titleImageWidth={869}
+        titleImageHeight={98}
+        isReverse={true}
+      >
+        <ul className="flex flex-col sm:flex-row gap-10 w-full p-10 bg-top-cover-1">
+          {companyLinks.map((row) => (
+            <li
+              key={row.title}
+              className="rounded shadow-xl w-full sm:w-[calc(50%_-_20px)] h-48 bg-white"
+            >
+              <Link
+                href={row.link}
+                className="flex flex-col h-full justify-center gap-4 pl-4 relative hover:opacity-80
+                  before:content-[''] before:absolute before:w-4 before:h-4 before:border-t before:border-gray-800 before:bottom-4 before:right-5 before:rotate-45
+                  after:content-[''] after:absolute after:w-12 after:h-[1px] after:bg-gray-800 after:bottom-6 after:right-4"
+              >
+                <span className="font-ubuntu text-3xl">{row.title}</span>
+                <span className="text-sm">{row.subTitle}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </TopHero>
     </>
   );
 }

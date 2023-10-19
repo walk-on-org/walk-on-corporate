@@ -1,28 +1,40 @@
-import ButtonLink from '../ButtonLink';
+import Image from 'next/image';
 
 type Props = {
   title: string;
+  titleImage: string;
+  titleImageWidth: number;
+  titleImageHeight: number;
   children: React.ReactNode;
-  bgImage: string;
   isReverse: Boolean;
 };
 
-export default function TopHero({ title, children, bgImage, isReverse }: Props) {
+export default function TopHero({
+  title,
+  titleImage,
+  titleImageWidth,
+  titleImageHeight,
+  children,
+  isReverse,
+}: Props) {
   return (
     <section
-      className={`flex flex-col-reverse h-[480px] ${
-        isReverse ? 'md:flex-row-reverse' : 'md:flex-row'
-      } ${bgImage}`}
+      className="w-[calc(100%_-_32px)] sm:w-[calc(100%_-_80px)] lg:w-[840px]
+        mx-auto my-24 flex flex-col gap-16 px-4 sm:px-10"
     >
-      <div
-        className={`w-full flex flex-col items-center py-4 bg-black/40 text-white ${
-          isReverse ? 'md:flex-row' : 'md:flex-row-reverse'
-        } md:w-1/2`}
-      >
-        <h2 className="horizontal-tb text-3xl mb-6 mx-12 md:vertical-rl">{title}</h2>
-        <div className="flex flex-col justify-center items-center w-64">{children}</div>
+      <div className={`relative border-b py-2 w-full flex ${isReverse && 'flex-row-reverse'}`}>
+        <h2 className="font-bold font-gothic text-xl sm:text-2xl absolute bottom-4 text-indigo-950">
+          {title}
+        </h2>
+        <Image
+          className="w-full sm:w-[500px]"
+          src={titleImage}
+          alt={title}
+          width={titleImageWidth}
+          height={titleImageHeight}
+        />
       </div>
-      <div className="w-full flex justify-center md:w-1/2"></div>
+      <div className="flex flex-col gap-4 items-center">{children}</div>
     </section>
   );
 }
