@@ -26,6 +26,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         type: [type],
+        status: ['未対応'],
         name: name,
         company: company,
         tel: tel,

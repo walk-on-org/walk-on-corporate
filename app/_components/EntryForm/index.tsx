@@ -43,7 +43,11 @@ export default function EntryForm({ job }: Props) {
         job: job.id,
         name: data.name,
         email: data.email,
+        current_position: data.current_position,
+        age: data.age,
+        final_education: data.final_education,
         tel: data.tel,
+        career: data.career,
         note: data.message,
       }),
     }).then((res) => res.json());
