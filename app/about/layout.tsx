@@ -2,7 +2,7 @@ import Hero from '@/app/_components/Hero';
 import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
-  title: '私たちについて - 株式会社walk-on',
+  title: '私たちについて｜株式会社walk-on',
 };
 
 type Props = {

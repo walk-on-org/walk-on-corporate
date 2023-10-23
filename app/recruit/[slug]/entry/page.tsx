@@ -12,10 +12,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getRecruitDetail(params.slug);
 
   return {
-    title: '応募フォーム｜' + data.title + ' - 株式会社walk-on',
+    title: `応募フォーム - ${data.title}｜株式会社walk-on`,
     description: '応募フォーム。' + data.job_description,
     openGraph: {
-      title: '応募フォーム｜' + data.title + ' - 株式会社walk-on',
+      title: `応募フォーム - ${data.title}｜株式会社walk-on`,
       description: data.job_description,
       images: [data?.thumbnail?.url || ''],
     },

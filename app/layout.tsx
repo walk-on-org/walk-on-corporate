@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Script from 'next/script';
 import Footer from '@/app/_components/Footer';
 import Header from '@/app/_components/Header';
 import './globals.css';
@@ -9,12 +8,14 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
-    title: '株式会社walk-on - 美に関わる「ヒト」の幸せに貢献する  ',
-    description: 'TODO:description',
+    title: '株式会社walk-on｜美に関わる「ヒト」の幸せに貢献する  ',
+    description:
+      '美理容に専門特化した求人サイトHAIR WORKSを運営する株式会社walk-onのコーポレートサイトです。',
     openGraph: {
-      title: '株式会社walk-on - 美に関わる「ヒト」の幸せに貢献する',
-      description: 'TODO:description',
-      images: [''],
+      title: '株式会社walk-on｜美に関わる「ヒト」の幸せに貢献する',
+      description:
+        '美理容に専門特化した求人サイトHAIR WORKSを運営する株式会社walk-onのコーポレートサイトです。',
+      images: ['/ogp.jpeg'],
     },
     alternates: {
       canonical: 'https://walk-on.co.jp/',
