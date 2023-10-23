@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -145,6 +146,12 @@ export default function ContactForm() {
       </div>
       <div className="text-center mt-10">
         <p className="text-red-400 text-sm mb-2">{error}</p>
+        <p className="text-sm mb-4">
+          <Link href={`/privacy-policy`} className="text-indigo-400 underline" target="_blank">
+            個人情報保護方針
+          </Link>
+          に同意して
+        </p>
         <input
           type="submit"
           value="送信する"

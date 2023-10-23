@@ -62,7 +62,12 @@ export default function FooterMenu() {
     {
       link: '/contact',
       label: 'お問い合わせ',
-      sub_menus: [],
+      sub_menus: [
+        {
+          link: '/privacy-policy',
+          label: '個人情報保護方針',
+        },
+      ],
     },
   ];
 
