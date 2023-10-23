@@ -1,4 +1,5 @@
 'use client';
+import Loading from '@/app/loading';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -21,7 +22,9 @@ export default function ContactForm() {
 
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string>();
+  const [loading, setLoading] = useState<boolean>(false);
   const onSubmit = async (data: FormData) => {
+    setLoading(true);
     const res = await fetch('/api/submit-contact', {
       method: 'POST',
       headers: {
@@ -40,6 +43,7 @@ export default function ContactForm() {
     } else {
       setSuccess(true);
     }
+    setLoading(false);
   };
   if (success) {
     return (
@@ -152,11 +156,15 @@ export default function ContactForm() {
           </Link>
           に同意して
         </p>
-        <input
-          type="submit"
-          value="送信する"
-          className="px-8 py-4 rounded text-sm bg-indigo-900 text-white text-center cursor-pointer hover:opacity-80"
-        />
+        {loading ? (
+          <Loading />
+        ) : (
+          <input
+            type="submit"
+            value="送信する"
+            className="px-8 py-4 rounded text-sm bg-indigo-900 text-white text-center cursor-pointer hover:opacity-80"
+          />
+        )}
       </div>
     </form>
   );
