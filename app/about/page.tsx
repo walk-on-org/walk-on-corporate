@@ -36,14 +36,14 @@ export default async function Page() {
       <section className="text-center mb-24">
         <Heading id="mission" title="私たちのミッション" subTitle="Mission" />
         <p className="text-2xl lg:text-4xl font-bold font-gothic text-center !leading-loose sm:!leading-relaxed">
-          <span className="text-orange-400">美に関わる</span>
-          <span className="bg-orange-400 text-white mx-2 py-4">「ヒト」</span>の幸せ
+          <span className="text-primary">美に関わる</span>
+          <span className="bg-primary text-white mx-2 py-4">「ヒト」</span>の幸せ
           <br />
           に貢献する。
         </p>
         <div className="flex mt-4 flex-col gap-12 justify-between md:gap-8 md:flex-row">
           <div className="flex flex-col items-center gap-2">
-            <p className="text-lg font-bold font-gothic text-indigo-800">働く人</p>
+            <p className="text-lg font-bold font-gothic text-secondary">働く人</p>
             <Image
               className="w-4/5"
               src="/image/about/mission-1.png"
@@ -58,7 +58,7 @@ export default async function Page() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-lg font-bold font-gothic text-indigo-800">利用する人</p>
+            <p className="text-lg font-bold font-gothic text-secondary">利用する人</p>
             <Image
               className="w-4/5"
               src="/image/about/mission-2.png"
@@ -73,7 +73,7 @@ export default async function Page() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-lg font-bold font-gothic text-indigo-800">企業</p>
+            <p className="text-lg font-bold font-gothic text-secondary">企業</p>
             <Image
               className="w-4/5"
               src="/image/about/mission-3.png"
@@ -96,7 +96,7 @@ export default async function Page() {
         <p className="my-2 text-2xl lg:text-4xl font-bold font-gothic text-center !leading-loose sm:!leading-relaxed">
           人や物事に向き合い、
           <br />
-          <span className="bg-orange-400 text-white mx-2 px-2 py-4">誠実で素直で</span>であれ！
+          <span className="bg-primary text-white mx-2 px-2 py-4">誠実で素直で</span>であれ！
         </p>
         {values.map((value) => (
           <div

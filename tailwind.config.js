@@ -15,6 +15,10 @@ module.exports = {
         'top-cover-1': "url('/image/top/top-cover-1.jpeg')",
         'top-cover-2': "url('/image/top/top-cover-2.jpeg')",
       },
+      colors: {
+        primary: '#00acc3',
+        secondary: '#bb92e2',
+      },
     },
     fontFamily: {
       gothic: ['MS Ｐゴシック', 'MS PGothic', 'sans-serif'],

@@ -76,7 +76,7 @@ export default function Recruit({ data }: Props) {
           <div className="w-full md:w-auto">
             <Link
               href={`/recruit/${data.id}/entry`}
-              className="px-8 py-4 block w-full rounded text-sm bg-indigo-900 text-white text-center cursor-pointer hover:opacity-80 md:w-36"
+              className="px-8 py-4 block w-full rounded text-sm bg-secondary text-white text-center cursor-pointer hover:opacity-80 md:w-36"
             >
               応募する
             </Link>
@@ -92,7 +92,7 @@ export default function Recruit({ data }: Props) {
           />
         )}
       </div>
-      <p className="font-bold font-gothic text-indigo-900 whitespace-pre-line mb-8">
+      <p className="font-bold font-gothic text-primary whitespace-pre-line mb-8">
         {data.catch_copy}
       </p>
       <p className="whitespace-pre-line mb-8">{data.recommend_point}</p>

@@ -54,8 +54,8 @@ export default function Menu({ className, toggleState }: Props) {
           key={menu.link}
           onClick={handleClick}
           href={menu.link}
-          className={`flex flex-col items-center pb-2 text-white relative hover:text-orange-300
-            after:content-[''] after:absolute after:w-full after:border-b-2 after:border-gray-600 after:hover:border-orange-300 after:bottom-0`}
+          className={`flex flex-col items-center pb-2 text-white relative hover:text-primary
+            after:content-[''] after:absolute after:w-full after:border-b-2 after:border-gray-900 after:hover:border-primary after:bottom-0`}
         >
           <span className="text-sm font-ubuntu font-bold">{menu.label}</span>
           <span className="text-xs font-gothic">{menu.sublabel}</span>

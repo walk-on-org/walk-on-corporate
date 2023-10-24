@@ -77,7 +77,7 @@ export default function FooterMenu() {
         <li key={menu.link} className="flex flex-col items-center w-1/2 md:w-auto md:items-start">
           <Link
             href={menu.link}
-            className="font-bold border-b border-gray-800 hover:border-orange-300 hover:text-orange-300"
+            className="font-bold border-b border-gray-800 hover:border-primary hover:text-primary"
           >
             {menu.label}
           </Link>
@@ -85,7 +85,7 @@ export default function FooterMenu() {
             <ul className="flex flex-col gap-2 items-center mt-2 md:items-start">
               {menu.sub_menus.map((sub_menu) => (
                 <li key={sub_menu.link}>
-                  <Link href={sub_menu.link} className="text-xs hover:text-orange-300">
+                  <Link href={sub_menu.link} className="text-xs hover:text-primary">
                     {sub_menu.label}
                   </Link>
                 </li>

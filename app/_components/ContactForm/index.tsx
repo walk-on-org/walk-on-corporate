@@ -151,7 +151,7 @@ export default function ContactForm() {
       <div className="text-center mt-10">
         <p className="text-red-400 text-sm mb-2">{error}</p>
         <p className="text-sm mb-4">
-          <Link href={`/privacy-policy`} className="text-indigo-400 underline" target="_blank">
+          <Link href={`/privacy-policy`} className="text-secondary underline" target="_blank">
             個人情報保護方針
           </Link>
           に同意して
@@ -162,7 +162,7 @@ export default function ContactForm() {
           <input
             type="submit"
             value="送信する"
-            className="px-8 py-4 rounded text-sm bg-indigo-900 text-white text-center cursor-pointer hover:opacity-80"
+            className="px-8 py-4 rounded text-sm bg-secondary text-white text-center cursor-pointer hover:opacity-80"
           />
         )}
       </div>
