@@ -1,7 +1,13 @@
 User-agent: *
-Disallow: /recruit/*/entry
-Disallow: /.0000/
-Disallow: /wp-admin/
-Disallow: /*.php
+Disallow: /
+Allow: /news
+Allow: /news/
+Allow: /about
+Allow: /service
+Allow: /company
+Allow: /recruit
+Allow: /recruit/
+Allow: /contact
+Allow: /sitemap.xml
 
 Sitemap: https://walk-on.co.jp/sitemap.xml
