@@ -6,7 +6,7 @@ import ButtonLink from '@/app/_components/ButtonLink';
 import TopHero from './_components/TopHero';
 import Link from 'next/link';
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export default async function Page() {
   const data = await getNewsList({
