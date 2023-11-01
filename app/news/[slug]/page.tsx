@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getNewsDetail } from '@/app/_libs/microcms';
+import { getNewsDetail, getNewsList } from '@/app/_libs/microcms';
 import Article from '@/app/_components/Article';
 import ButtonLink from '@/app/_components/ButtonLink';
 
@@ -13,6 +13,13 @@ type Props = {
 };
 
 export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const data = await getNewsList({});
+  return data.contents.map((row) => ({
+    slug: row.id,
+  }));
+}
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const data = await getNewsDetail(params.slug, {

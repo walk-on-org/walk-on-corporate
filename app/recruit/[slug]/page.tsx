@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import ButtonLink from '@/app/_components/ButtonLink';
 import Recruit from '@/app/_components/Recruit';
-import { getRecruitDetail } from '@/app/_libs/microcms';
+import { getRecruitDetail, getRecuritList } from '@/app/_libs/microcms';
 
 type Props = {
   params: {
@@ -13,6 +13,13 @@ type Props = {
 };
 
 export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const data = await getRecuritList({});
+  return data.contents.map((row) => ({
+    slug: row.id,
+  }));
+}
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const data = await getRecruitDetail(params.slug, {

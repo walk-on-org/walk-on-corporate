@@ -1,5 +1,5 @@
 import EntryForm from '@/app/_components/EntryForm';
-import { getRecruitDetail } from '@/app/_libs/microcms';
+import { getRecruitDetail, getRecuritList } from '@/app/_libs/microcms';
 import { Metadata } from 'next';
 
 type Props = {
@@ -7,6 +7,13 @@ type Props = {
     slug: string;
   };
 };
+
+export async function generateStaticParams() {
+  const data = await getRecuritList({});
+  return data.contents.map((row) => ({
+    slug: row.id,
+  }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getRecruitDetail(params.slug);
