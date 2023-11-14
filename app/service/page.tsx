@@ -18,7 +18,7 @@ export default async function Page() {
       head: '美容師・理容師の転職に特化した転職支援サービス\nヘアワークスエージェント。',
       body: '美容師・理容師を希望して転職活動をしている方向けのサービス\n対応エリアは関東（1都3県）を中心に展開中（2023年10月時点）',
       link: 'https://hairworksagent.jp/',
-      image: '/image/service/hairworksagent.png',
+      image: '/image/service/hair_works_AGENT_logo.png',
     },
   ];
   return (
