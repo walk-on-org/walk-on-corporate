@@ -26,13 +26,20 @@ export default async function Page() {
   ];
   return (
     <>
-      <section>
+      <section className="relative bg-black">
         <Image
-          className="w-full h-screen object-cover"
+          className="w-full h-screen object-cover opacity-60"
           src="/image/top/top-cover.jpeg"
           alt=""
           width={2560}
           height={1707}
+        />
+        <Image
+          className="absolute inset-0 m-auto w-4/5 max-w-sm"
+          src="/image/top/top-cover-text.png"
+          alt=""
+          width={459}
+          height={129}
         />
       </section>
 
