@@ -12,7 +12,7 @@ export default function ButtonLink({ href, children, isExternal = false }: Props
     return (
       <a
         href={href}
-        className="flex px-6 py-4 w-fit rounded text-sm bg-primary text-white items-center hover:opacity-40"
+        className="flex px-6 py-4 w-fit font-bold rounded text-sm bg-primary text-white items-center duration-500 border border-primary hover:bg-white hover:text-primary"
         target="_blank"
         rel="noopener"
       >
@@ -24,7 +24,7 @@ export default function ButtonLink({ href, children, isExternal = false }: Props
   return (
     <Link
       href={href}
-      className="flex px-6 py-3 w-fit rounded text-sm bg-primary text-white items-center hover:opacity-80"
+      className="flex px-6 py-3 w-fit font-bold rounded text-sm bg-primary text-white items-center duration-500 border border-primary hover:bg-white hover:text-primary"
     >
       <ArrowLongRightIcon className="w-6 h-6 mr-4" />
       {children}

@@ -11,6 +11,7 @@ export default async function Page() {
       head: '美理容業界に特化した\n求人サイトヘアワークス。',
       body: '業界最大級の美容師・理容師専門の求人・転職・募集サイト。\n対応エリアは日本全国展開中、求人数11,500件以上（2023年10月時点）',
       link: 'https://hair-work.jp/',
+      linktext: 'サービスサイトへ',
       image: '/image/service/hairworks-300x150.png',
     },
     {
@@ -18,7 +19,16 @@ export default async function Page() {
       head: '美容師・理容師の転職に特化した転職支援サービス\nヘアワークスエージェント。',
       body: '美容師・理容師を希望して転職活動をしている方向けのサービス\n対応エリアは関東（1都3県）を中心に展開中（2023年10月時点）',
       link: 'https://hairworksagent.jp/',
+      linktext: 'サービスサイトへ',
       image: '/image/service/hair_works_AGENT_logo.png',
+    },
+    {
+      name: 'ヘアワークスプラス／HairWorksPLUS',
+      head: '「採用代行ならヘアワークスプラス」へお任せ!',
+      body: '「採用に時間を避けない」「短期的に助けて欲しい」など、採用活動における課題を解消するために生まれたサービス\n理・美容師向け専門求人サイト【HAIRWORKS】を運営している弊社だからこそ出来る採用サポート',
+      link: 'https://walk-on.co.jp/news/8cjsasdvfuud',
+      linktext: 'プレスリリースへ',
+      image: '/image/service/PLUS_logo.png',
     },
   ];
   return (
@@ -33,15 +43,17 @@ export default async function Page() {
                 alt=""
                 width={300}
                 height={150}
-                className="w-60 h-auto rounded object-contain mx-auto"
+                className="w-60 min-w-60 h-auto rounded object-contain mx-auto"
               />
               <div className="flex flex-col gap-2">
                 <p className="text-sm font-bold border-b">{business.name}</p>
                 <p className="font-bold whitespace-pre-line">{business.head}</p>
                 <p className="text-sm text-gray-500 whitespace-pre-line">{business.body}</p>
-                <ButtonLink href={business.link} isExternal>
-                  サービスサイトへ
-                </ButtonLink>
+                {business.link && (
+                  <ButtonLink href={business.link} isExternal>
+                    {business.linktext}
+                  </ButtonLink>
+                )}
               </div>
             </li>
           ))}

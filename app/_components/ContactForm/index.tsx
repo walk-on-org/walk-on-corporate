@@ -162,7 +162,7 @@ export default function ContactForm() {
           <input
             type="submit"
             value="送信する"
-            className="px-8 py-4 rounded text-sm bg-secondary text-white text-center cursor-pointer hover:opacity-80"
+            className="px-8 py-4 rounded text-sm bg-secondary text-white border border-secondary text-center cursor-pointer duration-500 hover:bg-white hover:text-secondary"
           />
         )}
       </div>

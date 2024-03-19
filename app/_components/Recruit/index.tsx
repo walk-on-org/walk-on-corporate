@@ -76,7 +76,7 @@ export default function Recruit({ data }: Props) {
           <div className="w-full md:w-auto">
             <Link
               href={`/recruit/${data.id}/entry`}
-              className="px-8 py-4 block w-full rounded text-sm bg-secondary text-white text-center cursor-pointer hover:opacity-80 md:w-36"
+              className="px-8 py-4 block w-full rounded text-sm bg-secondary text-white border border-secondary text-center cursor-pointer duration-500 hover:bg-white hover:text-secondary md:w-36"
             >
               応募する
             </Link>
