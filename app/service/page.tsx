@@ -30,6 +30,14 @@ export default async function Page() {
       linktext: 'プレスリリースへ',
       image: '/image/service/PLUS_logo.png',
     },
+    {
+      name: 'ヘアワークスフェスタ／HairWorksFesta',
+      head: '理美容師向けの就職フェア',
+      body: '理美容業界従事者のための合同就職説明会\n「求職者と直接話したい」「スピード感のある採用を実現したい」「採用の費用対効果を上げたい」をヘアワークスフェスタで解決',
+      link: 'https://walk-on.co.jp/news/44qixi5dk',
+      linktext: 'プレスリリースへ',
+      image: '/image/service/Festa_logo_2024_05_08.jpg',
+    },
   ];
   return (
     <div>
