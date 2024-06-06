@@ -23,7 +23,7 @@ export default async function Page() {
     },
     {
       title: '従業員数',
-      description: '10人 ※2023年10月01日時点（非正規含む）',
+      description: '15人 ※2024年06月01日時点（非正規含む）',
     },
     {
       title: '資本金',
