@@ -3,6 +3,9 @@ import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
   title: '個人情報保護方針｜株式会社walk-on',
+  alternates: {
+    canonical: 'https://walk-on.co.jp/privacy-policy',
+  },
 };
 
 type Props = {

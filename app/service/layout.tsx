@@ -3,6 +3,9 @@ import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
   title: '事業内容｜株式会社walk-on',
+  alternates: {
+    canonical: 'https://walk-on.co.jp/service',
+  },
 };
 
 type Props = {

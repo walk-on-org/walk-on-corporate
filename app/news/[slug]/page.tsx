@@ -34,6 +34,9 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
       description: data.description,
       images: [data?.thumbnail?.url || ''],
     },
+    alternates: {
+      canonical: `https://walk-on.co.jp/news/${data.id}`,
+    },
   };
 }
 
