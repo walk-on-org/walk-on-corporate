@@ -1,12 +1,13 @@
 User-agent: *
-Disallow: /
+Disallow: /1*
+Disallow: /9*
 Allow: /news
-Allow: /news/
+Allow: /news/*
 Allow: /about
 Allow: /service
 Allow: /company
 Allow: /recruit
-Allow: /recruit/
+Allow: /recruit/*
 Allow: /contact
 Allow: /sitemap.xml
 
