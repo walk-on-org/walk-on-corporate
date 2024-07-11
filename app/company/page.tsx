@@ -76,7 +76,7 @@ export default async function Page() {
           <p className="text-sm my-2">代表取締役　小林理嗣</p>
           <Link
             href="https://x.com/MJmallet"
-            className="w-10 h-10 flex items-center justify-center group"
+            className="w-10 h-10 flex items-center justify-center group border rounded-full shadow-xl"
             target="_blank"
           >
             <Image
