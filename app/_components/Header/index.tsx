@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog } from '@headlessui/react';
+import OfficalSnsIcon from '@/app/_components/OfficalSnsIcon';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,10 +51,13 @@ export default function Header() {
                 <XMarkIcon className="h-6 w-6" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
+            <div className="my-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <Menu className="space-y-2 py-6" toggleState={updateMobileMenuOpen} />
               </div>
+            </div>
+            <div className="my-6 border-t border-white">
+              <OfficalSnsIcon />
             </div>
           </Dialog.Panel>
         </div>

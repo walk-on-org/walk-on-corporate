@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import FooterMenu from '../FooterMenu';
+import OfficalSnsIcon from '@/app/_components/OfficalSnsIcon';
 
 export default function Footer() {
   return (
     <footer className="bg-gray-800 pt-8 px-6 pb-4 text-white text-center text-sm">
       <nav className="flex flex-col justify-center md:flex-row">
-        <div className="w-full md:w-72">
+        <div className="w-full md:w-64">
           <Link href="/" className="-m-1.5 p-1.5">
             <Image
               src="/logo-white.png"
@@ -19,8 +20,9 @@ export default function Footer() {
           </Link>
         </div>
         <FooterMenu />
+        <OfficalSnsIcon />
       </nav>
-      <p className="font-ubuntu mt-4">© walk-on. All Rights Reserved</p>
+      <p className="font-ubuntu mt-8">© walk-on. All Rights Reserved</p>
     </footer>
   );
 }

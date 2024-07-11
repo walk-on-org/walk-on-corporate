@@ -72,9 +72,9 @@ export default function FooterMenu() {
   ];
 
   return (
-    <ul className="flex flex-row flex-wrap items-start gap-y-6 mb-6 md:mb-0 md:gap-10">
+    <ul className="flex flex-row flex-wrap items-start gap-y-6 mb-6 w-full md:w-[520px] md:mb-0 md:gap-8">
       {menus.map((menu) => (
-        <li key={menu.link} className="flex flex-col items-center w-1/2 md:w-auto md:items-start">
+        <li key={menu.link} className="flex flex-col items-center w-1/2 md:w-32 md:items-start">
           <Link
             href={menu.link}
             className="font-bold border-b border-gray-800 hover:border-primary hover:text-primary"
