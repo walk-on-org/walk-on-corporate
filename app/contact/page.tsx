@@ -8,7 +8,8 @@ export default function Page() {
         <br />
         内容確認後、担当者より通常3営業日以内にご連絡いたします。
         <br />
-        ※営業目的のお問い合わせはご遠慮ください。
+        <br />
+        <span className="text-red-400">※営業目的のお問い合わせはご遠慮ください。</span>
       </p>
       <ContactForm />
     </div>
