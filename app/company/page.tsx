@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Heading from '../_components/Heading';
+import Link from 'next/link';
 
 export const revalidate = 60;
 
@@ -71,7 +72,22 @@ export default async function Page() {
         <p className="text-sm my-2 leading-6">
           その”選択”は誰のものではなく、自分の人生の選択で何が正解か不正解という話ではありません。自分の人生において、１つ１つの選択において“意思を持った人を増やす”ことで自身の幸せを知り、居場所をしっかり認識し、生き生きと生きていける人が1人でも多く増やしたいと思い、創業いたしました。
         </p>
-        <p className="text-right text-sm my-2">代表取締役　小林理嗣</p>
+        <div className="flex flex-col items-end">
+          <p className="text-sm my-2">代表取締役　小林理嗣</p>
+          <Link
+            href="https://x.com/MJmallet"
+            className="w-10 h-10 flex items-center justify-center group"
+            target="_blank"
+          >
+            <Image
+              src="/icon/x/logo-black.png"
+              alt="x"
+              width={18}
+              height={18}
+              className="group-hover:transform group-hover:duration-500 group-hover:scale-125"
+            />
+          </Link>
+        </div>
       </section>
     </div>
   );
