@@ -19,6 +19,24 @@ export default async function Page() {
           className="w-full h-full absolute top-0 left-0"
         ></iframe>
       </section>
+      <section className="mb-24 flex flex-col items-center gap-2">
+        <span className="font-bold text-sm md:text-base">
+          <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
+        </span>
+        <Link
+          href="https://www.wantedly.com/companies/company_3569336"
+          className="border rounded-md inline-block shadow-xl group px-2"
+          target="_blank"
+        >
+          <Image
+            src="/icon/wantedly/wantedlyLogoLightBG.png"
+            alt="wantedly"
+            width={480}
+            height={100}
+            className="group-hover:transform group-hover:duration-500 group-hover:scale-110"
+          />
+        </Link>
+      </section>
       <section>
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
         <ul className="flex flex-col gap-4">
