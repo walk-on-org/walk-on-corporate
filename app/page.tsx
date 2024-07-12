@@ -5,6 +5,7 @@ import NewsList from '@/app/_components/NewsList';
 import ButtonLink from '@/app/_components/ButtonLink';
 import TopHero from './_components/TopHero';
 import Link from 'next/link';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 export const revalidate = 0;
 
@@ -93,7 +94,7 @@ export default async function Page() {
         titleImageHeight={98}
         isReverse={true}
       >
-        <ul className="flex flex-col sm:flex-row gap-10 w-full p-10 bg-top-cover-1">
+        <ul className="flex flex-col sm:flex-row gap-10 w-full p-10 bg-top-cover-1 mb-6">
           {companyLinks.map((row) => (
             <li
               key={row.title}
@@ -111,6 +112,48 @@ export default async function Page() {
             </li>
           ))}
         </ul>
+        <div className="text-center w-full">
+          <h3 className="mb-4">
+            <span className="text-primary text-3xl font-gothic font-bold italic">follow us</span>
+            <span className="text-sm">&nbsp;&nbsp;&nbsp;／&nbsp;&nbsp;&nbsp;公式アカウント</span>
+          </h3>
+          <div className="flex flex-col items-center gap-4">
+            <Link
+              href="https://www.instagram.com/hairworks_job"
+              target="_blank"
+              className="border-2 border-primary rounded-md flex items-center w-full sm:w-96 h-20 ps-12 gap-8 hover:bg-primary group"
+            >
+              <Image
+                src="/icon/instagram/Instagram_Glyph_Gradient.png"
+                alt="instagram"
+                width={40}
+                height={40}
+                className="w-10"
+              />
+              <span className="flex items-center gap-1 group-hover:text-white">
+                公式<span className="font-ubuntu mx-1">Instagram</span>ページ
+                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-primary group-hover:text-white" />
+              </span>
+            </Link>
+            <Link
+              href="https://www.wantedly.com/companies/company_3569336"
+              target="_blank"
+              className="border-2 border-primary rounded-md flex items-center w-full sm:w-96 h-20 ps-12 gap-8 hover:bg-primary group"
+            >
+              <Image
+                src="/icon/wantedly/Wantedly_Mark_LightBG.png"
+                alt="wantedly"
+                width={50}
+                height={50}
+                className="w-10"
+              />
+              <span className="flex items-center gap-1 group-hover:text-white">
+                公式<span className="font-ubuntu mx-1">Wantedly</span>ページ
+                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-primary group-hover:text-white" />
+              </span>
+            </Link>
+          </div>
+        </div>
       </TopHero>
     </>
   );
