@@ -24,11 +24,11 @@ export default async function Page() {
     },
     {
       title: '従業員数',
-      description: '15人 ※2024年06月01日時点（非正規含む）',
+      description: '16人 ※2024年11月01日時点（非正規含む）',
     },
     {
       title: '資本金',
-      description: '500万円',
+      description: '650万円',
     },
     {
       title: '各種資格',
