@@ -9,7 +9,7 @@ export default async function Page() {
     {
       name: 'ヘアワークス／HairWorks',
       head: '美理容業界に特化した\n求人サイトヘアワークス。',
-      body: '業界最大級の美容師・理容師専門の求人・転職・募集サイト。\n対応エリアは日本全国展開中、求人数11,500件以上（2023年10月時点）',
+      body: '業界最大級の美容師・理容師専門の求人・転職・募集サイト。\n対応エリアは日本全国展開中、求人数18,000件以上（2025年1月時点）',
       link: 'https://hair-work.jp/',
       linktext: 'サービスサイトへ',
       image: '/image/service/hairworks-300x150.png',
@@ -17,7 +17,7 @@ export default async function Page() {
     {
       name: 'ヘアワークスエージェント／HairWorksAgent',
       head: '美容師・理容師の転職に特化した転職支援サービス\nヘアワークスエージェント。',
-      body: '美容師・理容師を希望して転職活動をしている方向けのサービス\n対応エリアは関東（1都3県）を中心に展開中（2023年10月時点）',
+      body: '美容師・理容師を希望して転職活動をしている方向けのサービス\n対応エリアは関東（1都3県）、大阪府、愛知県を中心に展開中（2025年1月時点）',
       link: 'https://hairworksagent.jp/',
       linktext: 'サービスサイトへ',
       image: '/image/service/hair_works_AGENT_logo.png',
@@ -51,7 +51,7 @@ export default async function Page() {
                 alt=""
                 width={300}
                 height={150}
-                className="w-60 min-w-60 h-auto rounded object-contain mx-auto"
+                className="w-60 min-w-60 shrink-0 h-auto rounded object-contain mx-auto"
               />
               <div className="flex flex-col gap-2">
                 <p className="text-sm font-bold border-b">{business.name}</p>
