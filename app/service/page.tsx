@@ -13,6 +13,7 @@ export default async function Page() {
       link: 'https://hair-work.jp/',
       linktext: 'サービスサイトへ',
       image: '/image/service/hairworks-300x150.png',
+      imagestyle: '',
     },
     {
       name: 'ヘアワークスエージェント／HairWorksAgent',
@@ -21,6 +22,7 @@ export default async function Page() {
       link: 'https://hairworksagent.jp/',
       linktext: 'サービスサイトへ',
       image: '/image/service/hair_works_AGENT_logo.png',
+      imagestyle: '',
     },
     {
       name: 'ヘアワークスプラス／HairWorksPLUS',
@@ -29,6 +31,7 @@ export default async function Page() {
       link: 'https://walk-on.co.jp/news/8cjsasdvfuud',
       linktext: 'プレスリリースへ',
       image: '/image/service/PLUS_logo.png',
+      imagestyle: '',
     },
     {
       name: 'ヘアワークスフェスタ／HairWorksFesta',
@@ -37,6 +40,16 @@ export default async function Page() {
       link: 'https://hair-work.jp/fair',
       linktext: 'サービスサイトへ',
       image: '/image/service/Festa_logo_2024_05_08.jpg',
+      imagestyle: '',
+    },
+    {
+      name: 'ヘアワークスマガジン／HairWorksMagazine',
+      head: '理美容学生向けの就職情報誌',
+      body: '新卒向け就職情報誌「ヘアワークスマガジン」\n配布先である全国の美容専門学校の就活生に対しより直接的な訴求を行うとともに、弊社が運営する合同就職・転職フェア「ヘアワークスフェスタ」でも配布される就職情報誌がスタート！ ',
+      link: 'https://hair-work.jp/magazine',
+      linktext: 'サービスサイトへ',
+      image: '/image/service/magazine_logo.png',
+      imagestyle: 'p-5',
     },
   ];
   return (
@@ -51,7 +64,10 @@ export default async function Page() {
                 alt=""
                 width={300}
                 height={150}
-                className="w-60 min-w-60 shrink-0 h-auto rounded object-contain mx-auto"
+                className={
+                  'w-60 min-w-60 shrink-0 h-auto rounded object-contain mx-auto ' +
+                  `${business.imagestyle}`
+                }
               />
               <div className="flex flex-col gap-2">
                 <p className="text-sm font-bold border-b">{business.name}</p>
