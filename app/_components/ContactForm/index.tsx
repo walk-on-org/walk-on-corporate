@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-type FormData = {
+type ContactFormData = {
   name: string;
   company: string;
   email: string;
@@ -16,27 +16,25 @@ export default function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<ContactFormData>({
     mode: 'onBlur',
   });
 
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string>();
   const [loading, setLoading] = useState<boolean>(false);
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: ContactFormData) => {
+    const formData = new FormData();
+    formData.append('type', '問い合わせ');
+    formData.append('name', data.name);
+    formData.append('company', data.company);
+    formData.append('company', data.company);
+    formData.append('note', data.message);
     setLoading(true);
+
     const res = await fetch('/api/submit-contact', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        type: '問い合わせ',
-        name: data.name,
-        company: data.company,
-        email: data.email,
-        note: data.message,
-      }),
+      body: formData,
     }).then((res) => res.json());
     if (res.status === 'error') {
       setError(res.message);

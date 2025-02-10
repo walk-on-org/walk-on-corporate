@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-type FormData = {
+type EntryFormData = {
   name: string;
   email: string;
   current_position: string;
@@ -14,42 +14,67 @@ type FormData = {
   tel: string;
   career: string;
   message: string;
+  resume: File;
+  work_history: File;
 };
 type Props = {
   job: Recruit;
 };
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 export default function EntryForm({ job }: Props) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
-    mode: 'onBlur',
+  } = useForm<EntryFormData>({
+    mode: 'onSubmit',
   });
+
+  const [resume, setResume] = useState<File | null>(null);
+  const handleResumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setResume(event.target.files[0]);
+    }
+  };
+  const [workHistory, setWorkHistory] = useState<File | null>(null);
+  const handleWorkHistoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setWorkHistory(event.target.files[0]);
+    }
+  };
 
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string>();
   const [loading, setLoading] = useState<boolean>(false);
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: EntryFormData) => {
+    if (!resume) {
+      alert('履歴書をアップロードしてください。');
+      return;
+    }
+    if (!workHistory) {
+      alert('職務経歴書をアップロードしてください。');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('type', '応募');
+    formData.append('job', String(job.id));
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('current_position', data.current_position);
+    formData.append('age', data.age);
+    formData.append('final_education', data.final_education);
+    formData.append('tel', data.tel);
+    formData.append('career', data.career);
+    formData.append('note', data.message);
+    formData.append('resume', resume);
+    formData.append('work_history', workHistory);
     setLoading(true);
+
     const res = await fetch('/api/submit-contact', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        type: '応募',
-        job: job.id,
-        name: data.name,
-        email: data.email,
-        current_position: data.current_position,
-        age: data.age,
-        final_education: data.final_education,
-        tel: data.tel,
-        career: data.career,
-        note: data.message,
-      }),
+      body: formData,
     }).then((res) => res.json());
     if (res.status === 'error') {
       setError(res.message);
@@ -260,6 +285,80 @@ export default function EntryForm({ job }: Props) {
           })}
         />
         {errors.message && <p className="text-sm text-red-400">{errors.message?.message}</p>}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="message" className="text-sm">
+            履歴書
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
+        <div className="border border-gray-600 p-2">
+          <input
+            type="file"
+            id="resume"
+            accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"
+            {...register('resume', {
+              required: '履歴書をアップロードしてください。',
+              validate: {
+                lessThan5MB: (files: any) => {
+                  const file = files[0];
+                  console.log(file.size);
+                  return (
+                    file?.size < MAX_FILE_SIZE || '5MB以下のファイルをアップロードしてください。'
+                  );
+                },
+              },
+              onChange: (e) => handleResumeChange(e),
+            })}
+          />
+          {errors.resume && <p className="text-sm text-red-400">{errors.resume?.message}</p>}
+        </div>
+        <p className="text-sm text-gray-400 mt-1">
+          ファイルサイズは 5 MB 以下。
+          <br />
+          対応ファイル種類：Word、Excel、PPT、PDF
+        </p>
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="message" className="text-sm">
+            職務経歴書
+          </label>
+          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
+            必須
+          </span>
+        </div>
+        <div className="border border-gray-600 p-2">
+          <input
+            type="file"
+            id="work_history"
+            accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"
+            {...register('work_history', {
+              required: '職務経歴書をアップロードしてください。',
+              validate: {
+                lessThan5MB: (files: any) => {
+                  const file = files[0];
+                  console.log(file.size);
+                  return (
+                    file?.size < MAX_FILE_SIZE || '5MB以下のファイルをアップロードしてください。'
+                  );
+                },
+              },
+              onChange: (e) => handleWorkHistoryChange(e),
+            })}
+          />
+          {errors.work_history && (
+            <p className="text-sm text-red-400">{errors.work_history?.message}</p>
+          )}
+        </div>
+        <p className="text-sm text-gray-400 mt-1">
+          ファイルサイズは 5 MB 以下。
+          <br />
+          対応ファイル種類：Word、Excel、PPT、PDF
+        </p>
       </div>
       <div className="text-center mt-10">
         <p className="text-red-400 text-sm mb-2">{error}</p>
