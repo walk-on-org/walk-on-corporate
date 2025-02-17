@@ -1,7 +1,7 @@
-import { Recruit } from '@/app/_libs/microcms';
 import Image from 'next/image';
 import ButtonLink from '../ButtonLink';
 import Link from 'next/link';
+import { Recruit } from '@/app/_libs/microcms';
 
 type Props = {
   data: Recruit;
@@ -71,15 +71,24 @@ export default function Recruit({ data }: Props) {
               height={133}
               priority
             />
-            <h1 className="md:text-xl font-bold font-gothic">{data.title}</h1>
+            <h1 className="md:text-xl font-bold font-gothic">
+              {data.recruiting == false ? '【募集なし】' : ''}
+              {data.title}
+            </h1>
           </div>
           <div className="w-full md:w-auto">
-            <Link
-              href={`/recruit/${data.id}/entry`}
-              className="px-8 py-4 block w-full rounded text-sm bg-secondary text-white border border-secondary text-center cursor-pointer duration-500 hover:bg-white hover:text-secondary md:w-36"
-            >
-              応募する
-            </Link>
+            {data.recruiting ? (
+              <Link
+                href={`/recruit/${data.id}/entry`}
+                className="px-8 py-4 block w-full rounded text-sm bg-secondary text-white border border-secondary text-center cursor-pointer duration-500 hover:bg-white hover:text-secondary md:w-36"
+              >
+                応募する
+              </Link>
+            ) : (
+              <button className="px-8 py-4 block w-full rounded text-sm bg-gray-400 text-white border border-gray-400 text-center md:w-36">
+                募集なし
+              </button>
+            )}
           </div>
         </div>
         {data.thumbnail && (

@@ -1,6 +1,7 @@
 import EntryForm from '@/app/_components/EntryForm';
 import { getRecruitDetail, getRecuritList } from '@/app/_libs/microcms';
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
 type Props = {
   params: {
@@ -10,9 +11,13 @@ type Props = {
 
 export async function generateStaticParams() {
   const data = await getRecuritList({});
-  return data.contents.map((row) => ({
-    slug: row.id,
-  }));
+  return data.contents
+    .filter((row) => {
+      return row.recruiting;
+    })
+    .map((row) => ({
+      slug: row.id,
+    }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -34,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const data = await getRecruitDetail(params.slug);
+  if (data.recruiting == false) {
+    redirect(`/recruit/${data.id}`);
+  }
   return (
     <>
       <div className="mb-10 sm:text-center">

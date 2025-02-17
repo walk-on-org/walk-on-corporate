@@ -64,6 +64,7 @@ export default async function Page() {
                 />
                 <div className="flex-1 p-4">
                   <h3 className="font-bold font-gothic border-l-4 border-gray-800 pl-2 mb-2">
+                    {job.recruiting == false ? '【募集なし】' : ''}
                     {job.title}
                   </h3>
                   <p className="text-sm line-clamp-3">{job.job_description}</p>

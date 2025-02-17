@@ -35,6 +35,7 @@ export type Recruit = {
   welfare: string;
   raise_payment: string;
   entry_process: string;
+  recruiting: boolean;
 };
 
 // 応募・問い合わせの型定義
