@@ -6,7 +6,7 @@ import Image from 'next/image';
 export const revalidate = 60;
 
 export default async function Page() {
-  const data = await getRecuritList({});
+  const data = await getRecuritList({ orders: '-recruiting' });
 
   return (
     <div>
