@@ -8,6 +8,7 @@ type ContactFormData = {
   name: string;
   company: string;
   email: string;
+  tel: string;
   message: string;
 };
 
@@ -28,7 +29,8 @@ export default function ContactForm() {
     formData.append('type', '問い合わせ');
     formData.append('name', data.name);
     formData.append('company', data.company);
-    formData.append('company', data.company);
+    formData.append('email', data.email);
+    formData.append('tel', data.tel);
     formData.append('note', data.message);
     setLoading(true);
 
@@ -113,6 +115,7 @@ export default function ContactForm() {
           }`}
           type="email"
           id="email"
+          placeholder="例）〇〇@〇〇.co.jp"
           {...register('email', {
             required: '入力してください。',
             maxLength: { value: 50, message: '50文字以内で入力してください。' },
@@ -123,6 +126,31 @@ export default function ContactForm() {
           })}
         />
         {errors.email && <p className="text-sm text-red-400">{errors.email?.message}</p>}
+      </div>
+      <div className="flex flex-col flex-1 py-2">
+        <div className="flex gap-2 mb-1">
+          <label htmlFor="tel" className="text-sm">
+            携帯番号
+          </label>
+          <span className="inline-block px-0.5 text-xs text-gray-400 border border-gray-400">
+            任意
+          </span>
+        </div>
+        <input
+          className={`border border-gray-600 p-2 rounded w-full leading-6 bg-gray-50 ${
+            errors.tel && 'border-red-400'
+          }`}
+          type="tel"
+          id="tel"
+          placeholder="例）090-1234-5678"
+          {...register('tel', {
+            pattern: {
+              value: /^0[789]0(-)?[0-9]{4}(-)?[0-9]{4}$/,
+              message: '携帯番号を入力してください。',
+            },
+          })}
+        />
+        {errors.tel && <p className="text-sm text-red-400">{errors.tel?.message}</p>}
       </div>
       <div className="flex flex-col flex-1 py-2">
         <div className="flex gap-2 mb-1">
