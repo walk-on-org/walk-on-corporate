@@ -12,7 +12,7 @@ export default async function Page() {
     },
     {
       title: '所在地',
-      description: '北海道札幌市中央区南2条西8丁目3-1 大光ビル2階',
+      description: '北海道札幌市中央区大通西9丁目1-1 キタコー大通公園ビル 8階',
     },
     {
       title: '設立年',
@@ -24,7 +24,7 @@ export default async function Page() {
     },
     {
       title: '従業員数',
-      description: '16人 ※2024年11月01日時点（非正規含む）',
+      description: '19人 ※2025年03月01日時点（非正規含む）',
     },
     {
       title: '資本金',
