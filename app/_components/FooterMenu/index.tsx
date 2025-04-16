@@ -71,6 +71,10 @@ export default function FooterMenu() {
           link: '/customer-harassment',
           label: 'カスタマーハラスメント対応ポリシー',
         },
+        {
+          link: '/job-category',
+          label: '取扱職種の範囲等の明示',
+        },
       ],
     },
   ];
