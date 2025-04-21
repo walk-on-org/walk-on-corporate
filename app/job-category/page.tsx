@@ -69,46 +69,10 @@ export default async function Page() {
                 <li>
                   成功報酬
                   <br />
-                  職業紹介が成功した場合に以下手数料となります。
+                  職業紹介が成功した場合における当該求職者の就職後1年間に支払われる賃金（内定書や労働条件通知書等に記載されている額）の35%
                 </li>
               </ul>
             </td>
-          </tr>
-        </table>
-        <h3 className="font-bold mt-8">取扱職種別手数料一覧</h3>
-        <table className="border border-gray-900 mt-2">
-          <tr className="bg-gray-200">
-            <th className="border border-gray-900 w-1/4 p-4">職種</th>
-            <th className="border border-gray-900 w-1/2 p-4">備考</th>
-            <th className="border border-gray-900 w-1/4 p-4">紹介手数料</th>
-          </tr>
-          <tr>
-            <td className="border border-gray-900 p-4">スタイリスト(週32H以上)</td>
-            <td className="border border-gray-900 p-4">週32時間以上勤務の方</td>
-            <td className="border border-gray-900 p-4">600,000円（税抜）</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-900 p-4">スタイリスト(週32H未満)</td>
-            <td className="border border-gray-900 p-4">週32時間未満勤務の方</td>
-            <td className="border border-gray-900 p-4">500,000円（税抜）</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-900 p-4">アシスタント(中途)</td>
-            <td className="border border-gray-900 p-4">
-              週32時間以上勤務の方
-              <br />
-              アシスタント経験1年以上の方
-            </td>
-            <td className="border border-gray-900 p-4">400,000円（税抜）</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-900 p-4">アシスタント(新卒・第2新卒)/その他</td>
-            <td className="border border-gray-900 p-4">
-              アシスタント経験1年未満の方・新卒
-              <br />
-              アシスタント経験1年以上の方で週32時間未満勤務の方
-            </td>
-            <td className="border border-gray-900 p-4">300,000円（税抜）</td>
           </tr>
         </table>
         <h3 className="font-bold mt-8">返戻金制度に関する事項</h3>
