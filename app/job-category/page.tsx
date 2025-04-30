@@ -58,23 +58,39 @@ export default async function Page() {
         <table className="border border-gray-900 mt-2">
           <tr className="bg-gray-200">
             <th className="border border-gray-900 w-1/2 p-4">サービスの種類及び内容</th>
-            <th className="border border-gray-900 w-1/2 p-4">手数料の上限額</th>
+            <th className="border border-gray-900 w-1/2 p-4">手数料の額及び負担者</th>
+          </tr>
+          <tr>
+            <td className="border border-gray-900 p-4">求人受理時の事務費用</td>
+            <td className="border border-gray-900 p-4">
+              0円
+              <br />
+              手数料負担者は求人者とします。
+            </td>
           </tr>
           <tr>
             <td className="border border-gray-900 p-4">
-              特定の条件による特別の求職者の開拓やそのための調査・探索、求⼈の充⾜を容易にするための求⼈者に対する専門的な相談・助⾔、その他紹介のサービスに付随するサービス
+              求人受理後、求人者に求職者を紹介するサービス【職業紹介サービス】
             </td>
             <td className="border border-gray-900 p-4">
-              <ul className="list-decimal ml-4">
-                <li>
-                  成功報酬
-                  <br />
-                  職業紹介が成功した場合における当該求職者の就職後1年間に支払われる賃金（内定書や労働条件通知書等に記載されている額）の35%
-                </li>
-              </ul>
+              成功報酬
+              <br />
+              （期間の定めのない雇用契約の紹介の場合）
+              <br />
+              当該求職者の就職後1年間に支払われる賃金（内定書や労働条件通知書等に記載されている額）の
+              <span className="underline">35%</span>
+              <br />
+              <br />
+              （期間の定めのある雇用契約の紹介の場合）
+              <br />
+              当該求職者の就職後、雇用契約期間中（雇用期間が1年を超える場合は最大1年間分）に支払われる賃金（内定書や労働条件通知書等に記載されている額）の
+              <span className="underline">35%</span>
+              <br />
+              手数料負担者は求人者とします。
             </td>
           </tr>
         </table>
+        <p>上記手数料には、消費税は含まれておりません。別途加算となります。</p>
         <h3 className="font-bold mt-8">返戻金制度に関する事項</h3>
         <p>
           採⽤決定者が内定承諾の撤回又は入社後に⾃⼰都合退職した場合、次の通りの金額を返還するものとします。
