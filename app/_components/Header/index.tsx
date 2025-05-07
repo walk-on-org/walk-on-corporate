@@ -14,7 +14,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-gray-900">
+    <header className="fixed inset-x-0 top-0 z-50 bg-gray-900 print:static">
       <nav className="flex items-center justify-between px-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
