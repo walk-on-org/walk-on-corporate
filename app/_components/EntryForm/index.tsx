@@ -53,7 +53,7 @@ export default function EntryForm({ job }: Props) {
       alert('履歴書をアップロードしてください。');
       return;
     }
-    if (!workHistory) {
+    if (String(job.id) !== process.env.NEXT_PUBLIC_OPTIONAL_WORK_HISTORY_JOB_ID && !workHistory) {
       alert('職務経歴書をアップロードしてください。');
       return;
     }
@@ -69,7 +69,9 @@ export default function EntryForm({ job }: Props) {
     formData.append('career', data.career);
     formData.append('note', data.message);
     formData.append('resume', resume);
-    formData.append('work_history', workHistory);
+    if (workHistory) {
+      formData.append('work_history', workHistory);
+    }
     setLoading(true);
 
     const res = await fetch('/api/submit-contact', {
@@ -327,8 +329,16 @@ export default function EntryForm({ job }: Props) {
           <label htmlFor="message" className="text-sm">
             職務経歴書
           </label>
-          <span className="inline-block px-0.5 text-xs text-red-400 border border-red-400">
-            必須
+          <span
+            className={`inline-block px-0.5 text-xs ${
+              String(job.id) === process.env.NEXT_PUBLIC_OPTIONAL_WORK_HISTORY_JOB_ID
+                ? 'text-gray-400 border border-gray-400'
+                : 'text-red-400 border border-red-400'
+            }`}
+          >
+            {String(job.id) === process.env.NEXT_PUBLIC_OPTIONAL_WORK_HISTORY_JOB_ID
+              ? '任意'
+              : '必須'}
           </span>
         </div>
         <div className="border border-gray-600 p-2">
@@ -337,11 +347,14 @@ export default function EntryForm({ job }: Props) {
             id="work_history"
             accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"
             {...register('work_history', {
-              required: '職務経歴書をアップロードしてください。',
+              required:
+                String(job.id) !== process.env.NEXT_PUBLIC_OPTIONAL_WORK_HISTORY_JOB_ID
+                  ? '職務経歴書をアップロードしてください。'
+                  : false,
               validate: {
                 lessThan5MB: (files: any) => {
                   const file = files[0];
-                  console.log(file.size);
+                  if (!file) return true;
                   return (
                     file?.size < MAX_FILE_SIZE || '5MB以下のファイルをアップロードしてください。'
                   );
