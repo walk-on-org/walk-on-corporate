@@ -78,13 +78,13 @@ export default async function Page() {
               （期間の定めのない雇用契約の紹介の場合）
               <br />
               当該求職者の就職後1年間に支払われる賃金（内定書や労働条件通知書等に記載されている額）の
-              <span className="underline">35%</span>
+              <span className="underline">50%</span>
               <br />
               <br />
               （期間の定めのある雇用契約の紹介の場合）
               <br />
               当該求職者の就職後、雇用契約期間中（雇用期間が1年を超える場合は最大1年間分）に支払われる賃金（内定書や労働条件通知書等に記載されている額）の
-              <span className="underline">35%</span>
+              <span className="underline">50%</span>
               <br />
               手数料負担者は求人者とします。
             </td>
