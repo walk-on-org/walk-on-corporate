@@ -10,14 +10,14 @@ export default async function Page() {
       title: '新卒採用',
       subTitle: 'Graduate Recruitment',
       href: '/recruit/new-graduate',
-      image: '/image/top/top-cover-1.jpeg',
+      image: '/image/recruit/new-graduate.jpg',
       color: 'primary',
     },
     {
       title: '中途採用',
       subTitle: 'Career Recruitment',
       href: '/recruit/mid-career',
-      image: '/image/top/top-cover-1.jpeg',
+      image: '/image/recruit/mid-career.jpg',
       color: 'secondary',
     },
   ];
@@ -68,7 +68,7 @@ export default async function Page() {
           {jobType.map((job) => (
             <Link
               href={job.href}
-              className="w-full md:w-1/2 rounded-xl shadow-xl relative group overflow-hidden"
+              className="w-full md:w-1/2 rounded-xl shadow-xl relative group overflow-hidden aspect-video"
               key={job.title}
             >
               <Image
