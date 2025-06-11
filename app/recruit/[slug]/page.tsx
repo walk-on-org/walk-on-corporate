@@ -48,7 +48,11 @@ export default async function Page({ params, searchParams }: Props) {
     <>
       <Recruit data={data} />
       <div className="flex justify-end border-t border-gray-400 mt-20 pt-10">
-        <ButtonLink href="/recruit">募集職種一覧へ</ButtonLink>
+        {data.category.includes('新卒採用') ? (
+          <ButtonLink href="/recruit/new-graduate">新卒採用TOPへ</ButtonLink>
+        ) : (
+          <ButtonLink href="/recruit/mid-career">採用職種一覧へ</ButtonLink>
+        )}
       </div>
     </>
   );
