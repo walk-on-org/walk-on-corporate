@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import ButtonLink from '../ButtonLink';
 import Link from 'next/link';
 import { Recruit } from '@/app/_libs/microcms';
 
@@ -59,7 +58,7 @@ export default function Recruit({ data }: Props) {
     },
   ];
   return (
-    <main>
+    <>
       <div className="flex flex-col-reverse mb-4 md:mb-0 md:flex-col">
         <div className="flex flex-col gap-y-2 md:flex-row items-center justify-between">
           <div className="flex items-center gap-4">
@@ -121,6 +120,6 @@ export default function Recruit({ data }: Props) {
           </li>
         ))}
       </ul>
-    </main>
+    </>
   );
 }

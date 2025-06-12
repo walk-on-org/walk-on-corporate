@@ -34,6 +34,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${process.env.BASE_URL}/recruit`,
       lastModified: new Date(),
     },
+    {
+      url: `${process.env.BASE_URL}/recruit/new-graduate`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${process.env.BASE_URL}/recruit/mid-career`,
+      lastModified: new Date(),
+    },
     ...recruitList.contents.map((row) => ({
       url: `${process.env.BASE_URL}/recruit/${row.id}`,
       lastModified: new Date(),

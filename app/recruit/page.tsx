@@ -1,25 +1,41 @@
 import Link from 'next/link';
-import Heading from '../_components/Heading';
-import { getRecuritList } from '../_libs/microcms';
+import Heading from '@/app/_components/Heading';
 import Image from 'next/image';
 
 export const revalidate = 60;
 
 export default async function Page() {
-  const data = await getRecuritList({ orders: '-recruiting' });
+  const jobType = [
+    {
+      title: '新卒採用',
+      subTitle: 'Graduate Recruitment',
+      href: '/recruit/new-graduate',
+      image: '/image/recruit/new-graduate.jpg',
+      color: 'primary',
+    },
+    {
+      title: '中途採用',
+      subTitle: 'Career Recruitment',
+      href: '/recruit/mid-career',
+      image: '/image/recruit/mid-career.jpg',
+      color: 'secondary',
+    },
+  ];
 
   return (
-    <div>
-      <section className="mb-24 relative w-full h-0 pt-[75%]">
-        <iframe
-          src="https://docs.google.com/presentation/d/e/2PACX-1vSgFnSrkrWkc-NCY_vRqq3z7GVjSmVrCSClbzcG37oqtMgHHz7rnPpmXTtTSpHR97NDyixynh1nvaF7/embed?start=false&loop=false&delayms=3000"
-          width="960"
-          height="569"
-          allowFullScreen={true}
-          className="w-full h-full absolute top-0 left-0"
-        ></iframe>
+    <>
+      <section className="mb-24 w-full">
+        <div className="max-w-3xl mx-auto px-4">
+          <iframe
+            src="https://docs.google.com/presentation/d/e/2PACX-1vSgFnSrkrWkc-NCY_vRqq3z7GVjSmVrCSClbzcG37oqtMgHHz7rnPpmXTtTSpHR97NDyixynh1nvaF7/embed?start=false&loop=false&delayms=3000"
+            width="960"
+            height="569"
+            allowFullScreen={true}
+            className="w-full aspect-video h-auto"
+          ></iframe>
+        </div>
       </section>
-      <section className="mb-24">
+      <section className="mb-24 container mx-auto max-w-3xl px-4">
         <Heading id="movie" title="会社紹介動画" subTitle="movie" />
         <iframe
           src="https://www.youtube.com/embed/urBK_oWmC1U?si=J9n32Sb5JDOl9T7S"
@@ -27,53 +43,66 @@ export default async function Page() {
           allowFullScreen={true}
           className="w-full aspect-video border"
         ></iframe>
+        <div className="flex flex-col items-center gap-2 mt-24">
+          <span className="font-bold text-sm md:text-base">
+            <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
+          </span>
+          <Link
+            href="https://www.wantedly.com/companies/company_3569336"
+            className="border rounded-md inline-block shadow-xl group px-2"
+            target="_blank"
+          >
+            <Image
+              src="/icon/wantedly/wantedlyLogoLightBG.png"
+              alt="wantedly"
+              width={480}
+              height={100}
+              className="group-hover:transform group-hover:duration-500 group-hover:scale-110"
+            />
+          </Link>
+        </div>
       </section>
-      <section className="mb-24 flex flex-col items-center gap-2">
-        <span className="font-bold text-sm md:text-base">
-          <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
-        </span>
-        <Link
-          href="https://www.wantedly.com/companies/company_3569336"
-          className="border rounded-md inline-block shadow-xl group px-2"
-          target="_blank"
-        >
-          <Image
-            src="/icon/wantedly/wantedlyLogoLightBG.png"
-            alt="wantedly"
-            width={480}
-            height={100}
-            className="group-hover:transform group-hover:duration-500 group-hover:scale-110"
-          />
-        </Link>
-      </section>
-      <section>
+      <section className="mb-24 container mx-auto max-w-5xl px-4">
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
-        <ul className="flex flex-col gap-4">
-          {data.contents.map((job) => (
-            <li key={job.title} className="border rounded-md shadow-xl">
-              <Link
-                href={`/recruit/${job.id}`}
-                className="flex flex-col gap-0 md:gap-4 md:flex-row md:h-32"
+        <div className="flex gap-8 flex-col md:flex-row">
+          {jobType.map((job) => (
+            <Link
+              href={job.href}
+              className="w-full md:w-1/2 rounded-xl shadow-xl relative group overflow-hidden aspect-video"
+              key={job.title}
+            >
+              <Image
+                src={job.image}
+                alt={job.title}
+                className="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-all duration-300 group-hover:filter group-hover:blur-sm"
+                width={300}
+                height={300}
+                priority
+              />
+              <figcaption
+                className={`absolute top-0 left-0 bg-${
+                  job.color
+                } text-white text-center text-sm p-4 rounded-br-xl rounded-tl-xl opacity-90 group-hover:bg-white ${
+                  job.color === 'primary'
+                    ? 'group-hover:text-primary'
+                    : 'group-hover:text-secondary'
+                }`}
               >
-                <Image
-                  src={job.thumbnail?.url || ''}
-                  alt=""
-                  className="w-auto h-full bg-cover md:w-48"
-                  width={job.thumbnail?.width}
-                  height={job.thumbnail?.height}
-                />
-                <div className="flex-1 p-4">
-                  <h3 className="font-bold font-gothic border-l-4 border-gray-800 pl-2 mb-2">
-                    {job.recruiting == false ? '【募集なし】' : ''}
-                    {job.title}
-                  </h3>
-                  <p className="text-sm line-clamp-3">{job.job_description}</p>
-                </div>
-              </Link>
-            </li>
+                {job.subTitle}
+              </figcaption>
+              <p
+                className={`absolute bottom-4 left-1/2 -translate-x-1/2 bg-white ${
+                  job.color === 'primary'
+                    ? 'text-primary group-hover:bg-primary'
+                    : 'text-secondary group-hover:bg-secondary'
+                } font-bold w-60 text-center py-2 rounded-full shadow-xl group-hover:text-white`}
+              >
+                {job.title}はこちら
+              </p>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
-    </div>
+    </>
   );
 }

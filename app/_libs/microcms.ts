@@ -20,6 +20,7 @@ export type News = {
 export type Recruit = {
   id: MicroCMSContentId;
   title: string;
+  category: string[];
   thumbnail?: MicroCMSImage;
   catch_copy: string;
   recommend_point: string;
