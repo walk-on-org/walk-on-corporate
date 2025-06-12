@@ -15,6 +15,34 @@ export const metadata = {
 };
 
 export default async function Page() {
+  const serviceList = [
+    {
+      title: '美理容業界に特化した求人サイト',
+      image: '/image/service/hairworks.png',
+      href: 'https://hair-work.jp/',
+    },
+    {
+      title: '美容師・理容師の転職支援サービス',
+      image: '/image/service/hairworksagent.png',
+      href: 'https://hairworksagent.jp/',
+    },
+    {
+      title: '採用代行',
+      image: '/image/service/hairworksplus.png',
+      href: 'https://walk-on.co.jp/news/8cjsasdvfuud',
+    },
+    {
+      title: '理美容師向けの就職フェア',
+      image: '/image/service/Festa_logo_2024_05_08.jpg',
+      href: 'https://hair-work.jp/fair',
+    },
+    {
+      title: '理美容学生向けの就職情報誌',
+      image: '/image/service/hairworksmagazine.png',
+      href: 'https://hair-work.jp/magazine',
+    },
+  ];
+
   const values = [
     {
       title: 'For the Company',
@@ -103,19 +131,19 @@ export default async function Page() {
 
   return (
     <>
-      <section className="pb-24 relative">
+      <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             美に関わる「ヒト」の幸せに
             <br className="block sm:hidden" />
             貢献する。
           </h2>
-          <p className="my-4 text-sm md:text-base">
+          <p className="my-4 text-left md:text-center text-sm md:text-base">
             美容業界では長時間労働や社会保険未加入、低賃金などの問題が根強い業界です。
             <br />
             業界から離れる方も多く、折角取得した国家資格も生かしきれていない状況がございます。
           </p>
-          <p className="my-4 text-sm md:text-base">
+          <p className="my-4 text-left md:text-center text-sm md:text-base">
             求職者、サロンオーナー、ユーザーなど
             <span className="bg-yellow-200 font-bold">
               理美容業界に携わる方が1人でも多くの人が幸せになれるように貢献
@@ -131,7 +159,46 @@ export default async function Page() {
           className="absolute w-auto h-16 md:h-40 md:w-auto top-0 left-0 opacity-60 px-4"
         />
       </section>
-      <section className="pb-24 relative">
+      <section className="pb-8 md:pb-16 relative bg-white">
+        <div className="container mx-auto max-w-5xl px-4 py-8">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+            ミッション実現のために
+          </h2>
+          <p className="text-left md:text-center text-sm md:text-base">
+            美容院のオーナー、ユーザー、求職者、サロンのスタッフ、そして理美容業界に携わる方が
+            <br />
+            1人でも多くの人が幸せになれるように貢献するために、
+            <span className="bg-yellow-200 font-bold">全5サービスを提供しています。</span>
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-8 my-8">
+            {serviceList.map((service) => (
+              <Link
+                href={service.href}
+                key={service.title}
+                target="_blank"
+                className="border border-gray-300 rounded-md shadow-md p-4"
+              >
+                <Image
+                  src={service.image}
+                  alt=""
+                  width={500}
+                  height={500}
+                  className="w-60 min-w-60 h-auto object-contain mx-auto"
+                />
+                <p className="text-center text-sm font-bold -mt-4">{service.title}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <Image
+          src="/image/recruit/Service.png"
+          alt=""
+          width={920}
+          height={100}
+          className="absolute w-auto h-16 md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
+        />
+      </section>
+      <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             walk-onが掲げるバリュー
@@ -166,10 +233,10 @@ export default async function Page() {
           alt=""
           width={920}
           height={100}
-          className="absolute h-16 w-auto md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
+          className="absolute h-16 w-auto md:h-40 md:w-auto top-0 left-0 opacity-60 px-4"
         />
       </section>
-      <section className="pb-24 relative bg-white">
+      <section className="pb-8 md:pb-16 relative bg-white">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             社員へインタビュー
@@ -217,7 +284,7 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
         />
       </section>
-      <section className="pb-24 relative">
+      <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             数字で見るwalk-on
@@ -274,7 +341,7 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 left-0 opacity-60 px-4"
         />
       </section>
-      <section className="pb-24 relative bg-white">
+      <section className="pb-8 md:pb-16 relative bg-white">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             walk-onの働き方
@@ -345,12 +412,12 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
         />
       </section>
-      <section className="pb-24 relative">
+      <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             26年新卒・募集要項
           </h2>
-          <div className="flex my-16 flex-col md:flex-row">
+          <div className="flex mt-16 flex-col md:flex-row">
             <div className="bg-indigo-900 w-full md:w-1/2 mx-auto">
               <Image
                 src="/image/recruit/new-graduate-2.jpg"
@@ -380,7 +447,7 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 left-0 opacity-60 px-4"
         />
       </section>
-      <section className="pt-4 pb-24 relative bg-white">
+      <section className="pb-8 md:pb-16 relative bg-white">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             Wantedly 記事紹介
