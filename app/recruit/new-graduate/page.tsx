@@ -89,19 +89,19 @@ export default async function Page() {
 
   const interviews = [
     {
+      title: '就職フェア事業部 伊藤ひな野さん',
+      image: '/image/recruit/interview7.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/983092',
+    },
+    {
       title: '法人営業本部 執行役員 立崎真広さん',
-      image: '/image/recruit/interview1.webp',
+      image: '/image/recruit/interview6.webp',
       href: 'https://www.wantedly.com/companies/company_3569336/post_articles/954421',
     },
     {
       title: '人材紹介事業部　久保田舞さん',
-      image: '/image/recruit/interview2.webp',
+      image: '/image/recruit/interview5.webp',
       href: 'https://www.wantedly.com/companies/company_3569336/post_articles/951212',
-    },
-    {
-      title: '2023年下期 表彰者インタビュー！《第一位 小林麻里恵さん》',
-      image: '/image/recruit/interview3.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/905158',
     },
   ];
 
