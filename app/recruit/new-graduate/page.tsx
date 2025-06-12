@@ -105,8 +105,10 @@ export default async function Page() {
     <>
       <section className="pb-24 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
-            美に関わる「ヒト」の幸せに貢献する。
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+            美に関わる「ヒト」の幸せに
+            <br className="block sm:hidden" />
+            貢献する。
           </h2>
           <p className="my-4 text-sm md:text-base">
             美容業界では長時間労働や社会保険未加入、低賃金などの問題が根強い業界です。
@@ -114,7 +116,11 @@ export default async function Page() {
             業界から離れる方も多く、折角取得した国家資格も生かしきれていない状況がございます。
           </p>
           <p className="my-4 text-sm md:text-base">
-            求職者、サロンオーナー、ユーザーなど理美容業界に携わる方が1人でも多くの人が幸せになれるように貢献していきます。
+            求職者、サロンオーナー、ユーザーなど
+            <span className="bg-yellow-200 font-bold">
+              理美容業界に携わる方が1人でも多くの人が幸せになれるように貢献
+            </span>
+            していきます。
           </p>
         </div>
         <Image
@@ -127,7 +133,7 @@ export default async function Page() {
       </section>
       <section className="pb-24 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             walk-onが掲げるバリュー
           </h2>
           <div className="flex flex-wrap justify-center gap-8">
@@ -165,7 +171,7 @@ export default async function Page() {
       </section>
       <section className="pb-24 relative bg-white">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             社員へインタビュー
           </h2>
           <p className="text-center font-bold text-lg">
@@ -213,7 +219,7 @@ export default async function Page() {
       </section>
       <section className="pb-24 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             数字で見るwalk-on
           </h2>
           <div className="flex gap-8 justify-center flex-col lg:flex-row">
@@ -270,10 +276,10 @@ export default async function Page() {
       </section>
       <section className="pb-24 relative bg-white">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             walk-onの働き方
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm md:text-base">
             <div className="bg-slate-50 border-8 border-indigo-900 p-6 rounded-md row-span-1 md:row-span-2">
               <h3 className="text-lg font-bold mb-4 text-indigo-900">基本情報</h3>
               <ul className="list-disc list-inside">
@@ -341,7 +347,7 @@ export default async function Page() {
       </section>
       <section className="pb-24 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             26年新卒・募集要項
           </h2>
           <div className="flex my-16 flex-col md:flex-row">
@@ -376,7 +382,7 @@ export default async function Page() {
       </section>
       <section className="pt-4 pb-24 relative bg-white">
         <div className="container mx-auto max-w-5xl px-4 py-8">
-          <h2 className="font-bold font-gothic text-center text-indigo-900 text-xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
+          <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             Wantedly 記事紹介
           </h2>
           <div className="flex gap-8 my-8 flex-col md:flex-row">

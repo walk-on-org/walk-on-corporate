@@ -50,12 +50,12 @@ export default function FooterMenu() {
       label: '採用情報',
       sub_menus: [
         {
-          link: '/recruit#statue',
-          label: '求める人物像',
+          link: '/recruit/new-graduate',
+          label: '新卒採用',
         },
         {
-          link: '/recruit#jobs',
-          label: '募集職種',
+          link: '/recruit/mid-career',
+          label: '中途採用',
         },
       ],
     },
