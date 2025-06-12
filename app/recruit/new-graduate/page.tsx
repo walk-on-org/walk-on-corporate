@@ -187,7 +187,7 @@ export default async function Page() {
                 />
                 <div className="p-4 bg-white flex-1">
                   <p className="font-bold">{interview.title}</p>
-                  <button className="bg-indigo-900 text-white mt-2 block px-3 py-1.5 rounded-full text-center ml-auto mr-0 text-xs hover:bg-white hover:text-indigo-500 border border-indigo-500 transition-all duration-300">
+                  <button className="bg-indigo-900 text-white mt-2 block px-3 py-1.5 rounded-full text-center ml-auto mr-0 text-xs hover:bg-white hover:text-indigo-900 border border-indigo-900 transition-all duration-300">
                     インタビューを読む
                   </button>
                 </div>
@@ -197,7 +197,7 @@ export default async function Page() {
           <Link
             href="https://www.wantedly.com/companies/company_3569336/stories/tags/%E7%A4%BE%E5%93%A1%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC"
             target="_blank"
-            className="bg-orange-500 text-white w-80 py-6 rounded-md font-bold text-center mx-auto block hover:bg-white hover:text-orange-500 border border-orange-500 transition-all duration-300"
+            className="bg-orange-500 text-white w-80 py-4 rounded-md font-bold text-center mx-auto block hover:bg-white hover:text-orange-500 border border-orange-500 transition-all duration-300"
           >
             インタビュー一覧はこちら
           </Link>
@@ -393,7 +393,7 @@ export default async function Page() {
                 />
                 <div className="p-4 bg-white flex-1">
                   <p className="font-bold">{wantedly.title}</p>
-                  <button className="bg-indigo-900 text-white mt-2 block px-3 py-1.5 rounded-full text-center ml-auto mr-0 text-xs hover:bg-white hover:text-indigo-500 border border-indigo-500 transition-all duration-300">
+                  <button className="bg-indigo-900 text-white mt-2 block px-3 py-1.5 rounded-full text-center ml-auto mr-0 text-xs hover:bg-white hover:text-indigo-900 border border-indigo-900 transition-all duration-300">
                     記事を読む
                   </button>
                 </div>
@@ -403,7 +403,7 @@ export default async function Page() {
           <Link
             href="https://www.wantedly.com/companies/company_3569336/stories"
             target="_blank"
-            className="bg-orange-500 text-white w-80 py-6 rounded-md font-bold text-center mx-auto block hover:bg-white hover:text-orange-500 border border-orange-500 transition-all duration-300"
+            className="bg-orange-500 text-white w-80 py-4 rounded-md font-bold text-center mx-auto block hover:bg-white hover:text-orange-500 border border-orange-500 transition-all duration-300"
           >
             記事一覧はこちら
           </Link>
