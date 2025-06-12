@@ -174,6 +174,7 @@ export default async function Page() {
           <div className="flex gap-8 my-8 flex-col md:flex-row">
             {interviews.map((interview) => (
               <Link
+                key={interview.title}
                 className="w-full md:w-1/3 border border-gray-300 rounded-md group overflow-hidden flex flex-col"
                 href={interview.href}
                 target="_blank"
@@ -231,7 +232,7 @@ export default async function Page() {
               </div>
               <div className="flex flex-col gap-4 mt-8">
                 {personList.map((person) => (
-                  <div className="flex gap-2">
+                  <div key={person.name} className="flex gap-2">
                     <p className="text-sm flex flex-col items-center">
                       {person.name}
                       <span className="text-3xl font-bold">
@@ -242,6 +243,7 @@ export default async function Page() {
                     <div className="flex">
                       {Array.from({ length: person.count }).map((_, index) => (
                         <Image
+                          key={`${person.name}-${index}`}
                           src="/image/recruit/person-icon.png"
                           alt=""
                           width={500}
@@ -380,6 +382,7 @@ export default async function Page() {
           <div className="flex gap-8 my-8 flex-col md:flex-row">
             {wantedlyList.map((wantedly) => (
               <Link
+                key={wantedly.title}
                 className="w-full md:w-1/3 border border-gray-300 rounded-md group overflow-hidden flex flex-col"
                 href={wantedly.href}
                 target="_blank"
