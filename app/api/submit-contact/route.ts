@@ -4,6 +4,25 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
 
+    // ブロック判定
+    const blockTel = (process.env.BLOCK_TEL || '').split(',');
+    const blockEmail = (process.env.BLOCK_EMAIL || '').split(',');
+    const tel = (formData.get('tel') as string).replace(/[-]/g, '');
+    const email = formData.get('email') as string;
+    console.log(tel);
+    if (!tel || blockTel.includes(tel)) {
+      return NextResponse.json(
+        { message: '送信に失敗しました。時間を空けて再度送信してください。', status: 'error' },
+        { status: 400 },
+      );
+    }
+    if (!email || blockEmail.includes(email)) {
+      return NextResponse.json(
+        { message: '送信に失敗しました。時間を空けて再度送信してください。', status: 'error' },
+        { status: 400 },
+      );
+    }
+
     // microCMSへ連携
     await fetch(`https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/contact`, {
       method: 'POST',
@@ -93,11 +112,11 @@ export async function POST(request: NextRequest) {
       }).then((res) => console.log(res.json()));
     }
 
-    return NextResponse.json({ message: 'success' }, { status: 200 });
+    return NextResponse.json({ message: 'success', status: 'success' }, { status: 200 });
   } catch (error) {
     console.error('Error:', error);
     return NextResponse.json(
-      { message: '送信に失敗しました。時間を空けて再度送信してください。' },
+      { message: '送信に失敗しました。時間を空けて再度送信してください。', status: 'error' },
       { status: 500 },
     );
   }
