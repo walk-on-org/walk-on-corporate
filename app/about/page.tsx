@@ -41,8 +41,8 @@ export default async function Page() {
           <br />
           に貢献する。
         </p>
-        <div className="flex mt-4 flex-col gap-12 justify-between md:gap-8 md:flex-row">
-          <div className="flex flex-col items-center gap-2">
+        <div className="flex mt-4 flex-row flex-wrap justify-center gap-y-4">
+          <div className="flex flex-col items-center gap-2 w-1/2 md:w-1/3">
             <p className="text-lg font-bold font-gothic text-secondary">働く人</p>
             <Image
               className="w-4/5"
@@ -51,13 +51,13 @@ export default async function Page() {
               width={531}
               height={532}
             />
-            <p className="text-sm">
+            <p className="text-xs md:text-sm">
               サービスを提供する
               <br />
               理容師・美容師
             </p>
           </div>
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-2 w-1/2 md:w-1/3">
             <p className="text-lg font-bold font-gothic text-secondary">利用する人</p>
             <Image
               className="w-4/5"
@@ -66,13 +66,13 @@ export default async function Page() {
               width={531}
               height={532}
             />
-            <p className="text-sm">
+            <p className="text-xs md:text-sm">
               美容・理容サービスを受ける
               <br />
               エンドユーザ
             </p>
           </div>
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-2 w-1/2 md:w-1/3">
             <p className="text-lg font-bold font-gothic text-secondary">企業</p>
             <Image
               className="w-4/5"
@@ -81,13 +81,28 @@ export default async function Page() {
               width={531}
               height={532}
             />
-            <p className="text-sm">
+            <p className="text-xs md:text-sm">
               美容室・理容室などを
               <br />
               運営する事業者
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="text-center mb-24">
+        <Heading id="vision" title="私たちが目指していること" subTitle="Vision2030" />
+        <p className="text-2xl lg:text-4xl font-bold font-gothic mb-2">「ブランド想起」</p>
+        <p className="text-gray-500 text-sm">
+          ～美容業界において“採用といえばヘアワークス”と最初に思い出される存在へ～
+        </p>
+        <Image
+          src="/image/about/vision2030.png"
+          alt="Vision2030"
+          width={840}
+          height={480}
+          className="w-full mt-8"
+        />
       </section>
 
       <section className="text-center">
