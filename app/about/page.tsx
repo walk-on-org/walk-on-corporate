@@ -91,7 +91,7 @@ export default async function Page() {
       </section>
 
       <section className="text-center mb-24">
-        <Heading id="vision" title="私たちが目指していること" subTitle="Vision2030" />
+        <Heading id="vision" title="私たちの目指す未来" subTitle="Vision2030" />
         <p className="text-2xl lg:text-4xl font-bold font-gothic mb-2">「ブランド想起」</p>
         <p className="text-gray-500 text-sm">
           ～美容業界において“採用といえばヘアワークス”と最初に思い出される存在へ～
