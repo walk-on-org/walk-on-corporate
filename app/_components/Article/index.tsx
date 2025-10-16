@@ -28,7 +28,7 @@ export default function Article({ data }: Props) {
       )}
       {data.content && (
         <div
-          className="prose break-words prose-a:text-secondary prose-th:min-w-[80px]"
+          className="prose break-words prose-a:text-secondary prose-th:min-w-[80px] prose-img:mx-auto"
           dangerouslySetInnerHTML={{
             __html: `${formatRichText(data.content)}`,
           }}
