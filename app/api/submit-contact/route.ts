@@ -60,7 +60,6 @@ export async function POST(request: NextRequest) {
 ■電話番号：${formData.get('tel') || ''}
 ■問い合わせ内容：${formData.get('note') || ''}`;
     }
-    console.log(message);
     await fetch(`https://api.chatwork.com/v2/rooms/${process.env.CHATWORK_ROOM_ID}/messages`, {
       method: 'POST',
       headers: {
