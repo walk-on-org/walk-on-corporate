@@ -98,7 +98,7 @@ export default function EntryForm({ job }: Props) {
         formData.append('application_reason', reason);
       });
     }
-    formData.append('introduction_name', data.introduction_name);
+    formData.append('introduction_name', data.introduction_name || '');
     if (resume) {
       formData.append('resume', resume);
     }
