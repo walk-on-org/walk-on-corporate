@@ -64,6 +64,13 @@ export default async function Page() {
       </section>
       <section className="mb-24 container mx-auto max-w-5xl px-4">
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
+        <Image
+          src="/image/recruit/entry-celebration-banner-202512.png"
+          alt="入社お祝いバナー"
+          width={600}
+          height={200}
+          className="max-w-3xl h-auto mx-auto mb-12"
+        />
         <div className="flex gap-8 flex-col md:flex-row">
           {jobType.map((job) => (
             <Link

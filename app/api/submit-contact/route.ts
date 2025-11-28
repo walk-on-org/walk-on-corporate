@@ -24,27 +24,33 @@ export async function POST(request: NextRequest) {
     }
 
     // microCMSへ連携
-    await fetch(`https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/contact`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
+    const res = await fetch(
+      `https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/contact`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
+        },
+        body: JSON.stringify({
+          type: [formData.get('type')],
+          status: ['未対応'],
+          name: formData.get('name') || null,
+          company: formData.get('company') || null,
+          tel: formData.get('tel') || null,
+          email: formData.get('email') || null,
+          note: formData.get('note') || null,
+          job: formData.get('job') || null,
+          current_position: formData.get('current_position') || null,
+          age: formData.get('age') || null,
+          final_education: formData.get('final_education') || null,
+          career: formData.get('career') || null,
+          preferred_step: formData.getAll('preferred_step') || [],
+          application_reason: formData.getAll('application_reason') || [],
+          introduction_name: formData.get('introduction_name') || null,
+        }),
       },
-      body: JSON.stringify({
-        type: [formData.get('type')],
-        status: ['未対応'],
-        name: formData.get('name') || null,
-        company: formData.get('company') || null,
-        tel: formData.get('tel') || null,
-        email: formData.get('email') || null,
-        note: formData.get('note') || null,
-        job: formData.get('job') || null,
-        current_position: formData.get('current_position') || null,
-        age: formData.get('age') || null,
-        final_education: formData.get('final_education') || null,
-        career: formData.get('career') || null,
-      }),
-    }).then((res) => res.json());
+    ).then((res) => res.json());
 
     // チャットワークへ連携
     let message = '';
@@ -59,7 +65,10 @@ export async function POST(request: NextRequest) {
 ■最終学歴：${formData.get('final_education') || ''}
 ■電話番号：${formData.get('tel') || ''}
 ■経歴：${formData.get('career') || ''}
-■応募先へのメッセージ：${formData.get('note') || ''}`;
+■応募先へのメッセージ：${formData.get('note') || ''}
+■ご希望ステップ：${formData.get('preferred_step') || ''}
+■応募のきっかけ：${formData.getAll('application_reason')?.join(', ') || ''}
+■紹介者の氏名：${formData.get('introduction_name') || ''}`;
     } else {
       message = `[toall]
 会社HPから問い合わせがありました。
