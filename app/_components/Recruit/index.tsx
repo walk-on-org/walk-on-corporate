@@ -60,7 +60,7 @@ export default function Recruit({ data }: Props) {
   return (
     <>
       <div className="flex flex-col-reverse mb-4 md:mb-0 md:flex-col">
-        <div className="flex flex-col gap-2 md:flex-row items-center justify-between">
+        <div className="flex flex-col gap-x-2 md:flex-row items-center justify-between">
           <div className="flex items-center gap-4">
             <Image
               src="/logo.png"
@@ -94,7 +94,7 @@ export default function Recruit({ data }: Props) {
           <Image
             src={data.thumbnail?.url}
             alt=""
-            className="w-full h-auto my-8"
+            className="w-full h-auto mb-8"
             width={data.thumbnail?.width}
             height={data.thumbnail?.height}
           />
