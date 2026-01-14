@@ -31,7 +31,7 @@ export default async function Page() {
               <Image
                 src={job.thumbnail?.url || ''}
                 alt=""
-                className="w-auto h-full bg-cover md:w-48"
+                className="w-auto h-full bg-cover md:w-48 object-cover"
                 width={job.thumbnail?.width}
                 height={job.thumbnail?.height}
               />
