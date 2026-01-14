@@ -60,7 +60,7 @@ export default function Recruit({ data }: Props) {
   return (
     <>
       <div className="flex flex-col-reverse mb-4 md:mb-0 md:flex-col">
-        <div className="flex flex-col gap-y-2 md:flex-row items-center justify-between">
+        <div className="flex flex-col gap-2 md:flex-row items-center justify-between">
           <div className="flex items-center gap-4">
             <Image
               src="/logo.png"
@@ -94,7 +94,7 @@ export default function Recruit({ data }: Props) {
           <Image
             src={data.thumbnail?.url}
             alt=""
-            className="w-full h-auto mb-8"
+            className="w-full h-auto my-8"
             width={data.thumbnail?.width}
             height={data.thumbnail?.height}
           />
@@ -104,6 +104,19 @@ export default function Recruit({ data }: Props) {
         {data.catch_copy}
       </p>
       <p className="whitespace-pre-line mb-8">{data.recommend_point}</p>
+      {data.id.toString() == '3nc6byjftd' && (
+        <div className="max-w-3xl mx-auto my-8 flex flex-col items-center">
+          <h3 className="font-bold font-gothic text-center inline-block border-b-2 border-primary mb-2">
+            過去開催フェアの様子はこちら
+          </h3>
+          <iframe
+            src="https://www.youtube.com/embed/3LJhoq4iCx8?si=Y1DS9ZtHIRpyUMwy"
+            title="【ヘアワークスフェスタ】2025年10月22日 新宿会場"
+            allowFullScreen={true}
+            className="w-full aspect-video border"
+          ></iframe>
+        </div>
+      )}
       <h2 className="font-bold font-gothic border-l-4 border-gray-400 pl-2 mb-2">応募概要</h2>
       <ul className="text-sm">
         {jobInfo.map((row, index) => (
