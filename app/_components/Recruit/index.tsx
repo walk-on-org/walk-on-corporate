@@ -94,7 +94,7 @@ export default function Recruit({ data }: Props) {
           <Image
             src={data.thumbnail?.url}
             alt=""
-            className="w-full h-auto mb-8"
+            className="w-full h-auto mb-4 md:my-8"
             width={data.thumbnail?.width}
             height={data.thumbnail?.height}
           />
