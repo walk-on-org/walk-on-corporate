@@ -84,6 +84,7 @@ export default function EntryForm({ job }: Props) {
     const formData = new FormData();
     formData.append('type', '応募');
     formData.append('job', String(job.id));
+    formData.append('job_name', job.title);
     formData.append('name', data.name);
     formData.append('email', data.email);
     formData.append('current_position', data.current_position);
