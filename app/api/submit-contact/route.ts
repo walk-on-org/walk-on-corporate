@@ -58,6 +58,7 @@ export async function POST(request: NextRequest) {
       message = `[toall]
 会社HPから応募が入りました。
 
+■応募先求人：${formData.get('job_name') || ''}
 ■氏名：${formData.get('name') || ''}
 ■メールアドレス：${formData.get('email') || ''}
 ■現所属：${formData.get('current_position') || ''}
