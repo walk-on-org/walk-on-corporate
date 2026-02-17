@@ -131,6 +131,15 @@ export default async function Page() {
 
   return (
     <>
+      <section className="px-4 -mt-6 mb-4">
+        <Image
+          src="/image/recruit/entry-celebration-banner-newgraduate.png"
+          alt="新卒入社お祝いバナー"
+          width={600}
+          height={200}
+          className="max-w-3xl w-full h-auto mx-auto"
+        />
+      </section>
       <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
@@ -415,9 +424,9 @@ export default async function Page() {
       <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
-            26年新卒・募集要項
+            27年新卒・募集要項
           </h2>
-          <div className="flex mt-16 flex-col md:flex-row">
+          <div className="flex mt-16 flex-col">
             <div className="bg-indigo-900 w-full md:w-1/2 mx-auto">
               <Image
                 src="/image/recruit/new-graduate-2.jpg"
@@ -494,7 +503,7 @@ export default async function Page() {
       </section>
       <div className="fixed bottom-2 left-0 right-0 sm:left-auto sm:bottom-8 sm:right-10 w-[calc(100%-8px)] sm:mx-0 sm:w-[480px] z-50 flex flex-col gap-4 border-4 bg-white border-red-500 p-2 sm:px-4 rounded-full mx-auto">
         <div className="flex items-center justify-evenly gap-3">
-          <p className="font-bold text-base sm:text-lg">26年新卒</p>
+          <p className="font-bold text-base sm:text-lg">27年新卒</p>
           <div className="flex items-center gap-2">
             <Link
               href={`/recruit/${recruitData.id}`}
