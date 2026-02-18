@@ -131,6 +131,15 @@ export default async function Page() {
 
   return (
     <>
+      <section className="px-4 -mt-6 mb-4">
+        <Image
+          src="/image/recruit/entry-celebration-banner-newgraduate.png"
+          alt="新卒入社お祝いバナー"
+          width={600}
+          height={200}
+          className="max-w-3xl w-full h-auto mx-auto"
+        />
+      </section>
       <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
@@ -417,7 +426,7 @@ export default async function Page() {
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
             27年新卒・募集要項
           </h2>
-          <div className="flex mt-16 flex-col md:flex-row">
+          <div className="flex mt-16 flex-col">
             <div className="bg-indigo-900 w-full md:w-1/2 mx-auto">
               <Image
                 src="/image/recruit/new-graduate-2.jpg"

@@ -69,7 +69,7 @@ export default async function Page() {
           alt="入社お祝いバナー"
           width={600}
           height={200}
-          className="max-w-3xl h-auto mx-auto mb-12"
+          className="max-w-3xl w-full h-auto mx-auto mb-12"
         />
         <div className="flex gap-8 flex-col md:flex-row">
           {jobType.map((job) => (
