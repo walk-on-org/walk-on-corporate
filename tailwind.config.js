@@ -14,6 +14,7 @@ module.exports = {
       backgroundImage: {
         'top-cover-1': "url('/image/top/top-cover-1.jpeg')",
         'top-cover-2': "url('/image/top/top-cover-2.jpeg')",
+        'marker-yellow': 'linear-gradient(transparent 60%, #fde047 60%)',
       },
       colors: {
         primary: '#00acc3',

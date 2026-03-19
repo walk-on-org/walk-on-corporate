@@ -22,6 +22,30 @@ export default async function Page() {
     },
   ];
 
+  const benefit = [
+    {
+      title: 'リモートワーク・出社の<br/>ハイブリッド環境で働ける',
+      description: `弊社は創業以来、<strong class="bg-marker-yellow">リモートワーク環境を中心</strong>に設計をしております。<br/>
+一方でリモートワークだけでは、なかなか共有できないコミュニケーションなどもあるため、2025年にオフィス移転してから年4回の出社日をもうけて、<strong class="bg-marker-yellow">リモートワークと出社のハイブリッド型の組織</strong>にしております。<br/>
+未経験や新卒などはまずは出社して頂いたり、出社の方が仕事能率があがる方には<strong class="bg-marker-yellow">出社頂ける環境なので安心して働ける環境</strong>です！`,
+      image: '/image/recruit/benefit1.png',
+    },
+    {
+      title: '美容業界特化型などの業界に<br/>貢献できる環境',
+      description: `弊社は創業以来ずっと美容業界でのサービス提供をしております。<br/>
+現在は<strong class="bg-marker-yellow">美容業界の採用課題を様々なサービスで解決に向けてサポート</strong>しております。<br/>
+美容業界に興味がある方にはおすすめの環境です！<br/>
+また<strong class="bg-marker-yellow">美容カット代補助など美容業界に携わる我々だからこその福利厚生</strong>も我々の会社で働く魅力の１つです！`,
+      image: '/image/recruit/benefit2.png',
+    },
+    {
+      title: 'ベンチャーで圧倒的なスピード感<br/>当事者意識で働ける',
+      description: `少数精鋭企業であり、まだまだ発展途上の弊社はまだ<strong class="bg-marker-yellow">1人1人の役割が大きい</strong>です！<br/>
+また毎年新規事業ができており、役割も日々変わっていくことも多く、<strong class="bg-marker-yellow">自分事として働ける環境</strong>です！`,
+      image: '/image/recruit/benefit3.png',
+    },
+  ];
+
   return (
     <>
       <section className="mb-24 w-full">
@@ -60,6 +84,35 @@ export default async function Page() {
               className="group-hover:transform group-hover:duration-500 group-hover:scale-110"
             />
           </Link>
+        </div>
+      </section>
+      <section className="mb-24 container mx-auto max-w-5xl px-4">
+        <Heading id="benefit" title="walk-onで働くメリット" subTitle="benefit" />
+        <div className="flex flex-col md:flex-row gap-4">
+          <span className="marker-yellow hidden" />
+          {benefit.map((benefit) => (
+            <div
+              key={benefit.title}
+              className="bg-white rounded-xl shadow-xl p-4 flex-1 flex flex-col gap-2 items-center justify-start"
+            >
+              <Image
+                src={benefit.image}
+                alt={benefit.title}
+                className="w-4/5 h-auto mx-auto"
+                width={300}
+                height={300}
+                priority
+              />
+              <h3
+                className="font-bold text-lg text-center"
+                dangerouslySetInnerHTML={{ __html: benefit.title }}
+              />
+              <p
+                className="text-sm leading-7"
+                dangerouslySetInnerHTML={{ __html: benefit.description }}
+              />
+            </div>
+          ))}
         </div>
       </section>
       <section className="mb-24 container mx-auto max-w-5xl px-4">
