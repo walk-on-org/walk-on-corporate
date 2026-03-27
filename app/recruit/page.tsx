@@ -118,7 +118,7 @@ export default async function Page() {
       <section className="mb-24 container mx-auto max-w-5xl px-4">
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
         <Image
-          src="/image/recruit/entry-celebration-banner-202512.png"
+          src="/image/recruit/entry-celebration-banner-202603.png"
           alt="入社お祝いバナー"
           width={600}
           height={200}
