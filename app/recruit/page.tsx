@@ -44,6 +44,12 @@ export default async function Page() {
 また毎年新規事業ができており、役割も日々変わっていくことも多く、<strong class="bg-marker-yellow">自分事として働ける環境</strong>です！`,
       image: '/image/recruit/benefit3.png',
     },
+    {
+      title: '毎年の定期昇給で、<br/>長く働くほど収入アップ',
+      description: `2026年7月より定期昇給制度を導入。入社から5年間、<strong class="bg-marker-yellow">営業職は毎年月額1万円、事務職は毎年月額5,000円の昇給</strong>を実施。<br/>
+成果だけでなく、<strong class="bg-marker-yellow">長く働く社員の成長もしっかり評価します。</strong>`,
+      image: '/image/recruit/benefit4.png',
+    },
   ];
 
   return (
@@ -86,14 +92,14 @@ export default async function Page() {
           </Link>
         </div>
       </section>
-      <section className="mb-24 container mx-auto max-w-5xl px-4">
+      <section className="mb-24 container mx-auto max-w-7xl px-4">
         <Heading id="benefit" title="walk-onで働くメリット" subTitle="benefit" />
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4 flex-wrap">
           <span className="marker-yellow hidden" />
-          {benefit.map((benefit) => (
+          {benefit.map((benefit, index) => (
             <div
               key={benefit.title}
-              className="bg-white rounded-xl shadow-xl p-4 flex-1 flex flex-col gap-2 items-center justify-start"
+              className="bg-white rounded-xl shadow-xl p-4 flex flex-col gap-2 items-center justify-start w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)]"
             >
               <Image
                 src={benefit.image}
@@ -104,7 +110,7 @@ export default async function Page() {
                 priority
               />
               <h3
-                className="font-bold text-lg text-center"
+                className="font-bold text-base text-center"
                 dangerouslySetInnerHTML={{ __html: benefit.title }}
               />
               <p
