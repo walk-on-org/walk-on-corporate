@@ -107,19 +107,19 @@ export default async function Page() {
 
   const wantedlyList = [
     {
-      title: 'ヘアワークスフェスタ2025年上期スタートしました！！',
-      image: '/image/recruit/wantedly1.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/975429',
+      title: '2026年度　新卒入社式を行いました！',
+      image: '/image/recruit/wantedly4.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1055212',
     },
     {
-      title: '《ヘアワークスマガジン》創刊しました！',
-      image: '/image/recruit/wantedly2.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/971952',
+      title: '外部講師をお迎えし「勉強会～新卒の受け入れについて～」を行いました！',
+      image: '/image/recruit/wantedly5.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1050210',
     },
     {
-      title: '2024年下半期表彰者の懇親会がおこなわれました！',
-      image: '/image/recruit/wantedly3.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/968776',
+      title: '2026年より新たに部活動制度をスタートさせました！',
+      image: '/image/recruit/wantedly6.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1046692',
     },
   ];
 
@@ -253,6 +253,12 @@ export default async function Page() {
           <p className="text-center font-bold text-lg">
             walk-onで今活躍している社員に話を聞きました！！
           </p>
+          <iframe
+            src="https://www.youtube.com/embed/lZCr43q-vsQ?si=cAYJvJh_OfAqLuLD"
+            title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
+            allowFullScreen={true}
+            className="w-full aspect-video border max-w-3xl mx-auto my-4"
+          ></iframe>
           <div className="flex gap-8 my-8 flex-col md:flex-row">
             {interviews.map((interview) => (
               <Link
