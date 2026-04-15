@@ -67,20 +67,19 @@ export default async function Page() {
       </section>
       <section className="mb-24 container mx-auto max-w-3xl px-4">
         <Heading id="movie" title="会社紹介動画" subTitle="movie" />
-        <div className="flex flex-col gap-4">
-          <iframe
-            src="https://www.youtube.com/embed/urBK_oWmC1U?si=J9n32Sb5JDOl9T7S"
-            title="株式会社walk-on 会社紹介動画"
-            allowFullScreen={true}
-            className="w-full aspect-video border"
-          ></iframe>
-          <iframe
-            src="https://www.youtube.com/embed/lZCr43q-vsQ?si=cAYJvJh_OfAqLuLD"
-            title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
-            allowFullScreen={true}
-            className="w-full aspect-video border"
-          ></iframe>
-        </div>
+        <iframe
+          src="https://www.youtube.com/embed/urBK_oWmC1U?si=J9n32Sb5JDOl9T7S"
+          title="株式会社walk-on 会社紹介動画"
+          allowFullScreen={true}
+          className="w-full aspect-video border mb-12"
+        ></iframe>
+        <Heading id="interview" title="社員インタビュー" subTitle="interview" />
+        <iframe
+          src="https://www.youtube.com/embed/lZCr43q-vsQ?si=cAYJvJh_OfAqLuLD"
+          title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
+          allowFullScreen={true}
+          className="w-full aspect-video border"
+        ></iframe>
         <div className="flex flex-col items-center gap-2 mt-24">
           <span className="font-bold text-sm md:text-base">
             <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
