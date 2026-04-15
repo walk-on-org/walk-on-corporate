@@ -71,6 +71,13 @@ export default async function Page() {
           src="https://www.youtube.com/embed/urBK_oWmC1U?si=J9n32Sb5JDOl9T7S"
           title="株式会社walk-on 会社紹介動画"
           allowFullScreen={true}
+          className="w-full aspect-video border mb-12"
+        ></iframe>
+        <Heading id="interview" title="社員インタビュー" subTitle="interview" />
+        <iframe
+          src="https://www.youtube.com/embed/lZCr43q-vsQ?si=cAYJvJh_OfAqLuLD"
+          title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
+          allowFullScreen={true}
           className="w-full aspect-video border"
         ></iframe>
         <div className="flex flex-col items-center gap-2 mt-24">

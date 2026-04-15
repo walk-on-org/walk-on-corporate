@@ -117,6 +117,19 @@ export default function Recruit({ data }: Props) {
           ></iframe>
         </div>
       )}
+      {(data.id.toString() == 'yirkt5gs-x' || data.id.toString() == '4lqr9jmd5') && (
+        <div className="max-w-3xl mx-auto my-8 flex flex-col items-center">
+          <h3 className="font-bold font-gothic text-center inline-block border-b-2 border-primary mb-2">
+            社員へのインタビューはこちら
+          </h3>
+          <iframe
+            src="https://www.youtube.com/embed/lZCr43q-vsQ?si=cAYJvJh_OfAqLuLD"
+            title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
+            allowFullScreen={true}
+            className="w-full aspect-video border max-w-3xl mx-auto my-4"
+          ></iframe>
+        </div>
+      )}
       <h2 className="font-bold font-gothic border-l-4 border-gray-400 pl-2 mb-2">応募概要</h2>
       <ul className="text-sm">
         {jobInfo.map((row, index) => (
