@@ -123,7 +123,7 @@ export default function Recruit({ data }: Props) {
             社員へのインタビューはこちら
           </h3>
           <iframe
-            src="https://www.youtube.com/embed/lZCr43q-vsQ?si=cAYJvJh_OfAqLuLD"
+            src="https://www.youtube.com/embed/94vM9KXDpbU?si=ltpqfPystUNQfCXU"
             title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
             allowFullScreen={true}
             className="w-full aspect-video border max-w-3xl mx-auto my-4"
