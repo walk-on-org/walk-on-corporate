@@ -4,9 +4,9 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const data = [
-  { age: '20代', count: 4 },
-  { age: '30代', count: 11 },
-  { age: '40代以上', count: 3 },
+  { age: '20代', count: 6 },
+  { age: '30代', count: 13 },
+  { age: '40代以上', count: 5 },
 ];
 
 const COLORS = ['#385789', '#6B8BBE', '#385789'];
@@ -42,7 +42,7 @@ export default function AgeBarChart() {
         <span className="text-xs text-gray-500 inline-block">
           従業員数18名より算出
           <br />
-          ※2025年6月1日時点
+          ※2026年5月1日時点
         </span>
       </h3>
       <div className="text-center my-4">

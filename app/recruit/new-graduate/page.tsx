@@ -78,12 +78,16 @@ export default async function Page() {
 
   const personList = [
     {
-      name: '2023年入社',
-      count: 6,
-    },
-    {
       name: '2024年入社',
       count: 5,
+    },
+    {
+      name: '2025年入社',
+      count: 4,
+    },
+    {
+      name: '2026年入社',
+      count: 7,
     },
   ];
 
@@ -309,13 +313,13 @@ export default async function Page() {
               <h3 className="mb-2 flex flex-col items-center gap-1">
                 <span className="text-lg font-semibold">従業員数</span>
                 <span className="text-xs text-gray-500 inline-block">
-                  ※2025年6月1日時点
+                  ※2026年5月1日時点
                   <br />
                   &nbsp;&nbsp;非正規含む
                 </span>
               </h3>
               <div className="text-center my-4">
-                <span className="text-4xl font-bold">18</span>
+                <span className="text-4xl font-bold">24</span>
                 <span className="ml-2">名</span>
               </div>
               <div className="flex flex-col gap-4 mt-8">
@@ -336,7 +340,7 @@ export default async function Page() {
                           alt=""
                           width={500}
                           height={500}
-                          className="w-12 h-12 -mr-4"
+                          className="w-10 h-10 -mr-4"
                         />
                       ))}
                     </div>
