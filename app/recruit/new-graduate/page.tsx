@@ -79,7 +79,7 @@ export default async function Page() {
   const personList = [
     {
       name: '2024年入社',
-      count: 5,
+      count: 4,
     },
     {
       name: '2025年入社',
