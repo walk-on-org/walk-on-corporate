@@ -4,8 +4,8 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 const data = [
-  { name: '男性', value: 39 },
-  { name: '女性', value: 61 },
+  { name: '男性', value: 46 },
+  { name: '女性', value: 54 },
 ];
 
 const COLORS = ['#385789', '#6B8BBE'];
@@ -65,7 +65,7 @@ export default function GenderPieChart() {
     <div className="w-full h-96 p-4 bg-white rounded-xl shadow">
       <h3 className="mb-2 flex flex-col items-center gap-1">
         <span className="text-lg font-semibold">男女比率</span>
-        <span className="text-xs text-gray-500 inline-block">※2025年6月1日時点</span>
+        <span className="text-xs text-gray-500 inline-block">※2026年5月1日時点</span>
       </h3>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
