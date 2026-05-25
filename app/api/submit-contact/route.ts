@@ -9,16 +9,21 @@ export async function POST(request: NextRequest) {
     const blockEmail = (process.env.BLOCK_EMAIL || '').split(',');
     const tel = (formData.get('tel') as string).replace(/[-]/g, '');
     const email = formData.get('email') as string;
-    console.log(tel);
-    if (!tel || blockTel.includes(tel)) {
+    if (tel && blockTel.includes(tel)) {
       return NextResponse.json(
-        { message: '送信に失敗しました。時間を空けて再度送信してください。', status: 'error' },
+        {
+          message: '送信に失敗しました。時間を空けて再度送信してください。',
+          status: 'error',
+        },
         { status: 400 },
       );
     }
-    if (!email || blockEmail.includes(email)) {
+    if (email && blockEmail.includes(email)) {
       return NextResponse.json(
-        { message: '送信に失敗しました。時間を空けて再度送信してください。', status: 'error' },
+        {
+          message: '送信に失敗しました。時間を空けて再度送信してください。',
+          status: 'error',
+        },
         { status: 400 },
       );
     }
