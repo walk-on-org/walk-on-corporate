@@ -80,7 +80,25 @@ export default async function Page() {
           allowFullScreen={true}
           className="w-full aspect-video border"
         ></iframe>
-        <div className="flex flex-col items-center gap-2 mt-24">
+        <div className="flex flex-col items-center gap-2 mt-12">
+          <span className="font-bold text-sm md:text-base">
+            walk-onが<span className="text-primary">美容業界に懸ける想い</span>はこちら！
+          </span>
+          <Link
+            href="https://note.com/walk_on_sapporo/n/n700f4ab3d97b"
+            className="border rounded-lg inline-block shadow-xl w-full"
+            target="_blank"
+          >
+            <Image
+              src="/image/recruit/interview-note-1.webp"
+              alt="note"
+              width={480}
+              height={480}
+              className="w-full h-auto rounded-md"
+            />
+          </Link>
+        </div>
+        <div className="flex flex-col items-center gap-2 mt-12">
           <span className="font-bold text-sm md:text-base">
             <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
           </span>
