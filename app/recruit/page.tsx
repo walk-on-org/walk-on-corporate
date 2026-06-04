@@ -73,14 +73,8 @@ export default async function Page() {
           allowFullScreen={true}
           className="w-full aspect-video border mb-12"
         ></iframe>
-        <Heading id="interview" title="社員インタビュー" subTitle="interview" />
-        <iframe
-          src="https://www.youtube.com/embed/94vM9KXDpbU?si=ltpqfPystUNQfCXU"
-          title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
-          allowFullScreen={true}
-          className="w-full aspect-video border"
-        ></iframe>
-        <div className="flex flex-col items-center gap-2 mt-12">
+        <Heading id="passion" title="美容業界に懸ける想い" subTitle="passion" />
+        <div className="flex flex-col items-center gap-2 mb-12">
           <span className="font-bold text-sm md:text-base">
             walk-onが<span className="text-primary">美容業界に懸ける想い</span>はこちら！
           </span>
@@ -98,6 +92,13 @@ export default async function Page() {
             />
           </Link>
         </div>
+        <Heading id="interview" title="社員インタビュー" subTitle="interview" />
+        <iframe
+          src="https://www.youtube.com/embed/94vM9KXDpbU?si=ltpqfPystUNQfCXU"
+          title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
+          allowFullScreen={true}
+          className="w-full aspect-video border"
+        ></iframe>
         <div className="flex flex-col items-center gap-2 mt-12">
           <span className="font-bold text-sm md:text-base">
             <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
