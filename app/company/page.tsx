@@ -34,6 +34,18 @@ export default async function Page() {
       title: '各種資格',
       description: '有料職業紹介 許可番号 01-ユ-300635',
     },
+    {
+      title: '顧問弁護士',
+      description: 'クレオ国際法律特許事務所\n弁護士 宮島明紀',
+    },
+    {
+      title: '顧問社労士',
+      description: '社会保険労務士法人エンジン',
+    },
+    {
+      title: '顧問税理士',
+      description: '税理士法人 マッチポイント',
+    },
   ];
 
   return (
@@ -51,7 +63,7 @@ export default async function Page() {
               <p className="font-bold font-gothic w-full border-b md:border-b-0 md:border-r md:w-48 bg-gray-50 p-4">
                 {row.title}
               </p>
-              <p className="flex-1 p-4">{row.description}</p>
+              <p className="flex-1 p-4 whitespace-pre-line">{row.description}</p>
             </li>
           ))}
         </ul>
