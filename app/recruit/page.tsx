@@ -99,6 +99,12 @@ export default async function Page() {
           allowFullScreen={true}
           className="w-full aspect-video border"
         ></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/gWak1EVecfM?si=-I9g5GxOB6kGLjIi"
+          title="【社員インタビュー】2026卒の新卒社員インタビュー"
+          allowFullScreen={true}
+          className="w-full aspect-video border mt-12"
+        ></iframe>
         <div className="flex flex-col items-center gap-2 mt-12">
           <span className="font-bold text-sm md:text-base">
             <span className="text-primary">社員インタビュー</span>など詳しく知りたい方はこちら！
