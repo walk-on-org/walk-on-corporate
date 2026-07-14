@@ -143,6 +143,11 @@ export default async function Page() {
           height={200}
           className="max-w-3xl w-full h-auto mx-auto"
         />
+        {recruitData.recruiting === false && (
+          <div className="py-6 px-12 border border-red-500 rounded-md text-center text-base md:text-xl text-red-500 font-bold bg-white mx-auto w-full md:w-fit my-8">
+            今年度の採用は終了いたしました
+          </div>
+        )}
       </section>
       <section className="pb-8 md:pb-16 relative">
         <div className="container mx-auto max-w-5xl px-4 py-8">
@@ -437,7 +442,7 @@ export default async function Page() {
             27年新卒・募集要項
           </h2>
           <div className="flex mt-16 flex-col">
-            <div className="bg-indigo-900 w-full md:w-1/2 mx-auto">
+            <div className="bg-indigo-900 w-full md:w-1/2 mx-auto relative">
               <Image
                 src="/image/recruit/new-graduate-2.jpg"
                 alt=""
@@ -455,6 +460,13 @@ export default async function Page() {
                   <ArrowRightIcon className="w-4 h-4" />
                 </Link>
               </div>
+              {recruitData.recruiting === false && (
+                <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
+                  <p className="text-white font-bold text-xl sm:text-2xl text-center">
+                    今年度の採用は終了いたしました
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -511,29 +523,32 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
         />
       </section>
-      <div className="fixed bottom-2 left-0 right-0 sm:left-auto sm:bottom-8 sm:right-10 w-[calc(100%-8px)] sm:mx-0 sm:w-[480px] z-50 flex flex-col gap-4 border-4 bg-white border-red-500 p-2 sm:px-4 rounded-full mx-auto">
-        <div className="flex items-center justify-evenly gap-3">
-          <p className="font-bold text-base sm:text-lg">27年新卒</p>
-          <div className="flex items-center gap-2">
-            <Link
-              href={`/recruit/${recruitData.id}`}
-              target="_blank"
-              className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300"
-            >
-              募集要項
-              <ChevronRightIcon className="w-5 h-5 font-bold" />
-            </Link>
-            <Link
-              href={`/recruit/${recruitData.id}/entry`}
-              target="_blank"
-              className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300"
-            >
-              エントリー
-              <ChevronRightIcon className="w-5 h-5 font-bold" />
-            </Link>
+      {recruitData.recruiting === true && (
+        <div className="fixed bottom-2 left-0 right-0 sm:left-auto sm:bottom-8 sm:right-10 w-[calc(100%-8px)] sm:mx-0 sm:w-[480px] z-50 flex flex-col gap-4 border-4 bg-white border-red-500 p-2 sm:px-4 rounded-full mx-auto">
+          <div className="flex items-center justify-evenly gap-3">
+            <p className="font-bold text-base sm:text-lg">27年新卒</p>
+            <div className="flex items-center gap-2">
+              <Link
+                href={`/recruit/${recruitData.id}`}
+                target="_blank"
+                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300"
+              >
+                募集要項
+                <ChevronRightIcon className="w-5 h-5 font-bold" />
+              </Link>
+
+              <Link
+                href={`/recruit/${recruitData.id}/entry`}
+                target="_blank"
+                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300"
+              >
+                エントリー
+                <ChevronRightIcon className="w-5 h-5 font-bold" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       {/* <div className="fixed bottom-0 right-0 sm:bottom-8 sm:right-10 w-full sm:w-72 z-50">
         <div className="flex items-center justify-center">
           <Link
