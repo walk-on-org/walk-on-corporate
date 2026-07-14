@@ -1,10 +1,17 @@
 import Link from 'next/link';
 import Heading from '@/app/_components/Heading';
 import Image from 'next/image';
+import { getRecuritList } from '../_libs/microcms';
 
 export const revalidate = 60;
 
 export default async function Page() {
+  const newGraduateRecruit = await getRecuritList({
+    limit: 1,
+    filters: 'category[contains]新卒採用',
+  });
+  const newGraduateRecruitData = newGraduateRecruit.contents[0];
+
   const jobType = [
     {
       title: '新卒採用',
@@ -12,6 +19,7 @@ export default async function Page() {
       href: '/recruit/new-graduate',
       image: '/image/recruit/new-graduate.jpg',
       color: 'primary',
+      stop: newGraduateRecruitData.recruiting === false,
     },
     {
       title: '中途採用',
@@ -19,6 +27,7 @@ export default async function Page() {
       href: '/recruit/mid-career',
       image: '/image/recruit/mid-career.jpg',
       color: 'secondary',
+      stop: false,
     },
   ];
 
@@ -197,6 +206,13 @@ export default async function Page() {
               >
                 {job.title}はこちら
               </p>
+              {job.stop && (
+                <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
+                  <p className="text-white font-bold text-xl sm:text-2xl text-center">
+                    今年度の採用は終了いたしました
+                  </p>
+                </div>
+              )}
             </Link>
           ))}
         </div>
