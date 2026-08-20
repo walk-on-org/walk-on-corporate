@@ -165,11 +165,18 @@ export default async function Page() {
       <section className="mb-24 container mx-auto max-w-5xl px-4">
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
         <Image
-          src="/image/recruit/entry-celebration-banner-202607.png"
+          src="/image/recruit/entry-celebration-banner-202608-pc.png"
           alt="入社お祝いバナー"
-          width={600}
-          height={200}
-          className="max-w-3xl w-full h-auto mx-auto mb-12"
+          width={1600}
+          height={450}
+          className="w-full h-auto mx-auto mb-12 hidden md:block"
+        />
+        <Image
+          src="/image/recruit/entry-celebration-banner-202608-sp.png"
+          alt="入社お祝いバナー"
+          width={700}
+          height={600}
+          className="w-full h-auto mx-auto mb-6 block md:hidden"
         />
         <div className="flex gap-8 flex-col md:flex-row">
           {jobType.map((job) => (
