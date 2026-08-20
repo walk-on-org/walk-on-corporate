@@ -230,8 +230,8 @@ export default async function Page() {
       </section>
       {/* フローティング入社祝い金バナー */}
       <div
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-primary to-secondary text-white shadow-xl rounded-xl flex items-center px-4 py-3 gap-3 animate-bounce
-                  md:text-lg text-base font-bold"
+        className="fixed bottom-6 md:right-6 right-4 z-50 bg-gradient-to-r from-primary to-secondary text-white shadow-xl rounded-xl flex items-center px-4 py-4 gap-3 animate-bounce
+                  text-base font-bold"
         style={{
           boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
           pointerEvents: 'auto',
@@ -239,14 +239,14 @@ export default async function Page() {
       >
         <GiftIcon className="w-8 h-8 mr-2" />
         <div className="flex flex-col items-start gap-2">
-          <span className="text-sm">
+          <span className="">
             今だけ！
             <span className="bg-white/90 text-yellow-600 px-2 rounded mx-1">入社祝い金 25万円</span>
             あり
           </span>
           <SmoothScrollLink
             href="#jobs"
-            className="text-xs bg-white/90 text-primary font-bold px-4 py-1 rounded-xl shadow border border-primary"
+            className="bg-white/90 text-primary font-bold px-4 py-1 rounded-full shadow border border-primary"
           >
             詳しくはこちら
           </SmoothScrollLink>
