@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Heading from '@/app/_components/Heading';
 import Image from 'next/image';
 import { getRecuritList } from '../_libs/microcms';
+import { GiftIcon } from '@heroicons/react/24/outline';
+import SmoothScrollLink from './_components/SmoothScrollLink';
 
 export const revalidate = 60;
 
@@ -164,13 +166,22 @@ export default async function Page() {
       </section>
       <section className="mb-24 container mx-auto max-w-5xl px-4">
         <Heading id="jobs" title="募集職種" subTitle="job opening type" />
-        <Image
-          src="/image/recruit/entry-celebration-banner-202607.png"
-          alt="入社お祝いバナー"
-          width={600}
-          height={200}
-          className="max-w-3xl w-full h-auto mx-auto mb-12"
-        />
+        <Link href="/recruit/mid-career">
+          <Image
+            src="/image/recruit/entry-celebration-banner-202608-pc.png"
+            alt="入社お祝いバナー"
+            width={1600}
+            height={450}
+            className="w-full h-auto mx-auto mb-12 hidden md:block"
+          />
+          <Image
+            src="/image/recruit/entry-celebration-banner-202608-sp.png"
+            alt="入社お祝いバナー"
+            width={700}
+            height={600}
+            className="w-full h-auto mx-auto mb-6 block md:hidden"
+          />
+        </Link>
         <div className="flex gap-8 flex-col md:flex-row">
           {jobType.map((job) => (
             <Link
@@ -217,6 +228,30 @@ export default async function Page() {
           ))}
         </div>
       </section>
+      {/* フローティング入社祝い金バナー */}
+      <div
+        className="fixed bottom-6 md:right-6 right-4 z-50 bg-gradient-to-r from-primary to-secondary text-white shadow-xl rounded-xl flex items-center px-4 py-4 gap-3 animate-bounce
+                  text-base font-bold"
+        style={{
+          boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+          pointerEvents: 'auto',
+        }}
+      >
+        <GiftIcon className="w-8 h-8 mr-2" />
+        <div className="flex flex-col items-start gap-2">
+          <span className="">
+            今だけ！
+            <span className="bg-white/90 text-yellow-600 px-2 rounded mx-1">入社祝い金 25万円</span>
+            あり
+          </span>
+          <SmoothScrollLink
+            href="#jobs"
+            className="bg-white/90 text-primary font-bold px-4 py-1 rounded-full shadow border border-primary"
+          >
+            詳しくはこちら
+          </SmoothScrollLink>
+        </div>
+      </div>
     </>
   );
 }
