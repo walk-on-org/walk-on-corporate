@@ -317,7 +317,7 @@ export default async function Page() {
             数字で見るwalk-on
           </h2>
           <div className="flex gap-8 justify-center flex-col lg:flex-row">
-            <div className="w-full h-96 p-4 bg-white rounded-xl shadow">
+            <div className="w-full h-[406px] p-4 bg-white rounded-xl shadow">
               <h3 className="mb-2 flex flex-col items-center gap-1">
                 <span className="text-lg font-semibold">従業員数</span>
                 <span className="text-xs text-gray-500 inline-block">
