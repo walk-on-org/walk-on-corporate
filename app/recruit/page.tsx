@@ -9,10 +9,14 @@ export const revalidate = 60;
 
 export default async function Page() {
   const newGraduateRecruit = await getRecuritList({
-    limit: 1,
     filters: 'category[contains]新卒採用',
   });
-  const newGraduateRecruitData = newGraduateRecruit.contents[0];
+  let isNewGraduateRecruit = false;
+  newGraduateRecruit.contents.forEach((recruit) => {
+    if (recruit.recruiting === true) {
+      isNewGraduateRecruit = true;
+    }
+  });
 
   const jobType = [
     {
@@ -21,7 +25,7 @@ export default async function Page() {
       href: '/recruit/new-graduate',
       image: '/image/recruit/new-graduate.jpg',
       color: 'primary',
-      stop: newGraduateRecruitData.recruiting === false,
+      stop: isNewGraduateRecruit === false,
     },
     {
       title: '中途採用',
