@@ -418,7 +418,7 @@ export default async function Page() {
             <div className="bg-slate-50 border border-indigo-900 p-6 rounded-md">
               <h3 className="text-lg font-bold mb-4 text-indigo-900">リモートワーク</h3>
               <p className="leading-snug">
-                基本的にはリモートワークを推奨しており、札幌だけではなく、全国津々浦々で活躍ししております。
+                基本的にはリモートワークを推奨しており、札幌だけではなく、全国津々浦々で活躍しております。
               </p>
             </div>
             <div className="bg-slate-50 border border-indigo-900 p-6 rounded-md">
