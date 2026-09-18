@@ -541,7 +541,7 @@ export default async function Page() {
         />
       </section>
       {isRecruiting === true && (
-        <div className="fixed bottom-2 left-0 right-0 sm:left-auto sm:bottom-8 sm:right-10 w-[calc(100%-8px)] sm:mx-0 sm:w-[480px] z-50 flex flex-col gap-4 border-4 bg-white border-red-500 p-2 sm:px-4 rounded-full mx-auto">
+        <div className="fixed bottom-2 left-auto right-4 sm:left-auto sm:bottom-8 sm:right-10 w-fit sm:mx-0 sm:w-[480px] z-50 flex flex-col gap-4 border-4 bg-white border-red-500 py-2 px-4 rounded-full mx-auto">
           <div className="flex items-center justify-evenly gap-3">
             <p className="font-bold text-base sm:text-lg">28年新卒</p>
             <div className="flex items-center gap-2">
@@ -549,15 +549,7 @@ export default async function Page() {
                 href="#requirements"
                 className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300 cursor-pointer"
               >
-                募集要項
-                <ChevronRightIcon className="w-5 h-5 font-bold" />
-              </SmoothScrollLink>
-
-              <SmoothScrollLink
-                href="#requirements"
-                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300 cursor-pointer"
-              >
-                エントリー
+                募集要項・エントリー
                 <ChevronRightIcon className="w-5 h-5 font-bold" />
               </SmoothScrollLink>
             </div>
