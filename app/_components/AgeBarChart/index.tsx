@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 
 
 const data = [
   { age: '20代', count: 6 },
-  { age: '30代', count: 13 },
+  { age: '30代', count: 12 },
   { age: '40代以上', count: 5 },
 ];
 
@@ -40,13 +40,13 @@ export default function AgeBarChart() {
       <h3 className="mb-2 flex flex-col items-center gap-1">
         <span className="text-lg font-semibold">従業員の年齢構成</span>
         <span className="text-xs text-gray-500 inline-block">
-          従業員数18名より算出
+          従業員数23名より算出
           <br />
-          ※2026年5月1日時点
+          ※2026年9月1日時点
         </span>
       </h3>
       <div className="text-center my-4">
-        <span className="text-4xl font-bold">35.2</span>
+        <span className="text-4xl font-bold">35.7</span>
         <span className="ml-2">歳</span>
       </div>
       <ResponsiveContainer width="80%" height="60%" className="mx-auto">

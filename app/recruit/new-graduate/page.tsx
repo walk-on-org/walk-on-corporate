@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getRecuritList } from '../../_libs/microcms';
 import GenderPieChart from '@/app/_components/GenderPieChart';
 import AgeBarChart from '@/app/_components/AgeBarChart';
+import SmoothScrollLink from '../_components/SmoothScrollLink';
 import { ArrowRightIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 export const revalidate = 60;
@@ -87,25 +88,20 @@ export default async function Page() {
     },
     {
       name: '2026年入社',
-      count: 7,
+      count: 9,
     },
   ];
 
   const interviews = [
     {
-      title: '就職フェア事業部 伊藤ひな野さん',
-      image: '/image/recruit/interview7.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/983092',
+      title: '人材紹介事業部 山下亮輔さん',
+      image: '/image/recruit/interview9.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1060243',
     },
     {
       title: '法人営業本部 執行役員 立崎真広さん',
       image: '/image/recruit/interview6.webp',
       href: 'https://www.wantedly.com/companies/company_3569336/post_articles/954421',
-    },
-    {
-      title: '人材紹介事業部　久保田舞さん',
-      image: '/image/recruit/interview5.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/951212',
     },
   ];
 
@@ -128,22 +124,29 @@ export default async function Page() {
   ];
 
   const recruitList = await getRecuritList({
-    limit: 1,
     filters: 'category[contains]新卒採用',
+    orders: 'publishedAt',
   });
-  const recruitData = recruitList.contents[0];
+  const isRecruiting = recruitList.contents.some((recruit) => recruit.recruiting === true);
 
   return (
     <>
       <section className="px-4 -mt-6 mb-4">
         <Image
-          src="/image/recruit/entry-celebration-banner-newgraduate.png"
+          src="/image/recruit/entry-celebration-banner-newgraduate-2028-pc.png"
           alt="新卒入社お祝いバナー"
-          width={600}
-          height={200}
-          className="max-w-3xl w-full h-auto mx-auto"
+          width={1600}
+          height={450}
+          className="max-w-3xl w-full h-auto mx-auto hidden md:block"
         />
-        {recruitData.recruiting === false && (
+        <Image
+          src="/image/recruit/entry-celebration-banner-newgraduate-2028-sp.png"
+          alt="新卒入社お祝いバナー"
+          width={700}
+          height={600}
+          className="max-w-3xl w-full h-auto mx-auto block md:hidden"
+        />
+        {isRecruiting === false && (
           <div className="py-6 px-12 border border-red-500 rounded-md text-center text-base md:text-xl text-red-500 font-bold bg-white mx-auto w-full md:w-fit my-8">
             今年度の採用は終了いたしました
           </div>
@@ -268,7 +271,7 @@ export default async function Page() {
             allowFullScreen={true}
             className="w-full aspect-video border max-w-3xl mx-auto my-4"
           ></iframe>
-          <div className="flex gap-8 my-8 flex-col md:flex-row">
+          <div className="flex gap-8 my-8 flex-col md:flex-row justify-center">
             {interviews.map((interview) => (
               <Link
                 key={interview.title}
@@ -318,26 +321,26 @@ export default async function Page() {
               <h3 className="mb-2 flex flex-col items-center gap-1">
                 <span className="text-lg font-semibold">従業員数</span>
                 <span className="text-xs text-gray-500 inline-block">
-                  ※2026年5月1日時点
+                  ※2026年9月1日時点
                   <br />
                   &nbsp;&nbsp;非正規含む
                 </span>
               </h3>
               <div className="text-center my-4">
-                <span className="text-4xl font-bold">24</span>
+                <span className="text-4xl font-bold">23</span>
                 <span className="ml-2">名</span>
               </div>
               <div className="flex flex-col gap-4 mt-8">
                 {personList.map((person) => (
-                  <div key={person.name} className="flex gap-2">
-                    <p className="text-sm flex flex-col items-center">
+                  <div key={person.name} className="flex gap-2 items-center">
+                    <p className="text-sm flex flex-col items-center w-20">
                       {person.name}
                       <span className="text-3xl font-bold">
                         {person.count}
                         <span className="text-sm ml-1">名</span>
                       </span>
                     </p>
-                    <div className="flex">
+                    <div className="flex flex-wrap flex-1">
                       {Array.from({ length: person.count }).map((_, index) => (
                         <Image
                           key={`${person.name}-${index}`}
@@ -436,38 +439,52 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
         />
       </section>
-      <section className="pb-8 md:pb-16 relative">
+      <section className="pb-8 md:pb-16 relative" id="requirements">
         <div className="container mx-auto max-w-5xl px-4 py-8">
           <h2 className="font-bold font-gothic text-center text-indigo-900 text-2xl sm:text-3xl md:text-5xl my-4 sm:my-8 md:my-16 ">
-            27年新卒・募集要項
+            28年新卒・募集要項
           </h2>
-          <div className="flex mt-16 flex-col">
-            <div className="bg-indigo-900 w-full md:w-1/2 mx-auto relative">
-              <Image
-                src="/image/recruit/new-graduate-2.jpg"
-                alt=""
-                width={500}
-                height={500}
-                className="w-full h-auto object-cover rounded-md"
-              />
-              <div className="flex justify-between items-center p-4">
-                <p className="text-white text-2xl font-bold font-gothic">総合職</p>
-                <Link
-                  href={`/recruit/${recruitData.id}`}
-                  className="bg-indigo-900 text-white px-3 py-1 rounded-md font-bold text-center hover:bg-white hover:text-indigo-900 border-2 border-white transition-all duration-300 flex items-center gap-1"
-                >
-                  詳細を見る
-                  <ArrowRightIcon className="w-4 h-4" />
-                </Link>
-              </div>
-              {recruitData.recruiting === false && (
-                <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
-                  <p className="text-white font-bold text-xl sm:text-2xl text-center">
-                    今年度の採用は終了いたしました
+          <div className="flex mt-16 flex-col md:flex-row gap-4">
+            {recruitList.contents.map((recruit) => (
+              <div key={recruit.id} className="bg-indigo-900 w-full md:w-1/2 mx-auto relative">
+                {recruit.title.includes('セールス') ? (
+                  <Image
+                    src="/image/recruit/new-graduate-2.jpg"
+                    alt=""
+                    width={500}
+                    height={500}
+                    className="w-full h-auto object-cover"
+                  />
+                ) : (
+                  <Image
+                    src="/image/recruit/new-graduate-3.jpg"
+                    alt=""
+                    width={500}
+                    height={500}
+                    className="w-full h-auto object-cover"
+                  />
+                )}
+                <div className="flex justify-between items-center p-2">
+                  <p className="text-white text-base md:text-lg font-bold font-gothic">
+                    {recruit.title.replace(/^＜\d+新卒＞\s*/, '')}
                   </p>
+                  <Link
+                    href={`/recruit/${recruit.id}`}
+                    className="bg-indigo-900 text-white px-2 py-1 rounded-md font-bold text-center hover:bg-white hover:text-indigo-900 border-2 border-white transition-all duration-300 flex items-center gap-1"
+                  >
+                    詳細を見る
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </Link>
                 </div>
-              )}
-            </div>
+                {recruit.recruiting === false && (
+                  <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
+                    <p className="text-white font-bold text-xl sm:text-2xl text-center">
+                      今年度の採用は終了いたしました
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
         <Image
@@ -523,28 +540,26 @@ export default async function Page() {
           className="absolute h-16 w-auto md:h-40 md:w-auto top-0 right-0 opacity-60 px-4"
         />
       </section>
-      {recruitData.recruiting === true && (
+      {isRecruiting === true && (
         <div className="fixed bottom-2 left-0 right-0 sm:left-auto sm:bottom-8 sm:right-10 w-[calc(100%-8px)] sm:mx-0 sm:w-[480px] z-50 flex flex-col gap-4 border-4 bg-white border-red-500 p-2 sm:px-4 rounded-full mx-auto">
           <div className="flex items-center justify-evenly gap-3">
-            <p className="font-bold text-base sm:text-lg">27年新卒</p>
+            <p className="font-bold text-base sm:text-lg">28年新卒</p>
             <div className="flex items-center gap-2">
-              <Link
-                href={`/recruit/${recruitData.id}`}
-                target="_blank"
-                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300"
+              <SmoothScrollLink
+                href="#requirements"
+                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300 cursor-pointer"
               >
                 募集要項
                 <ChevronRightIcon className="w-5 h-5 font-bold" />
-              </Link>
+              </SmoothScrollLink>
 
-              <Link
-                href={`/recruit/${recruitData.id}/entry`}
-                target="_blank"
-                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300"
+              <SmoothScrollLink
+                href="#requirements"
+                className="text-white bg-red-500 font-bold flex items-center text-base sm:text-lg gap-1 py-2 px-3 sm:px-4 justify-center rounded-full hover:bg-white hover:text-red-500 border border-red-500 transition-all duration-300 cursor-pointer"
               >
                 エントリー
                 <ChevronRightIcon className="w-5 h-5 font-bold" />
-              </Link>
+              </SmoothScrollLink>
             </div>
           </div>
         </div>
