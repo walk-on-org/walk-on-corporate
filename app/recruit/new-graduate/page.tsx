@@ -448,7 +448,7 @@ export default async function Page() {
               <p className="leading-snug">
                 基本的にはチャットワークを使用します。 質問などは随時チャットで確認できます。
                 <br />
-                その他リモートワーク環境整備でのツールは多数整備しております
+                その他リモートワーク環境整備でのツールは多数整備しております。
               </p>
             </div>
           </div>
