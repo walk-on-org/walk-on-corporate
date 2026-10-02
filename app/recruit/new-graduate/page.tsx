@@ -107,19 +107,21 @@ export default async function Page() {
 
   const wantedlyList = [
     {
+      title:
+        '【新卒研修】「クロスを外す『音』が聞こえるか？」未経験の新卒1期生が、わざわざ関東の美容室で3日間のアシスタント研修に挑んだワケ。',
+      image: '/image/recruit/wantedly8.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1072402',
+    },
+    {
+      title:
+        '【新卒インタビュー】「学生は行動すると浮くが、社会人は行動しないと浮く。」――新卒1期生が東京研修で知った、プロフェッショナルへの境界線。',
+      image: '/image/recruit/wantedly7.webp',
+      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1056659',
+    },
+    {
       title: '2026年度　新卒入社式を行いました！',
       image: '/image/recruit/wantedly4.webp',
       href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1055212',
-    },
-    {
-      title: '外部講師をお迎えし「勉強会～新卒の受け入れについて～」を行いました！',
-      image: '/image/recruit/wantedly5.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1050210',
-    },
-    {
-      title: '2026年より新たに部活動制度をスタートさせました！',
-      image: '/image/recruit/wantedly6.webp',
-      href: 'https://www.wantedly.com/companies/company_3569336/post_articles/1046692',
     },
   ];
 
@@ -265,6 +267,13 @@ export default async function Page() {
           <p className="text-center font-bold text-lg">
             walk-onで今活躍している社員に話を聞きました！！
           </p>
+
+          <iframe
+            src="https://www.youtube.com/embed/gWak1EVecfM?si=-I9g5GxOB6kGLjIi"
+            title="【社員インタビュー】2026卒の新卒社員インタビュー"
+            allowFullScreen={true}
+            className="w-full aspect-video border max-w-3xl mx-auto my-4"
+          ></iframe>
           <iframe
             src="https://www.youtube.com/embed/94vM9KXDpbU?si=ltpqfPystUNQfCXU"
             title="【社員インタビュー】人材紹介事業部リーダー中村勇希"
@@ -380,7 +389,7 @@ export default async function Page() {
                 <li>年間休日125日以上</li>
                 <li>完全週休2日制（土・日）</li>
                 <li>祝日、GW休暇、夏季休暇（9連休）、年末年始休暇（11連休）</li>
-                <li>有給指定取得日に5日の有給付与</li>
+                <li>有給休暇（法定通り）※有給指定取得日5日あり</li>
                 <li>
                   ギネス更新インセンティブ制度
                   <span className="text-xs leading-snug block ml-4">
@@ -395,30 +404,43 @@ export default async function Page() {
                 </li>
                 <li>
                   美容・理容室補助代支給
-                  <span className="text-xs leading-snug block ml-4">月1回・1万円まで</span>
+                  <span className="text-xs leading-snug block ml-4">
+                    月1回・1万円まで
+                    <br />
+                    入社6ヶ月経過後から適用
+                  </span>
+                </li>
+                <li>
+                  永年勤続表彰金
+                  <span className="text-xs leading-snug block ml-4">
+                    3年・5年・10年のタイミングで支給
+                  </span>
                 </li>
               </ul>
+              <p>※2026年実績</p>
             </div>
             <div className="bg-slate-50 border border-indigo-900 p-6 rounded-md">
               <h3 className="text-lg font-bold mb-4 text-indigo-900">朝会</h3>
               <p className="leading-snug">
                 週3日、朝10時半より朝会を実施しています。
                 <br />
-                全体連絡、司会者トークを実施し、全社員が社内の日々の動きを把握・認識できるようにしています。
+                全社員が参加対象となり、バリューに沿ったエピソードトークの発表・グランドルールの読み合わせによる意識共有など行っています。
               </p>
             </div>
             <div className="bg-slate-50 border border-indigo-900 p-6 rounded-md">
-              <h3 className="text-lg font-bold mb-4 text-indigo-900">全体会（全社総会、表彰式）</h3>
+              <h3 className="text-lg font-bold mb-4 text-indigo-900">MeetDAY</h3>
               <p className="leading-snug">
-                年4回ほど総会や全社出社日を決めており、その日は札幌のオフィスへ出社していただきます。
+                総会や全社出社日を年4回定めており、その日は全社員が札幌のオフィスへ出社します。
                 <br />
-                総会は会社の方針や業績を発表したり、活躍された方の表彰を行います。
+                総会では社内間の交流を含め、会社の方針や業績の発表・活躍された方への表彰を行います。
               </p>
             </div>
             <div className="bg-slate-50 border border-indigo-900 p-6 rounded-md">
               <h3 className="text-lg font-bold mb-4 text-indigo-900">リモートワーク</h3>
               <p className="leading-snug">
                 基本的にはリモートワークを推奨しており、札幌だけではなく、全国津々浦々で活躍しております。
+                <br />
+                ※研修期間中は原則出社となります。
               </p>
             </div>
             <div className="bg-slate-50 border border-indigo-900 p-6 rounded-md">
@@ -426,7 +448,7 @@ export default async function Page() {
               <p className="leading-snug">
                 基本的にはチャットワークを使用します。 質問などは随時チャットで確認できます。
                 <br />
-                その他リモートワーク環境整備でのツールは多数整備しております
+                その他リモートワーク環境整備でのツールは多数整備しております。
               </p>
             </div>
           </div>
@@ -449,7 +471,7 @@ export default async function Page() {
               <div key={recruit.id} className="bg-indigo-900 w-full md:w-1/2 mx-auto relative">
                 {recruit.title.includes('セールス') ? (
                   <Image
-                    src="/image/recruit/new-graduate-2.jpg"
+                    src="/image/recruit/new-graduate-4.jpg"
                     alt=""
                     width={500}
                     height={500}
@@ -457,7 +479,7 @@ export default async function Page() {
                   />
                 ) : (
                   <Image
-                    src="/image/recruit/new-graduate-3.jpg"
+                    src="/image/recruit/new-graduate-5.jpg"
                     alt=""
                     width={500}
                     height={500}
@@ -516,7 +538,7 @@ export default async function Page() {
                   className="w-full group-hover:scale-110 transition-all duration-300"
                 />
                 <div className="p-4 bg-white flex-1">
-                  <p className="font-bold">{wantedly.title}</p>
+                  <p className="font-bold line-clamp-2">{wantedly.title}</p>
                   <button className="bg-indigo-900 text-white mt-2 block px-3 py-1.5 rounded-full text-center ml-auto mr-0 text-xs hover:bg-white hover:text-indigo-900 border border-indigo-900 transition-all duration-300">
                     記事を読む
                   </button>
